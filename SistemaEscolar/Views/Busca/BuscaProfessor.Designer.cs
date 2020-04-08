@@ -1,6 +1,6 @@
-﻿namespace SistemaEscolar
+﻿namespace SistemaEscolar.Views.Busca
 {
-    partial class Main
+    partial class BuscaProfessor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // BuscaProfessor
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "BuscaProfessor";
+            this.Text = "BuscaProfessor";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

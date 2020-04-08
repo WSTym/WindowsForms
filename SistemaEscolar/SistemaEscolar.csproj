@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>whiteboard_presentation_seminar_school_teacher_lecture_icon-icons.com_55994.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,10 +49,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs">
+    <Compile Include="Views\Busca\BuscaAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Views\Busca\BuscaAluno.Designer.cs">
+      <DependentUpon>BuscaAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Busca\BuscaProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Busca\BuscaProfessor.Designer.cs">
+      <DependentUpon>BuscaProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Busca\BuscaTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Busca\BuscaTurma.Designer.cs">
+      <DependentUpon>BuscaTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroAluno.Designer.cs">
+      <DependentUpon>CadastroAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroProfessor.Designer.cs">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cadastro\CadastroTurma.Designer.cs">
+      <DependentUpon>CadastroTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Aluno.cs" />
@@ -61,6 +100,27 @@
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\Busca\BuscaAluno.resx">
+      <DependentUpon>BuscaAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Busca\BuscaProfessor.resx">
+      <DependentUpon>BuscaProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Busca\BuscaTurma.resx">
+      <DependentUpon>BuscaTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro\CadastroAluno.resx">
+      <DependentUpon>CadastroAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro\CadastroProfessor.resx">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cadastro\CadastroTurma.resx">
+      <DependentUpon>CadastroTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -82,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="whiteboard_presentation_seminar_school_teacher_lecture_icon-icons.com_55994.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

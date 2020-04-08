@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaEscolar
+namespace SistemaEscolar.Views
 {
-    public partial class Main : Form
+    public partial class CadastroProfessor : Form
     {
-        public Main()
+        public CadastroProfessor()
         {
             InitializeComponent();
         }

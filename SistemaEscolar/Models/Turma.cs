@@ -9,5 +9,7 @@ namespace SistemaEscolar.Models
     class Turma
     {
         public int Id { get; set; }
+        public int Ano { get; set; }
+        public int CargaHoraria { get; set; }
     }
 }

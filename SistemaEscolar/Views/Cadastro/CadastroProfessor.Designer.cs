@@ -37,8 +37,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTelefoneProfessor = new System.Windows.Forms.MaskedTextBox();
             this.txtDataNascProfessor = new System.Windows.Forms.MaskedTextBox();
+            this.txtCapacitacao = new System.Windows.Forms.TextBox();
             this.txtEnderecoProfessor = new System.Windows.Forms.TextBox();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -100,12 +103,15 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.actionButtonsShort1);
             this.panel2.Controls.Add(this.txtTelefoneProfessor);
             this.panel2.Controls.Add(this.txtDataNascProfessor);
+            this.panel2.Controls.Add(this.txtCapacitacao);
             this.panel2.Controls.Add(this.txtEnderecoProfessor);
             this.panel2.Controls.Add(this.txtNomeProfessor);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -131,6 +137,13 @@
             this.txtDataNascProfessor.TabIndex = 2;
             this.txtDataNascProfessor.ValidatingType = typeof(System.DateTime);
             // 
+            // txtCapacitacao
+            // 
+            this.txtCapacitacao.Location = new System.Drawing.Point(153, 197);
+            this.txtCapacitacao.Name = "txtCapacitacao";
+            this.txtCapacitacao.Size = new System.Drawing.Size(200, 20);
+            this.txtCapacitacao.TabIndex = 1;
+            // 
             // txtEnderecoProfessor
             // 
             this.txtEnderecoProfessor.Location = new System.Drawing.Point(153, 127);
@@ -144,6 +157,23 @@
             this.txtNomeProfessor.Name = "txtNomeProfessor";
             this.txtNomeProfessor.Size = new System.Drawing.Size(200, 20);
             this.txtNomeProfessor.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 200);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Capacitação:";
+            // 
+            // actionButtonsShort1
+            // 
+            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
+            this.actionButtonsShort1.Name = "actionButtonsShort1";
+            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
+            this.actionButtonsShort1.TabIndex = 3;
             // 
             // CadastroProfessor
             // 
@@ -177,5 +207,8 @@
         private System.Windows.Forms.MaskedTextBox txtDataNascProfessor;
         private System.Windows.Forms.TextBox txtEnderecoProfessor;
         private System.Windows.Forms.TextBox txtNomeProfessor;
+        private System.Windows.Forms.TextBox txtCapacitacao;
+        private System.Windows.Forms.Label label6;
+        private ActionButtonsShort actionButtonsShort1;
     }
 }

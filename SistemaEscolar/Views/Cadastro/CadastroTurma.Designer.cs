@@ -33,13 +33,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtCurso = new System.Windows.Forms.TextBox();
-            this.txtAnoTurma = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rbSemestre2 = new System.Windows.Forms.RadioButton();
-            this.rbSemestre1 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rbSemestre1 = new System.Windows.Forms.RadioButton();
+            this.rbSemestre2 = new System.Windows.Forms.RadioButton();
+            this.txtCargaHoraria = new System.Windows.Forms.TextBox();
+            this.txtAnoTurma = new System.Windows.Forms.TextBox();
+            this.txtCurso = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 96);
+            this.label2.Location = new System.Drawing.Point(50, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 0;
@@ -83,13 +86,16 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.actionButtonsShort1);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.rbSemestre1);
             this.panel2.Controls.Add(this.rbSemestre2);
+            this.panel2.Controls.Add(this.txtCargaHoraria);
             this.panel2.Controls.Add(this.txtAnoTurma);
             this.panel2.Controls.Add(this.txtCurso);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -98,60 +104,6 @@
             this.panel2.Size = new System.Drawing.Size(800, 384);
             this.panel2.TabIndex = 4;
             // 
-            // txtCurso
-            // 
-            this.txtCurso.Location = new System.Drawing.Point(153, 57);
-            this.txtCurso.Name = "txtCurso";
-            this.txtCurso.Size = new System.Drawing.Size(200, 20);
-            this.txtCurso.TabIndex = 1;
-            // 
-            // txtAnoTurma
-            // 
-            this.txtAnoTurma.Location = new System.Drawing.Point(153, 93);
-            this.txtAnoTurma.Name = "txtAnoTurma";
-            this.txtAnoTurma.Size = new System.Drawing.Size(55, 20);
-            this.txtAnoTurma.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Semestre:";
-            // 
-            // rbSemestre2
-            // 
-            this.rbSemestre2.AutoSize = true;
-            this.rbSemestre2.Location = new System.Drawing.Point(199, 128);
-            this.rbSemestre2.Name = "rbSemestre2";
-            this.rbSemestre2.Size = new System.Drawing.Size(31, 17);
-            this.rbSemestre2.TabIndex = 3;
-            this.rbSemestre2.TabStop = true;
-            this.rbSemestre2.Text = "2";
-            this.rbSemestre2.UseVisualStyleBackColor = true;
-            // 
-            // rbSemestre1
-            // 
-            this.rbSemestre1.AutoSize = true;
-            this.rbSemestre1.Location = new System.Drawing.Point(153, 128);
-            this.rbSemestre1.Name = "rbSemestre1";
-            this.rbSemestre1.Size = new System.Drawing.Size(31, 17);
-            this.rbSemestre1.TabIndex = 3;
-            this.rbSemestre1.TabStop = true;
-            this.rbSemestre1.Text = "1";
-            this.rbSemestre1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 168);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Horário:";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -159,10 +111,88 @@
             "Matutino",
             "Vespertino",
             "Noturno"});
-            this.comboBox1.Location = new System.Drawing.Point(153, 165);
+            this.comboBox1.Location = new System.Drawing.Point(153, 168);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(88, 21);
             this.comboBox1.TabIndex = 4;
+            // 
+            // rbSemestre1
+            // 
+            this.rbSemestre1.AutoSize = true;
+            this.rbSemestre1.Location = new System.Drawing.Point(153, 132);
+            this.rbSemestre1.Name = "rbSemestre1";
+            this.rbSemestre1.Size = new System.Drawing.Size(31, 17);
+            this.rbSemestre1.TabIndex = 3;
+            this.rbSemestre1.TabStop = true;
+            this.rbSemestre1.Text = "1";
+            this.rbSemestre1.UseVisualStyleBackColor = true;
+            // 
+            // rbSemestre2
+            // 
+            this.rbSemestre2.AutoSize = true;
+            this.rbSemestre2.Location = new System.Drawing.Point(190, 132);
+            this.rbSemestre2.Name = "rbSemestre2";
+            this.rbSemestre2.Size = new System.Drawing.Size(31, 17);
+            this.rbSemestre2.TabIndex = 3;
+            this.rbSemestre2.TabStop = true;
+            this.rbSemestre2.Text = "2";
+            this.rbSemestre2.UseVisualStyleBackColor = true;
+            // 
+            // txtCargaHoraria
+            // 
+            this.txtCargaHoraria.Location = new System.Drawing.Point(153, 205);
+            this.txtCargaHoraria.Name = "txtCargaHoraria";
+            this.txtCargaHoraria.Size = new System.Drawing.Size(55, 20);
+            this.txtCargaHoraria.TabIndex = 2;
+            // 
+            // txtAnoTurma
+            // 
+            this.txtAnoTurma.Location = new System.Drawing.Point(153, 94);
+            this.txtAnoTurma.Name = "txtAnoTurma";
+            this.txtAnoTurma.Size = new System.Drawing.Size(55, 20);
+            this.txtAnoTurma.TabIndex = 2;
+            // 
+            // txtCurso
+            // 
+            this.txtCurso.Location = new System.Drawing.Point(153, 57);
+            this.txtCurso.Name = "txtCurso";
+            this.txtCurso.Size = new System.Drawing.Size(200, 20);
+            this.txtCurso.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Horário:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Carga Horária (H):";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(50, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Semestre:";
+            // 
+            // actionButtonsShort1
+            // 
+            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
+            this.actionButtonsShort1.Name = "actionButtonsShort1";
+            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
+            this.actionButtonsShort1.TabIndex = 5;
             // 
             // CadastroTurma
             // 
@@ -197,5 +227,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtCargaHoraria;
+        private System.Windows.Forms.Label label6;
+        private ActionButtonsShort actionButtonsShort1;
     }
 }

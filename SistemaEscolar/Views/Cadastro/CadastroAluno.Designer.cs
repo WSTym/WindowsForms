@@ -37,8 +37,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTelefoneAluno = new System.Windows.Forms.MaskedTextBox();
             this.txtDataNascAluno = new System.Windows.Forms.MaskedTextBox();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.txtEnderecoAluno = new System.Windows.Forms.TextBox();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -100,12 +103,15 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.actionButtonsShort1);
             this.panel2.Controls.Add(this.txtTelefoneAluno);
             this.panel2.Controls.Add(this.txtDataNascAluno);
+            this.panel2.Controls.Add(this.txtMatricula);
             this.panel2.Controls.Add(this.txtEnderecoAluno);
             this.panel2.Controls.Add(this.txtNomeAluno);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -131,6 +137,13 @@
             this.txtDataNascAluno.TabIndex = 2;
             this.txtDataNascAluno.ValidatingType = typeof(System.DateTime);
             // 
+            // txtMatricula
+            // 
+            this.txtMatricula.Location = new System.Drawing.Point(153, 197);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(200, 20);
+            this.txtMatricula.TabIndex = 1;
+            // 
             // txtEnderecoAluno
             // 
             this.txtEnderecoAluno.Location = new System.Drawing.Point(153, 127);
@@ -144,6 +157,23 @@
             this.txtNomeAluno.Name = "txtNomeAluno";
             this.txtNomeAluno.Size = new System.Drawing.Size(200, 20);
             this.txtNomeAluno.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 200);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Matrícula:";
+            // 
+            // actionButtonsShort1
+            // 
+            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
+            this.actionButtonsShort1.Name = "actionButtonsShort1";
+            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
+            this.actionButtonsShort1.TabIndex = 3;
             // 
             // CadastroAluno
             // 
@@ -177,5 +207,8 @@
         private System.Windows.Forms.MaskedTextBox txtDataNascAluno;
         private System.Windows.Forms.TextBox txtEnderecoAluno;
         private System.Windows.Forms.TextBox txtNomeAluno;
+        private System.Windows.Forms.TextBox txtMatricula;
+        private System.Windows.Forms.Label label6;
+        private ActionButtonsShort actionButtonsShort1;
     }
 }

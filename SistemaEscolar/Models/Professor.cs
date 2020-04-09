@@ -9,6 +9,6 @@ namespace SistemaEscolar
 {
     public class Professor : Pessoa
     {
-        public string dd { get; set; }
+        public string Capacitacao { get; set; }
     }
 }

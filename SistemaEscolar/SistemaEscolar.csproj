@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>whiteboard_presentation_seminar_school_teacher_lecture_icon-icons.com_55994.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\ActionButtonsShort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ActionButtonsShort.Designer.cs">
+      <DependentUpon>ActionButtonsShort.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Busca\BuscaAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\ActionButtonsShort.resx">
+      <DependentUpon>ActionButtonsShort.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Busca\BuscaAluno.resx">
       <DependentUpon>BuscaAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +138,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,7 +154,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="whiteboard_presentation_seminar_school_teacher_lecture_icon-icons.com_55994.ico" />
+    <None Include="Resources\close.png" />
+    <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

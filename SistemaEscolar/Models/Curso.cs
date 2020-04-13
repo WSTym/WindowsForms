@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaEscolar.Models
 {
-    class Curso
+    public class Curso
     {
+        public Curso()
+        {
+            this.Turmas = new List<Turma>(); 
+        }
+
+        [Key]
         public int Id { get; set; }
+        [StringLength(30)]
         public string Nome { get; set; }
         public int CargaHoaria { get; set; }
+
+        public virtual ICollection<Turma> Turmas { get; set; }
     }
 }

@@ -1,14 +1,15 @@
 ﻿using SistemaEscolar.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaEscolar
 {
     public class Professor : Pessoa
     {
+        [StringLength(30)]
         public string Capacitacao { get; set; }
+        [ForeignKey("Disciplina")]
+        public int DisciplinaId { get; set; }
+        public virtual Disciplina Disciplina { get; set; }
     }
 }

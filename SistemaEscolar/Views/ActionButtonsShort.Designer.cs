@@ -41,6 +41,7 @@
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnCancelar
             // 
@@ -50,6 +51,7 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -59,6 +61,7 @@
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // ActionButtonsShort
             // 
@@ -69,6 +72,7 @@
             this.Controls.Add(this.btnNovo);
             this.Name = "ActionButtonsShort";
             this.Size = new System.Drawing.Size(800, 100);
+            this.Load += new System.EventHandler(this.ActionButtonsShort_Load);
             this.ResumeLayout(false);
 
         }

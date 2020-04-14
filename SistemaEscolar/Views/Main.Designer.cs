@@ -96,21 +96,21 @@
             // menuCadastroAluno
             // 
             this.menuCadastroAluno.Name = "menuCadastroAluno";
-            this.menuCadastroAluno.Size = new System.Drawing.Size(146, 26);
+            this.menuCadastroAluno.Size = new System.Drawing.Size(180, 26);
             this.menuCadastroAluno.Text = "Aluno";
             this.menuCadastroAluno.Click += new System.EventHandler(this.menuCadastroAluno_Click);
             // 
             // menuCadastroProfessor
             // 
             this.menuCadastroProfessor.Name = "menuCadastroProfessor";
-            this.menuCadastroProfessor.Size = new System.Drawing.Size(146, 26);
+            this.menuCadastroProfessor.Size = new System.Drawing.Size(180, 26);
             this.menuCadastroProfessor.Text = "Professor";
             this.menuCadastroProfessor.Click += new System.EventHandler(this.menuCadastroProfessor_Click);
             // 
             // menuCadastroTurma
             // 
             this.menuCadastroTurma.Name = "menuCadastroTurma";
-            this.menuCadastroTurma.Size = new System.Drawing.Size(146, 26);
+            this.menuCadastroTurma.Size = new System.Drawing.Size(180, 26);
             this.menuCadastroTurma.Text = "Turma";
             this.menuCadastroTurma.Click += new System.EventHandler(this.menuCadastroTurma_Click);
             // 
@@ -157,7 +157,7 @@
             // menuSobre
             // 
             this.menuSobre.Name = "menuSobre";
-            this.menuSobre.Size = new System.Drawing.Size(121, 26);
+            this.menuSobre.Size = new System.Drawing.Size(180, 26);
             this.menuSobre.Text = "Sobre";
             this.menuSobre.Click += new System.EventHandler(this.menuSobre_Click);
             // 

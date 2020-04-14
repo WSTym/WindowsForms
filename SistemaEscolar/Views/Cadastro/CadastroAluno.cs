@@ -16,6 +16,11 @@ namespace SistemaEscolar.Views
         {
             InitializeComponent();
         }
-
+        
+        private void actionButtonsShort1_Load(object sender, EventArgs e)
+        {
+            actionButtonsShort1.TipoCadastro = 0;
+            actionButtonsShort1.panel = pnlCadAluno;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaEscolar
 {
+    [Table("Professores")]
     public class Professor : Pessoa
     {
         [StringLength(30)]

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaEscolar.Models
 {
+    [Table("Alunos")]
     public class Aluno : Pessoa
     {
         public Aluno()

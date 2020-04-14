@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaEscolar.Models
 {
+    [Table("Turmas")]
     public class Turma
     {
         public Turma()

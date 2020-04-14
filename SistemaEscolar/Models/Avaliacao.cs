@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaEscolar.Models
 {
+    [Table("Avaliacoes")]
     public class Avaliacao
     {
         [Key]

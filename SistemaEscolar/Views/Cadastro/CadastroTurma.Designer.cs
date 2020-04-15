@@ -32,7 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rbSemestre1 = new System.Windows.Forms.RadioButton();
             this.rbSemestre2 = new System.Windows.Forms.RadioButton();
@@ -42,9 +46,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
+            this.pnlCadTurma = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlBotoes.SuspendLayout();
+            this.pnlCadTurma.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,25 +90,56 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cadastro de Turma";
             // 
-            // panel2
+            // pnlMain
             // 
-            this.panel2.Controls.Add(this.actionButtonsShort1);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.rbSemestre1);
-            this.panel2.Controls.Add(this.rbSemestre2);
-            this.panel2.Controls.Add(this.txtCargaHoraria);
-            this.panel2.Controls.Add(this.txtAnoTurma);
-            this.panel2.Controls.Add(this.txtCurso);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 384);
-            this.panel2.TabIndex = 4;
+            this.pnlMain.Controls.Add(this.pnlBotoes);
+            this.pnlMain.Controls.Add(this.pnlCadTurma);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMain.Location = new System.Drawing.Point(0, 66);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(800, 384);
+            this.pnlMain.TabIndex = 4;
+            // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnNovo);
+            this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotoes.Location = new System.Drawing.Point(0, 284);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(800, 100);
+            this.pnlBotoes.TabIndex = 7;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(363, 24);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(460, 23);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(266, 24);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // comboBox1
             // 
@@ -186,13 +223,24 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Semestre:";
             // 
-            // actionButtonsShort1
+            // pnlCadTurma
             // 
-            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
-            this.actionButtonsShort1.Name = "actionButtonsShort1";
-            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
-            this.actionButtonsShort1.TabIndex = 5;
+            this.pnlCadTurma.Controls.Add(this.comboBox1);
+            this.pnlCadTurma.Controls.Add(this.rbSemestre1);
+            this.pnlCadTurma.Controls.Add(this.rbSemestre2);
+            this.pnlCadTurma.Controls.Add(this.txtCargaHoraria);
+            this.pnlCadTurma.Controls.Add(this.txtAnoTurma);
+            this.pnlCadTurma.Controls.Add(this.txtCurso);
+            this.pnlCadTurma.Controls.Add(this.label1);
+            this.pnlCadTurma.Controls.Add(this.label4);
+            this.pnlCadTurma.Controls.Add(this.label6);
+            this.pnlCadTurma.Controls.Add(this.label3);
+            this.pnlCadTurma.Controls.Add(this.label2);
+            this.pnlCadTurma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCadTurma.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadTurma.Name = "pnlCadTurma";
+            this.pnlCadTurma.Size = new System.Drawing.Size(800, 384);
+            this.pnlCadTurma.TabIndex = 8;
             // 
             // CadastroTurma
             // 
@@ -201,14 +249,17 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroTurma";
             this.Text = "CadastroTurma";
+            this.Load += new System.EventHandler(this.CadastroTurma_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            this.pnlBotoes.ResumeLayout(false);
+            this.pnlCadTurma.ResumeLayout(false);
+            this.pnlCadTurma.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -219,7 +270,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.TextBox txtCurso;
         private System.Windows.Forms.TextBox txtAnoTurma;
         private System.Windows.Forms.RadioButton rbSemestre1;
@@ -229,6 +280,10 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox txtCargaHoraria;
         private System.Windows.Forms.Label label6;
-        private ActionButtonsShort actionButtonsShort1;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Panel pnlCadTurma;
     }
 }

@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuArquivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroAluno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroProfessor = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +41,18 @@
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.lblSistemaEscolar = new System.Windows.Forms.Label();
+            this.lblAutor = new System.Windows.Forms.Label();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
+            this.imgMinimizar = new System.Windows.Forms.PictureBox();
             this.imgFechar = new System.Windows.Forms.PictureBox();
+            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgFechar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +60,7 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuArquivo,
+            this.arquivoToolStripMenuItem,
             this.menuCadastro,
             this.menuBusca,
             this.ajudaToolStripMenuItem});
@@ -65,22 +73,6 @@
             this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pmenuStrip1_MouseMove);
             this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
             // 
-            // menuArquivo
-            // 
-            this.menuArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuSair});
-            this.menuArquivo.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuArquivo.Name = "menuArquivo";
-            this.menuArquivo.Size = new System.Drawing.Size(77, 25);
-            this.menuArquivo.Text = "Arquivo";
-            // 
-            // menuSair
-            // 
-            this.menuSair.Name = "menuSair";
-            this.menuSair.Size = new System.Drawing.Size(180, 26);
-            this.menuSair.Text = "Sair";
-            this.menuSair.Click += new System.EventHandler(this.menuSair_Click);
-            // 
             // menuCadastro
             // 
             this.menuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -88,29 +80,30 @@
             this.menuCadastroProfessor,
             this.menuCadastroTurma});
             this.menuCadastro.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuCadastro.Image = global::SistemaEscolar.Properties.Resources.plus;
             this.menuCadastro.Name = "menuCadastro";
             this.menuCadastro.ShortcutKeyDisplayString = "";
-            this.menuCadastro.Size = new System.Drawing.Size(84, 25);
+            this.menuCadastro.Size = new System.Drawing.Size(100, 25);
             this.menuCadastro.Text = "Cadastro";
             // 
             // menuCadastroAluno
             // 
             this.menuCadastroAluno.Name = "menuCadastroAluno";
-            this.menuCadastroAluno.Size = new System.Drawing.Size(180, 26);
+            this.menuCadastroAluno.Size = new System.Drawing.Size(146, 26);
             this.menuCadastroAluno.Text = "Aluno";
             this.menuCadastroAluno.Click += new System.EventHandler(this.menuCadastroAluno_Click);
             // 
             // menuCadastroProfessor
             // 
             this.menuCadastroProfessor.Name = "menuCadastroProfessor";
-            this.menuCadastroProfessor.Size = new System.Drawing.Size(180, 26);
+            this.menuCadastroProfessor.Size = new System.Drawing.Size(146, 26);
             this.menuCadastroProfessor.Text = "Professor";
             this.menuCadastroProfessor.Click += new System.EventHandler(this.menuCadastroProfessor_Click);
             // 
             // menuCadastroTurma
             // 
             this.menuCadastroTurma.Name = "menuCadastroTurma";
-            this.menuCadastroTurma.Size = new System.Drawing.Size(180, 26);
+            this.menuCadastroTurma.Size = new System.Drawing.Size(146, 26);
             this.menuCadastroTurma.Text = "Turma";
             this.menuCadastroTurma.Click += new System.EventHandler(this.menuCadastroTurma_Click);
             // 
@@ -121,8 +114,9 @@
             this.menuBuscaProfessor,
             this.menuBuscaTurma});
             this.menuBusca.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuBusca.Image = global::SistemaEscolar.Properties.Resources.find;
             this.menuBusca.Name = "menuBusca";
-            this.menuBusca.Size = new System.Drawing.Size(62, 25);
+            this.menuBusca.Size = new System.Drawing.Size(78, 25);
             this.menuBusca.Text = "Busca";
             // 
             // menuBuscaAluno
@@ -150,27 +144,86 @@
             // 
             this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSobre});
+            this.ajudaToolStripMenuItem.Image = global::SistemaEscolar.Properties.Resources.help;
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(62, 25);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // menuSobre
             // 
             this.menuSobre.Name = "menuSobre";
-            this.menuSobre.Size = new System.Drawing.Size(180, 26);
+            this.menuSobre.Size = new System.Drawing.Size(121, 26);
             this.menuSobre.Text = "Sobre";
             this.menuSobre.Click += new System.EventHandler(this.menuSobre_Click);
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.pnlLogo);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 29);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(800, 451);
             this.pnlMain.TabIndex = 2;
             // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlLogo.Controls.Add(this.lblSistemaEscolar);
+            this.pnlLogo.Controls.Add(this.lblAutor);
+            this.pnlLogo.Controls.Add(this.imgLogo);
+            this.pnlLogo.Location = new System.Drawing.Point(142, 58);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(516, 328);
+            this.pnlLogo.TabIndex = 2;
+            // 
+            // lblSistemaEscolar
+            // 
+            this.lblSistemaEscolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSistemaEscolar.Location = new System.Drawing.Point(0, 147);
+            this.lblSistemaEscolar.Name = "lblSistemaEscolar";
+            this.lblSistemaEscolar.Size = new System.Drawing.Size(516, 76);
+            this.lblSistemaEscolar.TabIndex = 0;
+            this.lblSistemaEscolar.Text = "Sistema Escolar ";
+            // 
+            // lblAutor
+            // 
+            this.lblAutor.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblAutor.AutoSize = true;
+            this.lblAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutor.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblAutor.Location = new System.Drawing.Point(229, 242);
+            this.lblAutor.Name = "lblAutor";
+            this.lblAutor.Size = new System.Drawing.Size(58, 20);
+            this.lblAutor.TabIndex = 1;
+            this.lblAutor.Text = "by Tym";
+            // 
+            // imgLogo
+            // 
+            this.imgLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.imgLogo.Image = global::SistemaEscolar.Properties.Resources.logo;
+            this.imgLogo.Location = new System.Drawing.Point(191, 3);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(135, 130);
+            this.imgLogo.TabIndex = 2;
+            this.imgLogo.TabStop = false;
+            // 
+            // imgMinimizar
+            // 
+            this.imgMinimizar.BackColor = System.Drawing.Color.White;
+            this.imgMinimizar.Image = global::SistemaEscolar.Properties.Resources.mnimize;
+            this.imgMinimizar.Location = new System.Drawing.Point(735, 2);
+            this.imgMinimizar.Name = "imgMinimizar";
+            this.imgMinimizar.Size = new System.Drawing.Size(24, 24);
+            this.imgMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMinimizar.TabIndex = 3;
+            this.imgMinimizar.TabStop = false;
+            this.imgMinimizar.Click += new System.EventHandler(this.imgMinimizar_Click);
+            // 
             // imgFechar
             // 
+            this.imgFechar.BackColor = System.Drawing.Color.White;
             this.imgFechar.Image = global::SistemaEscolar.Properties.Resources.close;
             this.imgFechar.Location = new System.Drawing.Point(765, 2);
             this.imgFechar.Name = "imgFechar";
@@ -180,11 +233,20 @@
             this.imgFechar.TabStop = false;
             this.imgFechar.Click += new System.EventHandler(this.imgFechar_Click);
             // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.Image = global::SistemaEscolar.Properties.Resources.home;
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
+            this.arquivoToolStripMenuItem.Text = "Home";
+            this.arquivoToolStripMenuItem.Click += new System.EventHandler(this.arquivoToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
+            this.Controls.Add(this.imgMinimizar);
             this.Controls.Add(this.imgFechar);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.menuStrip1);
@@ -200,6 +262,11 @@
             this.Text = "Sistema Escolar";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            this.pnlLogo.ResumeLayout(false);
+            this.pnlLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgFechar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,10 +284,14 @@
         private System.Windows.Forms.ToolStripMenuItem menuBuscaProfessor;
         private System.Windows.Forms.ToolStripMenuItem menuBuscaTurma;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.ToolStripMenuItem menuArquivo;
-        private System.Windows.Forms.ToolStripMenuItem menuSair;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuSobre;
         private System.Windows.Forms.PictureBox imgFechar;
+        private System.Windows.Forms.Label lblSistemaEscolar;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.Label lblAutor;
+        private System.Windows.Forms.PictureBox imgLogo;
+        private System.Windows.Forms.PictureBox imgMinimizar;
+        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
     }
 }

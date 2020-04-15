@@ -36,16 +36,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pnlCadastroAluno = new System.Windows.Forms.Panel();
             this.pnlCadAluno = new System.Windows.Forms.Panel();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.txtDataNascAluno = new System.Windows.Forms.MaskedTextBox();
             this.txtEnderecoAluno = new System.Windows.Forms.TextBox();
             this.txtTelefoneAluno = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
-            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
             this.panel1.SuspendLayout();
             this.pnlCadastroAluno.SuspendLayout();
             this.pnlCadAluno.SuspendLayout();
+            this.pnlBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -105,7 +109,7 @@
             // 
             // pnlCadastroAluno
             // 
-            this.pnlCadastroAluno.Controls.Add(this.actionButtonsShort1);
+            this.pnlCadastroAluno.Controls.Add(this.pnlBotoes);
             this.pnlCadastroAluno.Controls.Add(this.pnlCadAluno);
             this.pnlCadastroAluno.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlCadastroAluno.Location = new System.Drawing.Point(0, 66);
@@ -131,6 +135,47 @@
             this.pnlCadAluno.Name = "pnlCadAluno";
             this.pnlCadAluno.Size = new System.Drawing.Size(800, 384);
             this.pnlCadAluno.TabIndex = 4;
+            // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnNovo);
+            this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotoes.Location = new System.Drawing.Point(0, 284);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(800, 100);
+            this.pnlBotoes.TabIndex = 6;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(363, 24);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(460, 23);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(266, 24);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // txtNomeAluno
             // 
@@ -179,15 +224,6 @@
             this.txtMatricula.Size = new System.Drawing.Size(200, 20);
             this.txtMatricula.TabIndex = 1;
             // 
-            // actionButtonsShort1
-            // 
-            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
-            this.actionButtonsShort1.Name = "actionButtonsShort1";
-            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
-            this.actionButtonsShort1.TabIndex = 3;
-            this.actionButtonsShort1.Load += new System.EventHandler(this.actionButtonsShort1_Load);
-            // 
             // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,11 +235,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroAluno";
             this.Text = "CadastroAluno";
+            this.Load += new System.EventHandler(this.CadastroAluno_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlCadastroAluno.ResumeLayout(false);
             this.pnlCadAluno.ResumeLayout(false);
             this.pnlCadAluno.PerformLayout();
+            this.pnlBotoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -217,13 +255,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlCadastroAluno;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Panel pnlCadAluno;
+        private System.Windows.Forms.TextBox txtNomeAluno;
         private System.Windows.Forms.MaskedTextBox txtTelefoneAluno;
         private System.Windows.Forms.MaskedTextBox txtDataNascAluno;
         private System.Windows.Forms.TextBox txtEnderecoAluno;
-        private System.Windows.Forms.TextBox txtNomeAluno;
         private System.Windows.Forms.TextBox txtMatricula;
-        private System.Windows.Forms.Label label6;
-        private ActionButtonsShort actionButtonsShort1;
-        public System.Windows.Forms.Panel pnlCadAluno;
     }
 }

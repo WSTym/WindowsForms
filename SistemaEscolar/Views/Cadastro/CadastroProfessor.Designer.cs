@@ -34,16 +34,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.txtTelefoneProfessor = new System.Windows.Forms.MaskedTextBox();
             this.txtDataNascProfessor = new System.Windows.Forms.MaskedTextBox();
             this.txtCapacitacao = new System.Windows.Forms.TextBox();
             this.txtEnderecoProfessor = new System.Windows.Forms.TextBox();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.actionButtonsShort1 = new SistemaEscolar.ActionButtonsShort();
+            this.pnlCadProfessor = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlBotoes.SuspendLayout();
+            this.pnlCadProfessor.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -101,24 +107,56 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cadastro de Professor";
             // 
-            // panel2
+            // pnlMain
             // 
-            this.panel2.Controls.Add(this.actionButtonsShort1);
-            this.panel2.Controls.Add(this.txtTelefoneProfessor);
-            this.panel2.Controls.Add(this.txtDataNascProfessor);
-            this.panel2.Controls.Add(this.txtCapacitacao);
-            this.panel2.Controls.Add(this.txtEnderecoProfessor);
-            this.panel2.Controls.Add(this.txtNomeProfessor);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 384);
-            this.panel2.TabIndex = 4;
+            this.pnlMain.Controls.Add(this.pnlBotoes);
+            this.pnlMain.Controls.Add(this.pnlCadProfessor);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMain.Location = new System.Drawing.Point(0, 66);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(800, 384);
+            this.pnlMain.TabIndex = 4;
+            // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnNovo);
+            this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotoes.Location = new System.Drawing.Point(0, 284);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(800, 100);
+            this.pnlBotoes.TabIndex = 7;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(363, 24);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Location = new System.Drawing.Point(460, 23);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCadastrar.TabIndex = 3;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(266, 24);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // txtTelefoneProfessor
             // 
@@ -167,13 +205,23 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Capacitação:";
             // 
-            // actionButtonsShort1
+            // pnlCadProfessor
             // 
-            this.actionButtonsShort1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.actionButtonsShort1.Location = new System.Drawing.Point(0, 284);
-            this.actionButtonsShort1.Name = "actionButtonsShort1";
-            this.actionButtonsShort1.Size = new System.Drawing.Size(800, 100);
-            this.actionButtonsShort1.TabIndex = 3;
+            this.pnlCadProfessor.Controls.Add(this.txtTelefoneProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtDataNascProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtCapacitacao);
+            this.pnlCadProfessor.Controls.Add(this.txtEnderecoProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtNomeProfessor);
+            this.pnlCadProfessor.Controls.Add(this.label1);
+            this.pnlCadProfessor.Controls.Add(this.label4);
+            this.pnlCadProfessor.Controls.Add(this.label6);
+            this.pnlCadProfessor.Controls.Add(this.label2);
+            this.pnlCadProfessor.Controls.Add(this.label3);
+            this.pnlCadProfessor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCadProfessor.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadProfessor.Name = "pnlCadProfessor";
+            this.pnlCadProfessor.Size = new System.Drawing.Size(800, 384);
+            this.pnlCadProfessor.TabIndex = 8;
             // 
             // CadastroProfessor
             // 
@@ -182,14 +230,17 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CadastroProfessor";
             this.Text = "CadastroProfesor";
+            this.Load += new System.EventHandler(this.CadastroProfessor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            this.pnlBotoes.ResumeLayout(false);
+            this.pnlCadProfessor.ResumeLayout(false);
+            this.pnlCadProfessor.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -202,13 +253,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.MaskedTextBox txtTelefoneProfessor;
         private System.Windows.Forms.MaskedTextBox txtDataNascProfessor;
         private System.Windows.Forms.TextBox txtEnderecoProfessor;
         private System.Windows.Forms.TextBox txtNomeProfessor;
         private System.Windows.Forms.TextBox txtCapacitacao;
         private System.Windows.Forms.Label label6;
-        private ActionButtonsShort actionButtonsShort1;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Panel pnlCadProfessor;
     }
 }

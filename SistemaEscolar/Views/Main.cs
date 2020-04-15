@@ -1,27 +1,27 @@
 ﻿using SistemaEscolar.Views;
 using SistemaEscolar.Views.Busca;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaEscolar
 {
     public partial class Main : Form
     {
+        Form _form;
         public Main()
         {
             InitializeComponent();
         }
 
-        //
-        // Opções da barra de munus
-        //
+        #region Opções da barra de munus
+
+        private void arquivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Main main = new Main();
+            main.Show();
+            this.Dispose(false);
+        }
+
         private void menuSair_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,31 +30,37 @@ namespace SistemaEscolar
         private void menuCadastroAluno_Click(object sender, EventArgs e)
         {
             openForm(new CadastroAluno());
+            pnlLogo.Hide();
         }
 
         private void menuCadastroProfessor_Click(object sender, EventArgs e)
         {
             openForm(new CadastroProfessor());
+            pnlLogo.Hide();
         }
 
         private void menuCadastroTurma_Click(object sender, EventArgs e)
         {
             openForm(new CadastroTurma());
+            pnlLogo.Hide();
         }
 
         private void menuBuscaAluno_Click(object sender, EventArgs e)
         {
             openForm(new BuscaAluno());
+            pnlLogo.Hide();
         }
 
         private void menuBuscaProfessor_Click(object sender, EventArgs e)
         {
             openForm(new BuscaProfessor());
+            pnlLogo.Hide();
         }
 
         private void menuBuscaTurma_Click(object sender, EventArgs e)
         {
             openForm(new BuscaTurma());
+            pnlLogo.Hide();
         }
 
         private void menuSobre_Click(object sender, EventArgs e)
@@ -62,16 +68,20 @@ namespace SistemaEscolar
             MessageBox.Show(this, "CRUD Sistema Escolar \n\nVersão 1.0 \n\n© 2020 Tym \n\nTodos os direitos reservados", "Sobre", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void imgMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void imgFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        // Fim menu
 
-        //
-        // Insere um formulário num Panel 
-        //
-        Form _form;
+        #endregion
+
+        #region Inserção de formulário no Panel principal
+
         private void openForm(Form form)
         {
             _form?.Close();
@@ -83,9 +93,10 @@ namespace SistemaEscolar
             _form.Show();
         }
 
-        //
-        // Arrastar o Form sem borda
-        //
+        #endregion
+
+        #region Arrastar o Form sem borda 
+
         private bool mover;
         private int cX, cY;
 
@@ -113,5 +124,7 @@ namespace SistemaEscolar
                 this.Top += e.Y - (cY - menuStrip1.Top);
             }
         }
+
+        #endregion
     }
 }

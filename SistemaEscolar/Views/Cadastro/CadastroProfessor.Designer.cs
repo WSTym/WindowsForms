@@ -39,13 +39,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.pnlCadProfessor = new System.Windows.Forms.Panel();
             this.txtTelefoneProfessor = new System.Windows.Forms.MaskedTextBox();
             this.txtDataNascProfessor = new System.Windows.Forms.MaskedTextBox();
             this.txtCapacitacao = new System.Windows.Forms.TextBox();
             this.txtEnderecoProfessor = new System.Windows.Forms.TextBox();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pnlCadProfessor = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -158,6 +158,24 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // pnlCadProfessor
+            // 
+            this.pnlCadProfessor.Controls.Add(this.txtTelefoneProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtDataNascProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtCapacitacao);
+            this.pnlCadProfessor.Controls.Add(this.txtEnderecoProfessor);
+            this.pnlCadProfessor.Controls.Add(this.txtNomeProfessor);
+            this.pnlCadProfessor.Controls.Add(this.label1);
+            this.pnlCadProfessor.Controls.Add(this.label4);
+            this.pnlCadProfessor.Controls.Add(this.label6);
+            this.pnlCadProfessor.Controls.Add(this.label2);
+            this.pnlCadProfessor.Controls.Add(this.label3);
+            this.pnlCadProfessor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCadProfessor.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadProfessor.Name = "pnlCadProfessor";
+            this.pnlCadProfessor.Size = new System.Drawing.Size(800, 384);
+            this.pnlCadProfessor.TabIndex = 8;
+            // 
             // txtTelefoneProfessor
             // 
             this.txtTelefoneProfessor.Location = new System.Drawing.Point(153, 162);
@@ -178,6 +196,7 @@
             // txtCapacitacao
             // 
             this.txtCapacitacao.Location = new System.Drawing.Point(153, 197);
+            this.txtCapacitacao.MaxLength = 50;
             this.txtCapacitacao.Name = "txtCapacitacao";
             this.txtCapacitacao.Size = new System.Drawing.Size(200, 20);
             this.txtCapacitacao.TabIndex = 1;
@@ -185,6 +204,7 @@
             // txtEnderecoProfessor
             // 
             this.txtEnderecoProfessor.Location = new System.Drawing.Point(153, 127);
+            this.txtEnderecoProfessor.MaxLength = 50;
             this.txtEnderecoProfessor.Name = "txtEnderecoProfessor";
             this.txtEnderecoProfessor.Size = new System.Drawing.Size(200, 20);
             this.txtEnderecoProfessor.TabIndex = 1;
@@ -192,6 +212,7 @@
             // txtNomeProfessor
             // 
             this.txtNomeProfessor.Location = new System.Drawing.Point(153, 57);
+            this.txtNomeProfessor.MaxLength = 50;
             this.txtNomeProfessor.Name = "txtNomeProfessor";
             this.txtNomeProfessor.Size = new System.Drawing.Size(200, 20);
             this.txtNomeProfessor.TabIndex = 1;
@@ -204,24 +225,6 @@
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Capacitação:";
-            // 
-            // pnlCadProfessor
-            // 
-            this.pnlCadProfessor.Controls.Add(this.txtTelefoneProfessor);
-            this.pnlCadProfessor.Controls.Add(this.txtDataNascProfessor);
-            this.pnlCadProfessor.Controls.Add(this.txtCapacitacao);
-            this.pnlCadProfessor.Controls.Add(this.txtEnderecoProfessor);
-            this.pnlCadProfessor.Controls.Add(this.txtNomeProfessor);
-            this.pnlCadProfessor.Controls.Add(this.label1);
-            this.pnlCadProfessor.Controls.Add(this.label4);
-            this.pnlCadProfessor.Controls.Add(this.label6);
-            this.pnlCadProfessor.Controls.Add(this.label2);
-            this.pnlCadProfessor.Controls.Add(this.label3);
-            this.pnlCadProfessor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCadProfessor.Location = new System.Drawing.Point(0, 0);
-            this.pnlCadProfessor.Name = "pnlCadProfessor";
-            this.pnlCadProfessor.Size = new System.Drawing.Size(800, 384);
-            this.pnlCadProfessor.TabIndex = 8;
             // 
             // CadastroProfessor
             // 

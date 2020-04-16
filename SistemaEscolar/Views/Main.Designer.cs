@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroAluno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroProfessor = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroTurma = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBusca = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBuscaAluno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBuscaProfessor = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBuscaTurma = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSobre = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +50,6 @@
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.imgMinimizar = new System.Windows.Forms.PictureBox();
             this.imgFechar = new System.Windows.Forms.PictureBox();
-            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlLogo.SuspendLayout();
@@ -60,7 +62,7 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
+            this.menuHome,
             this.menuCadastro,
             this.menuBusca,
             this.ajudaToolStripMenuItem});
@@ -73,11 +75,20 @@
             this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pmenuStrip1_MouseMove);
             this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseUp);
             // 
+            // menuHome
+            // 
+            this.menuHome.Image = global::SistemaEscolar.Properties.Resources.home;
+            this.menuHome.Name = "menuHome";
+            this.menuHome.Size = new System.Drawing.Size(80, 25);
+            this.menuHome.Text = "Home";
+            this.menuHome.Click += new System.EventHandler(this.menuHome_Click);
+            // 
             // menuCadastro
             // 
             this.menuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCadastroAluno,
             this.menuCadastroProfessor,
+            this.cursoToolStripMenuItem,
             this.menuCadastroTurma});
             this.menuCadastro.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuCadastro.Image = global::SistemaEscolar.Properties.Resources.plus;
@@ -100,6 +111,13 @@
             this.menuCadastroProfessor.Text = "Professor";
             this.menuCadastroProfessor.Click += new System.EventHandler(this.menuCadastroProfessor_Click);
             // 
+            // cursoToolStripMenuItem
+            // 
+            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
+            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.cursoToolStripMenuItem.Text = "Curso";
+            this.cursoToolStripMenuItem.Click += new System.EventHandler(this.cursoToolStripMenuItem_Click);
+            // 
             // menuCadastroTurma
             // 
             this.menuCadastroTurma.Name = "menuCadastroTurma";
@@ -112,6 +130,7 @@
             this.menuBusca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuBuscaAluno,
             this.menuBuscaProfessor,
+            this.cursoToolStripMenuItem1,
             this.menuBuscaTurma});
             this.menuBusca.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuBusca.Image = global::SistemaEscolar.Properties.Resources.find;
@@ -132,6 +151,13 @@
             this.menuBuscaProfessor.Size = new System.Drawing.Size(146, 26);
             this.menuBuscaProfessor.Text = "Professor";
             this.menuBuscaProfessor.Click += new System.EventHandler(this.menuBuscaProfessor_Click);
+            // 
+            // cursoToolStripMenuItem1
+            // 
+            this.cursoToolStripMenuItem1.Name = "cursoToolStripMenuItem1";
+            this.cursoToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
+            this.cursoToolStripMenuItem1.Text = "Curso";
+            this.cursoToolStripMenuItem1.Click += new System.EventHandler(this.cursoToolStripMenuItem1_Click);
             // 
             // menuBuscaTurma
             // 
@@ -233,14 +259,6 @@
             this.imgFechar.TabStop = false;
             this.imgFechar.Click += new System.EventHandler(this.imgFechar_Click);
             // 
-            // arquivoToolStripMenuItem
-            // 
-            this.arquivoToolStripMenuItem.Image = global::SistemaEscolar.Properties.Resources.home;
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
-            this.arquivoToolStripMenuItem.Text = "Home";
-            this.arquivoToolStripMenuItem.Click += new System.EventHandler(this.arquivoToolStripMenuItem_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +310,8 @@
         private System.Windows.Forms.Label lblAutor;
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.PictureBox imgMinimizar;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuHome;
+        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem1;
     }
 }

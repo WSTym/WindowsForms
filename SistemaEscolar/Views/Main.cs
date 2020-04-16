@@ -1,5 +1,6 @@
 ﻿using SistemaEscolar.Views;
 using SistemaEscolar.Views.Busca;
+using SistemaEscolar.Views.Cadastro;
 using System;
 using System.Windows.Forms;
 
@@ -15,7 +16,7 @@ namespace SistemaEscolar
 
         #region Opções da barra de munus
 
-        private void arquivoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuHome_Click(object sender, EventArgs e)
         {
             Main main = new Main();
             main.Show();
@@ -29,37 +30,49 @@ namespace SistemaEscolar
 
         private void menuCadastroAluno_Click(object sender, EventArgs e)
         {
-            openForm(new CadastroAluno());
+            OpenForm(new CadastroAluno());
             pnlLogo.Hide();
         }
 
         private void menuCadastroProfessor_Click(object sender, EventArgs e)
         {
-            openForm(new CadastroProfessor());
+            OpenForm(new CadastroProfessor());
+            pnlLogo.Hide();
+        }
+
+        private void cursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm(new CadastroCurso());
             pnlLogo.Hide();
         }
 
         private void menuCadastroTurma_Click(object sender, EventArgs e)
         {
-            openForm(new CadastroTurma());
+            OpenForm(new CadastroTurma());
             pnlLogo.Hide();
         }
 
         private void menuBuscaAluno_Click(object sender, EventArgs e)
         {
-            openForm(new BuscaAluno());
+            OpenForm(new BuscaAluno());
             pnlLogo.Hide();
         }
 
         private void menuBuscaProfessor_Click(object sender, EventArgs e)
         {
-            openForm(new BuscaProfessor());
+            OpenForm(new BuscaProfessor());
+            pnlLogo.Hide();
+        }
+
+        private void cursoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenForm(new BuscaCurso());
             pnlLogo.Hide();
         }
 
         private void menuBuscaTurma_Click(object sender, EventArgs e)
         {
-            openForm(new BuscaTurma());
+            OpenForm(new BuscaTurma());
             pnlLogo.Hide();
         }
 
@@ -82,7 +95,7 @@ namespace SistemaEscolar
 
         #region Inserção de formulário no Panel principal
 
-        private void openForm(Form form)
+        private void OpenForm(Form form)
         {
             _form?.Close();
             _form = form;
@@ -115,6 +128,7 @@ namespace SistemaEscolar
             if (e.Button == MouseButtons.Left)
                 mover = false;
         }
+
 
         private void pmenuStrip1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {

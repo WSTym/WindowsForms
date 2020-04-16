@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SistemaEscolar.Views.Cadastro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,8 +30,9 @@ namespace SistemaEscolar.Views
         private void btnNovo_Click(object sender, EventArgs e)
         {
             pnlCadTurma.Enabled = true;
+            btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
-            txtCurso.Focus();
+            cbCurso.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -46,21 +49,14 @@ namespace SistemaEscolar.Views
         #region Limpa os TextBoxes
         private void CleanForm()
         {
-            traverseControlsAndSetTextEmpty(this);
-        }
-        private void traverseControlsAndSetTextEmpty(Control control)
-        {
-
-            foreach (Control c in control.Controls)
-            {
-                if (c is TextBox) ((TextBox)c).Text = string.Empty;
-                if (c is MaskedTextBox) ((MaskedTextBox)c).Text = string.Empty;
-                if (c is RadioButton) ((RadioButton)c).Checked = false;
-                if (c is ComboBox) ((ComboBox)c).SelectedIndex = -1;
-                traverseControlsAndSetTextEmpty(c);
-            }
+            FormHelper.SetTextEmpty(this);
         }
 
         #endregion
+
+        private void txtAnoTurma_TextChanged(object sender, EventArgs e)
+        {
+            txtAnoTurma.Text = Regex.Replace(txtAnoTurma.Text, "[^0-9]", "");
+        }
     }
 }

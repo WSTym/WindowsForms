@@ -37,16 +37,14 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pnlCadTurma = new System.Windows.Forms.Panel();
+            this.cbCurso = new System.Windows.Forms.ComboBox();
+            this.cbHorario = new System.Windows.Forms.ComboBox();
             this.rbSemestre1 = new System.Windows.Forms.RadioButton();
             this.rbSemestre2 = new System.Windows.Forms.RadioButton();
-            this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.txtAnoTurma = new System.Windows.Forms.TextBox();
-            this.txtCurso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pnlCadTurma = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -141,17 +139,42 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // comboBox1
+            // pnlCadTurma
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.pnlCadTurma.Controls.Add(this.cbCurso);
+            this.pnlCadTurma.Controls.Add(this.cbHorario);
+            this.pnlCadTurma.Controls.Add(this.rbSemestre1);
+            this.pnlCadTurma.Controls.Add(this.rbSemestre2);
+            this.pnlCadTurma.Controls.Add(this.txtAnoTurma);
+            this.pnlCadTurma.Controls.Add(this.label1);
+            this.pnlCadTurma.Controls.Add(this.label4);
+            this.pnlCadTurma.Controls.Add(this.label3);
+            this.pnlCadTurma.Controls.Add(this.label2);
+            this.pnlCadTurma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCadTurma.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadTurma.Name = "pnlCadTurma";
+            this.pnlCadTurma.Size = new System.Drawing.Size(800, 384);
+            this.pnlCadTurma.TabIndex = 8;
+            // 
+            // cbCurso
+            // 
+            this.cbCurso.FormattingEnabled = true;
+            this.cbCurso.Location = new System.Drawing.Point(153, 52);
+            this.cbCurso.Name = "cbCurso";
+            this.cbCurso.Size = new System.Drawing.Size(200, 21);
+            this.cbCurso.TabIndex = 4;
+            // 
+            // cbHorario
+            // 
+            this.cbHorario.FormattingEnabled = true;
+            this.cbHorario.Items.AddRange(new object[] {
             "Matutino",
             "Vespertino",
             "Noturno"});
-            this.comboBox1.Location = new System.Drawing.Point(153, 168);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(88, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbHorario.Location = new System.Drawing.Point(153, 168);
+            this.cbHorario.Name = "cbHorario";
+            this.cbHorario.Size = new System.Drawing.Size(88, 21);
+            this.cbHorario.TabIndex = 4;
             // 
             // rbSemestre1
             // 
@@ -175,26 +198,14 @@
             this.rbSemestre2.Text = "2";
             this.rbSemestre2.UseVisualStyleBackColor = true;
             // 
-            // txtCargaHoraria
-            // 
-            this.txtCargaHoraria.Location = new System.Drawing.Point(153, 205);
-            this.txtCargaHoraria.Name = "txtCargaHoraria";
-            this.txtCargaHoraria.Size = new System.Drawing.Size(55, 20);
-            this.txtCargaHoraria.TabIndex = 2;
-            // 
             // txtAnoTurma
             // 
             this.txtAnoTurma.Location = new System.Drawing.Point(153, 94);
+            this.txtAnoTurma.MaxLength = 4;
             this.txtAnoTurma.Name = "txtAnoTurma";
-            this.txtAnoTurma.Size = new System.Drawing.Size(55, 20);
+            this.txtAnoTurma.Size = new System.Drawing.Size(40, 20);
             this.txtAnoTurma.TabIndex = 2;
-            // 
-            // txtCurso
-            // 
-            this.txtCurso.Location = new System.Drawing.Point(153, 57);
-            this.txtCurso.Name = "txtCurso";
-            this.txtCurso.Size = new System.Drawing.Size(200, 20);
-            this.txtCurso.TabIndex = 1;
+            this.txtAnoTurma.TextChanged += new System.EventHandler(this.txtAnoTurma_TextChanged);
             // 
             // label4
             // 
@@ -205,15 +216,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Horário:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Carga Horária (H):";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -222,25 +224,6 @@
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Semestre:";
-            // 
-            // pnlCadTurma
-            // 
-            this.pnlCadTurma.Controls.Add(this.comboBox1);
-            this.pnlCadTurma.Controls.Add(this.rbSemestre1);
-            this.pnlCadTurma.Controls.Add(this.rbSemestre2);
-            this.pnlCadTurma.Controls.Add(this.txtCargaHoraria);
-            this.pnlCadTurma.Controls.Add(this.txtAnoTurma);
-            this.pnlCadTurma.Controls.Add(this.txtCurso);
-            this.pnlCadTurma.Controls.Add(this.label1);
-            this.pnlCadTurma.Controls.Add(this.label4);
-            this.pnlCadTurma.Controls.Add(this.label6);
-            this.pnlCadTurma.Controls.Add(this.label3);
-            this.pnlCadTurma.Controls.Add(this.label2);
-            this.pnlCadTurma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCadTurma.Location = new System.Drawing.Point(0, 0);
-            this.pnlCadTurma.Name = "pnlCadTurma";
-            this.pnlCadTurma.Size = new System.Drawing.Size(800, 384);
-            this.pnlCadTurma.TabIndex = 8;
             // 
             // CadastroTurma
             // 
@@ -271,19 +254,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.TextBox txtCurso;
         private System.Windows.Forms.TextBox txtAnoTurma;
         private System.Windows.Forms.RadioButton rbSemestre1;
         private System.Windows.Forms.RadioButton rbSemestre2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox txtCargaHoraria;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbHorario;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadTurma;
+        private System.Windows.Forms.ComboBox cbCurso;
     }
 }

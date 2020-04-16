@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,21 +36,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlCadastroAluno = new System.Windows.Forms.Panel();
-            this.pnlCadAluno = new System.Windows.Forms.Panel();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.pnlCadAluno = new System.Windows.Forms.Panel();
             this.txtNomeAluno = new System.Windows.Forms.TextBox();
             this.txtDataNascAluno = new System.Windows.Forms.MaskedTextBox();
             this.txtEnderecoAluno = new System.Windows.Forms.TextBox();
             this.txtTelefoneAluno = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.errAluno = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlCadastroAluno.SuspendLayout();
-            this.pnlCadAluno.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
+            this.pnlCadAluno.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errAluno)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,25 +118,6 @@
             this.pnlCadastroAluno.Size = new System.Drawing.Size(800, 384);
             this.pnlCadastroAluno.TabIndex = 2;
             // 
-            // pnlCadAluno
-            // 
-            this.pnlCadAluno.Controls.Add(this.label1);
-            this.pnlCadAluno.Controls.Add(this.txtNomeAluno);
-            this.pnlCadAluno.Controls.Add(this.label2);
-            this.pnlCadAluno.Controls.Add(this.txtDataNascAluno);
-            this.pnlCadAluno.Controls.Add(this.label3);
-            this.pnlCadAluno.Controls.Add(this.txtEnderecoAluno);
-            this.pnlCadAluno.Controls.Add(this.label4);
-            this.pnlCadAluno.Controls.Add(this.txtTelefoneAluno);
-            this.pnlCadAluno.Controls.Add(this.label6);
-            this.pnlCadAluno.Controls.Add(this.txtMatricula);
-            this.pnlCadAluno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCadAluno.Enabled = false;
-            this.pnlCadAluno.Location = new System.Drawing.Point(0, 0);
-            this.pnlCadAluno.Name = "pnlCadAluno";
-            this.pnlCadAluno.Size = new System.Drawing.Size(800, 384);
-            this.pnlCadAluno.TabIndex = 4;
-            // 
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelar);
@@ -177,9 +159,27 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // pnlCadAluno
+            // 
+            this.pnlCadAluno.Controls.Add(this.label1);
+            this.pnlCadAluno.Controls.Add(this.txtNomeAluno);
+            this.pnlCadAluno.Controls.Add(this.label2);
+            this.pnlCadAluno.Controls.Add(this.txtDataNascAluno);
+            this.pnlCadAluno.Controls.Add(this.label3);
+            this.pnlCadAluno.Controls.Add(this.txtEnderecoAluno);
+            this.pnlCadAluno.Controls.Add(this.label4);
+            this.pnlCadAluno.Controls.Add(this.txtTelefoneAluno);
+            this.pnlCadAluno.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCadAluno.Enabled = false;
+            this.pnlCadAluno.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadAluno.Name = "pnlCadAluno";
+            this.pnlCadAluno.Size = new System.Drawing.Size(800, 384);
+            this.pnlCadAluno.TabIndex = 4;
+            // 
             // txtNomeAluno
             // 
             this.txtNomeAluno.Location = new System.Drawing.Point(153, 57);
+            this.txtNomeAluno.MaxLength = 50;
             this.txtNomeAluno.Name = "txtNomeAluno";
             this.txtNomeAluno.Size = new System.Drawing.Size(200, 20);
             this.txtNomeAluno.TabIndex = 1;
@@ -196,6 +196,7 @@
             // txtEnderecoAluno
             // 
             this.txtEnderecoAluno.Location = new System.Drawing.Point(153, 127);
+            this.txtEnderecoAluno.MaxLength = 50;
             this.txtEnderecoAluno.Name = "txtEnderecoAluno";
             this.txtEnderecoAluno.Size = new System.Drawing.Size(200, 20);
             this.txtEnderecoAluno.TabIndex = 1;
@@ -208,21 +209,9 @@
             this.txtTelefoneAluno.Size = new System.Drawing.Size(84, 20);
             this.txtTelefoneAluno.TabIndex = 2;
             // 
-            // label6
+            // errAluno
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 200);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Matrícula:";
-            // 
-            // txtMatricula
-            // 
-            this.txtMatricula.Location = new System.Drawing.Point(153, 197);
-            this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(200, 20);
-            this.txtMatricula.TabIndex = 1;
+            this.errAluno.ContainerControl = this;
             // 
             // CadastroAluno
             // 
@@ -239,9 +228,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlCadastroAluno.ResumeLayout(false);
+            this.pnlBotoes.ResumeLayout(false);
             this.pnlCadAluno.ResumeLayout(false);
             this.pnlCadAluno.PerformLayout();
-            this.pnlBotoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errAluno)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +245,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlCadastroAluno;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
@@ -265,6 +254,6 @@
         private System.Windows.Forms.MaskedTextBox txtTelefoneAluno;
         private System.Windows.Forms.MaskedTextBox txtDataNascAluno;
         private System.Windows.Forms.TextBox txtEnderecoAluno;
-        private System.Windows.Forms.TextBox txtMatricula;
+        private System.Windows.Forms.ErrorProvider errAluno;
     }
 }

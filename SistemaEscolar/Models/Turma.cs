@@ -16,7 +16,7 @@ namespace SistemaEscolar.Models
         [Key]
         public int Id { get; set; }
         public int Ano { get; set; }
-        public int CargaHoraria { get; set; }
+        public string Horario { get; set; }
         [ForeignKey("Curso")]
         public int CursoId { get; set; }
         public virtual Curso Curso { get; set; }

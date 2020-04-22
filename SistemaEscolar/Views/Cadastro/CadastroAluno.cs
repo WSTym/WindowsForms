@@ -1,6 +1,8 @@
-﻿using SistemaEscolar.Models.Context;
+﻿using SistemaEscolar.Models;
+using SistemaEscolar.Models.Context;
 using SistemaEscolar.Views.Cadastro;
 using System;
+using System.Data.Entity;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
@@ -45,7 +47,12 @@ namespace SistemaEscolar.Views
 
             using (Context context = new Context())
             {
-                
+                context.Alunos.Add(new Aluno() { 
+                    Nome = txtNomeAluno.Text,
+                    DataNascimento = txtDataNascAluno.Text,
+                    Edereco = txtEnderecoAluno.Text,
+                    Telefone = long.Parse(txtTelefoneAluno.Text)
+                });
             }
         }
 

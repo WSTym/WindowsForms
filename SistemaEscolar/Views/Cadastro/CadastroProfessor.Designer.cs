@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,10 +47,12 @@
             this.txtEnderecoProfessor = new System.Windows.Forms.TextBox();
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.errProfessor = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadProfessor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errProfessor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -226,6 +229,10 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Capacitação:";
             // 
+            // errProfessor
+            // 
+            this.errProfessor.ContainerControl = this;
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +251,7 @@
             this.pnlBotoes.ResumeLayout(false);
             this.pnlCadProfessor.ResumeLayout(false);
             this.pnlCadProfessor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errProfessor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -268,5 +276,6 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadProfessor;
+        private System.Windows.Forms.ErrorProvider errProfessor;
     }
 }

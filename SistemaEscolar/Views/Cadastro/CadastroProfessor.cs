@@ -1,4 +1,5 @@
-﻿using SistemaEscolar.Views.Cadastro;
+﻿using SistemaEscolar.Models.Context;
+using SistemaEscolar.Views.Cadastro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace SistemaEscolar.Views
             pnlCadProfessor.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
+            btnCadastrar.Enabled = true;
             txtNomeProfessor.Focus();
         }
 
@@ -42,7 +44,24 @@ namespace SistemaEscolar.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            if (FormHelper.CheckEmptyField(txtNomeProfessor, errProfessor)) return;
+            if (FormHelper.CheckEmptyField(txtDataNascProfessor, errProfessor)) return;
+            if (FormHelper.CheckEmptyField(txtEnderecoProfessor, errProfessor)) return;
+            if (FormHelper.CheckEmptyField(txtTelefoneProfessor, errProfessor)) return;
+            if (FormHelper.CheckEmptyField(txtCapacitacao, errProfessor)) return;
 
+
+            using (Context context = new Context())
+            {
+                context.Professores.Add(new Professor()
+                {
+                    Nome = txtNomeProfessor.Text,
+                    DataNascimento = txtDataNascProfessor.Text,
+                    Edereco = txtEnderecoProfessor.Text,
+                    Telefone = long.Parse(txtTelefoneProfessor.Text),
+                    Capacitacao = txtCapacitacao.Text
+                });
+            }
         }
 
         #region Limpa os TextBoxes

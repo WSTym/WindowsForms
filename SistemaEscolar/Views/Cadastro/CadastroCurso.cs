@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaEscolar.Models;
+using SistemaEscolar.Models.Context;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -24,6 +26,7 @@ namespace SistemaEscolar.Views.Cadastro
             pnlCadCurso.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
+            btnCadastrar.Enabled = true;
             txtNomeCurso.Focus();
         }
 
@@ -35,7 +38,16 @@ namespace SistemaEscolar.Views.Cadastro
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
+            if (FormHelper.CheckEmptyField(txtNomeCurso, errCurso)) return;
+            if (FormHelper.CheckEmptyField(txtCargaHoraria, errCurso)) return;
+            using (Context context = new Context())
+            {
+                context.Cursos.Add(new Curso()
+                {
+                    Nome = txtNomeCurso.Text,
+                    CargaHoaria = int.Parse(txtCargaHoraria.Text)
+                });
+            }
         }
         #region Limpa os TextBoxes
         private void CleanForm()

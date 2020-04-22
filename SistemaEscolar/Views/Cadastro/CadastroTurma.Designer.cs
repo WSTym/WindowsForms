@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,10 +46,12 @@
             this.txtAnoTurma = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.errTurma = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadTurma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -225,6 +228,10 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Semestre:";
             // 
+            // errTurma
+            // 
+            this.errTurma.ContainerControl = this;
+            // 
             // CadastroTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +250,7 @@
             this.pnlBotoes.ResumeLayout(false);
             this.pnlCadTurma.ResumeLayout(false);
             this.pnlCadTurma.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,5 +274,6 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadTurma;
         private System.Windows.Forms.ComboBox cbCurso;
+        private System.Windows.Forms.ErrorProvider errTurma;
     }
 }

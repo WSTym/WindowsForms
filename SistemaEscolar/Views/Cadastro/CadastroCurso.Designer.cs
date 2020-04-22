@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBotoes = new System.Windows.Forms.Panel();
@@ -40,10 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.errCurso = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadCurso.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -163,6 +166,10 @@
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 5;
             // 
+            // errCurso
+            // 
+            this.errCurso.ContainerControl = this;
+            // 
             // CadastroCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +187,7 @@
             this.pnlCadCurso.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errCurso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,5 +205,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNomeCurso;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errCurso;
     }
 }

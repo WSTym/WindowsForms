@@ -1,4 +1,6 @@
-﻿using SistemaEscolar.Views.Cadastro;
+﻿using SistemaEscolar.Models;
+using SistemaEscolar.Models.Context;
+using SistemaEscolar.Views.Cadastro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +34,7 @@ namespace SistemaEscolar.Views
             pnlCadTurma.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
+            btnCadastrar.Enabled = true;
             cbCurso.Focus();
         }
 
@@ -43,7 +46,20 @@ namespace SistemaEscolar.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            //if (FormHelper.CheckEmptyField(cbCurso, errTurma)) return;
+            if (FormHelper.CheckEmptyField(txtAnoTurma, errTurma)) return;
+            if (FormHelper.CheckEmptyField(rbSemestre1, errTurma)) return;
+            if (FormHelper.CheckEmptyField(cbHorario, errTurma)) return;
 
+            using (Context context = new Context())
+            {
+                context.Turmas.Add(new Turma()
+                {
+                    //Curso = cbCurso.Text,
+                    Ano = int.Parse(txtAnoTurma.Text),
+                    Horario = cbHorario.Text
+                });
+            }
         }
 
         #region Limpa os TextBoxes

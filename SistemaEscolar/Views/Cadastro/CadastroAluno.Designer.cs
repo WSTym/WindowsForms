@@ -46,6 +46,10 @@
             this.txtEnderecoAluno = new System.Windows.Forms.TextBox();
             this.txtTelefoneAluno = new System.Windows.Forms.MaskedTextBox();
             this.errAluno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbCurso = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCPFAluno = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlCadastroAluno.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -65,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 95);
+            this.label2.Location = new System.Drawing.Point(50, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 0;
@@ -74,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 130);
+            this.label3.Location = new System.Drawing.Point(50, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 0;
@@ -83,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 165);
+            this.label4.Location = new System.Drawing.Point(50, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 0;
@@ -161,9 +165,13 @@
             // 
             // pnlCadAluno
             // 
+            this.pnlCadAluno.Controls.Add(this.cbCurso);
             this.pnlCadAluno.Controls.Add(this.label1);
+            this.pnlCadAluno.Controls.Add(this.label6);
             this.pnlCadAluno.Controls.Add(this.txtNomeAluno);
+            this.pnlCadAluno.Controls.Add(this.label7);
             this.pnlCadAluno.Controls.Add(this.label2);
+            this.pnlCadAluno.Controls.Add(this.txtCPFAluno);
             this.pnlCadAluno.Controls.Add(this.txtDataNascAluno);
             this.pnlCadAluno.Controls.Add(this.label3);
             this.pnlCadAluno.Controls.Add(this.txtEnderecoAluno);
@@ -186,7 +194,7 @@
             // 
             // txtDataNascAluno
             // 
-            this.txtDataNascAluno.Location = new System.Drawing.Point(153, 92);
+            this.txtDataNascAluno.Location = new System.Drawing.Point(153, 91);
             this.txtDataNascAluno.Mask = "00/00/0000";
             this.txtDataNascAluno.Name = "txtDataNascAluno";
             this.txtDataNascAluno.Size = new System.Drawing.Size(63, 20);
@@ -195,7 +203,7 @@
             // 
             // txtEnderecoAluno
             // 
-            this.txtEnderecoAluno.Location = new System.Drawing.Point(153, 127);
+            this.txtEnderecoAluno.Location = new System.Drawing.Point(153, 159);
             this.txtEnderecoAluno.MaxLength = 50;
             this.txtEnderecoAluno.Name = "txtEnderecoAluno";
             this.txtEnderecoAluno.Size = new System.Drawing.Size(200, 20);
@@ -203,7 +211,7 @@
             // 
             // txtTelefoneAluno
             // 
-            this.txtTelefoneAluno.Location = new System.Drawing.Point(153, 162);
+            this.txtTelefoneAluno.Location = new System.Drawing.Point(153, 193);
             this.txtTelefoneAluno.Mask = "(99) 00000-0000";
             this.txtTelefoneAluno.Name = "txtTelefoneAluno";
             this.txtTelefoneAluno.Size = new System.Drawing.Size(84, 20);
@@ -212,6 +220,40 @@
             // errAluno
             // 
             this.errAluno.ContainerControl = this;
+            // 
+            // cbCurso
+            // 
+            this.cbCurso.FormattingEnabled = true;
+            this.cbCurso.Location = new System.Drawing.Point(153, 227);
+            this.cbCurso.Name = "cbCurso";
+            this.cbCurso.Size = new System.Drawing.Size(200, 21);
+            this.cbCurso.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 230);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Turma:";
+            // 
+            // txtCPFAluno
+            // 
+            this.txtCPFAluno.Location = new System.Drawing.Point(153, 125);
+            this.txtCPFAluno.Mask = "000.000.000-00";
+            this.txtCPFAluno.Name = "txtCPFAluno";
+            this.txtCPFAluno.Size = new System.Drawing.Size(84, 20);
+            this.txtCPFAluno.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(50, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "CPF:";
             // 
             // CadastroAluno
             // 
@@ -255,5 +297,9 @@
         private System.Windows.Forms.MaskedTextBox txtDataNascAluno;
         private System.Windows.Forms.TextBox txtEnderecoAluno;
         private System.Windows.Forms.ErrorProvider errAluno;
+        private System.Windows.Forms.ComboBox cbCurso;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox txtCPFAluno;
     }
 }

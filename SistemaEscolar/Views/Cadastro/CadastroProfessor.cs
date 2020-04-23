@@ -58,7 +58,7 @@ namespace SistemaEscolar.Views
                     Nome = txtNomeProfessor.Text,
                     DataNascimento = txtDataNascProfessor.Text,
                     Edereco = txtEnderecoProfessor.Text,
-                    Telefone = long.Parse(txtTelefoneProfessor.Text),
+                    Telefone = txtTelefoneProfessor.Text,
                     Capacitacao = txtCapacitacao.Text
                 });
             }

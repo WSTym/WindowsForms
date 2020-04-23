@@ -32,15 +32,20 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastro = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCadastroAluno = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCadastroProfessor = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroCurso = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroTurma = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroDisciplina = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroAvaliacao = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroProfessor = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroAluno = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLancamentoDeNotas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBusca = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBuscaAluno = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBuscaProfessor = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBuscaCurso = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBuscaTurma = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBuscaDisciplina = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBuscaAvaliacao = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBuscaProfessor = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBuscaAluno = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -86,10 +91,13 @@
             // menuCadastro
             // 
             this.menuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCadastroAluno,
+            this.menuCadastroCurso,
+            this.menuCadastroTurma,
+            this.menuCadastroDisciplina,
+            this.menuCadastroAvaliacao,
             this.menuCadastroProfessor,
-            this.cursoToolStripMenuItem,
-            this.menuCadastroTurma});
+            this.menuCadastroAluno,
+            this.menuLancamentoDeNotas});
             this.menuCadastro.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuCadastro.Image = global::SistemaEscolar.Properties.Resources.plus;
             this.menuCadastro.Name = "menuCadastro";
@@ -97,74 +105,111 @@
             this.menuCadastro.Size = new System.Drawing.Size(100, 25);
             this.menuCadastro.Text = "Cadastro";
             // 
-            // menuCadastroAluno
+            // menuCadastroCurso
             // 
-            this.menuCadastroAluno.Name = "menuCadastroAluno";
-            this.menuCadastroAluno.Size = new System.Drawing.Size(146, 26);
-            this.menuCadastroAluno.Text = "Aluno";
-            this.menuCadastroAluno.Click += new System.EventHandler(this.menuCadastroAluno_Click);
-            // 
-            // menuCadastroProfessor
-            // 
-            this.menuCadastroProfessor.Name = "menuCadastroProfessor";
-            this.menuCadastroProfessor.Size = new System.Drawing.Size(146, 26);
-            this.menuCadastroProfessor.Text = "Professor";
-            this.menuCadastroProfessor.Click += new System.EventHandler(this.menuCadastroProfessor_Click);
-            // 
-            // cursoToolStripMenuItem
-            // 
-            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
-            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.cursoToolStripMenuItem.Text = "Curso";
-            this.cursoToolStripMenuItem.Click += new System.EventHandler(this.cursoToolStripMenuItem_Click);
+            this.menuCadastroCurso.Name = "menuCadastroCurso";
+            this.menuCadastroCurso.Size = new System.Drawing.Size(231, 26);
+            this.menuCadastroCurso.Text = "Curso";
+            this.menuCadastroCurso.Click += new System.EventHandler(this.menuCadastroCurso_Click);
             // 
             // menuCadastroTurma
             // 
             this.menuCadastroTurma.Name = "menuCadastroTurma";
-            this.menuCadastroTurma.Size = new System.Drawing.Size(146, 26);
+            this.menuCadastroTurma.Size = new System.Drawing.Size(231, 26);
             this.menuCadastroTurma.Text = "Turma";
             this.menuCadastroTurma.Click += new System.EventHandler(this.menuCadastroTurma_Click);
+            // 
+            // menuCadastroDisciplina
+            // 
+            this.menuCadastroDisciplina.Name = "menuCadastroDisciplina";
+            this.menuCadastroDisciplina.Size = new System.Drawing.Size(231, 26);
+            this.menuCadastroDisciplina.Text = "Disciplina";
+            this.menuCadastroDisciplina.Click += new System.EventHandler(this.menuCadastroDisciplina_Click);
+            // 
+            // menuCadastroAvaliacao
+            // 
+            this.menuCadastroAvaliacao.Name = "menuCadastroAvaliacao";
+            this.menuCadastroAvaliacao.Size = new System.Drawing.Size(231, 26);
+            this.menuCadastroAvaliacao.Text = "Avaliação";
+            this.menuCadastroAvaliacao.Click += new System.EventHandler(this.menuCadastroAvaliacao_Click);
+            // 
+            // menuCadastroProfessor
+            // 
+            this.menuCadastroProfessor.Name = "menuCadastroProfessor";
+            this.menuCadastroProfessor.Size = new System.Drawing.Size(231, 26);
+            this.menuCadastroProfessor.Text = "Professor";
+            this.menuCadastroProfessor.Click += new System.EventHandler(this.menuCadastroProfessor_Click);
+            // 
+            // menuCadastroAluno
+            // 
+            this.menuCadastroAluno.Name = "menuCadastroAluno";
+            this.menuCadastroAluno.Size = new System.Drawing.Size(231, 26);
+            this.menuCadastroAluno.Text = "Aluno";
+            this.menuCadastroAluno.Click += new System.EventHandler(this.menuCadastroAluno_Click);
+            // 
+            // menuLancamentoDeNotas
+            // 
+            this.menuLancamentoDeNotas.Name = "menuLancamentoDeNotas";
+            this.menuLancamentoDeNotas.Size = new System.Drawing.Size(231, 26);
+            this.menuLancamentoDeNotas.Text = "Lançamento de Notas";
+            this.menuLancamentoDeNotas.Click += new System.EventHandler(this.menuLancamentoDeNotas_Click);
             // 
             // menuBusca
             // 
             this.menuBusca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuBuscaAluno,
+            this.menuBuscaCurso,
+            this.menuBuscaTurma,
+            this.menuBuscaDisciplina,
+            this.menuBuscaAvaliacao,
             this.menuBuscaProfessor,
-            this.cursoToolStripMenuItem1,
-            this.menuBuscaTurma});
+            this.menuBuscaAluno});
             this.menuBusca.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuBusca.Image = global::SistemaEscolar.Properties.Resources.find;
             this.menuBusca.Name = "menuBusca";
             this.menuBusca.Size = new System.Drawing.Size(78, 25);
             this.menuBusca.Text = "Busca";
             // 
-            // menuBuscaAluno
+            // menuBuscaCurso
             // 
-            this.menuBuscaAluno.Name = "menuBuscaAluno";
-            this.menuBuscaAluno.Size = new System.Drawing.Size(146, 26);
-            this.menuBuscaAluno.Text = "Aluno";
-            this.menuBuscaAluno.Click += new System.EventHandler(this.menuBuscaAluno_Click);
-            // 
-            // menuBuscaProfessor
-            // 
-            this.menuBuscaProfessor.Name = "menuBuscaProfessor";
-            this.menuBuscaProfessor.Size = new System.Drawing.Size(146, 26);
-            this.menuBuscaProfessor.Text = "Professor";
-            this.menuBuscaProfessor.Click += new System.EventHandler(this.menuBuscaProfessor_Click);
-            // 
-            // cursoToolStripMenuItem1
-            // 
-            this.cursoToolStripMenuItem1.Name = "cursoToolStripMenuItem1";
-            this.cursoToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
-            this.cursoToolStripMenuItem1.Text = "Curso";
-            this.cursoToolStripMenuItem1.Click += new System.EventHandler(this.cursoToolStripMenuItem1_Click);
+            this.menuBuscaCurso.Name = "menuBuscaCurso";
+            this.menuBuscaCurso.Size = new System.Drawing.Size(180, 26);
+            this.menuBuscaCurso.Text = "Curso";
+            this.menuBuscaCurso.Click += new System.EventHandler(this.menuBuscaCurso_Click);
             // 
             // menuBuscaTurma
             // 
             this.menuBuscaTurma.Name = "menuBuscaTurma";
-            this.menuBuscaTurma.Size = new System.Drawing.Size(146, 26);
+            this.menuBuscaTurma.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaTurma.Text = "Turma";
             this.menuBuscaTurma.Click += new System.EventHandler(this.menuBuscaTurma_Click);
+            // 
+            // menuBuscaDisciplina
+            // 
+            this.menuBuscaDisciplina.Name = "menuBuscaDisciplina";
+            this.menuBuscaDisciplina.Size = new System.Drawing.Size(180, 26);
+            this.menuBuscaDisciplina.Text = "Disciplina";
+            this.menuBuscaDisciplina.Click += new System.EventHandler(this.menuBuscaDisciplina_Click);
+            // 
+            // menuBuscaAvaliacao
+            // 
+            this.menuBuscaAvaliacao.Name = "menuBuscaAvaliacao";
+            this.menuBuscaAvaliacao.Size = new System.Drawing.Size(180, 26);
+            this.menuBuscaAvaliacao.Text = "Avaliação";
+            this.menuBuscaAvaliacao.Click += new System.EventHandler(this.menuBuscaAvaliacao_Click);
+            // 
+            // menuBuscaProfessor
+            // 
+            this.menuBuscaProfessor.Name = "menuBuscaProfessor";
+            this.menuBuscaProfessor.Size = new System.Drawing.Size(180, 26);
+            this.menuBuscaProfessor.Text = "Professor";
+            this.menuBuscaProfessor.Click += new System.EventHandler(this.menuBuscaProfessor_Click);
+            // 
+            // menuBuscaAluno
+            // 
+            this.menuBuscaAluno.Name = "menuBuscaAluno";
+            this.menuBuscaAluno.Size = new System.Drawing.Size(180, 26);
+            this.menuBuscaAluno.Text = "Aluno";
+            this.menuBuscaAluno.Click += new System.EventHandler(this.menuBuscaAluno_Click);
             // 
             // ajudaToolStripMenuItem
             // 
@@ -311,7 +356,12 @@
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.PictureBox imgMinimizar;
         private System.Windows.Forms.ToolStripMenuItem menuHome;
-        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuCadastroCurso;
+        private System.Windows.Forms.ToolStripMenuItem menuBuscaCurso;
+        private System.Windows.Forms.ToolStripMenuItem menuCadastroDisciplina;
+        private System.Windows.Forms.ToolStripMenuItem menuCadastroAvaliacao;
+        private System.Windows.Forms.ToolStripMenuItem menuBuscaDisciplina;
+        private System.Windows.Forms.ToolStripMenuItem menuBuscaAvaliacao;
+        private System.Windows.Forms.ToolStripMenuItem menuLancamentoDeNotas;
     }
 }

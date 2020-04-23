@@ -10,17 +10,12 @@ namespace SistemaEscolar.Models
         [Key]
         public int Id { get; set; }
         [StringLength(50)]
-        public string Descricao { get; set; }
+        public string Tema { get; set; }
         public float Valor { get; set; }
         public string Data { get; set; }
-        public List<float> Notas { get; set; }
-        public bool Falta { get; set; }
         [ForeignKey("Disciplina")]
         public int DisciplinaId { get; set; }
-        [ForeignKey("Aluno")]
-        public int AlunoId { get; set; }
         public virtual Disciplina Disciplina { get; set; }
-        public virtual Aluno Aluno { get; set; }
 
         /*public string verificaSituacaoAluno(List<float> notas)
         {

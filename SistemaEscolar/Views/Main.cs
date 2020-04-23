@@ -16,21 +16,26 @@ namespace SistemaEscolar
 
         #region Opções da barra de munus
 
+        // Cadastro
         private void menuHome_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
-            main.Show();
-            this.Dispose(false);
+            pnlMain.Controls.Remove(_form);
+            pnlLogo.Show();
+        }
+        private void menuCadastroCurso_Click(object sender, EventArgs e)
+        {
+            OpenForm(new CadastroCurso());
+            pnlLogo.Hide();
+        }
+        private void menuCadastroTurma_Click(object sender, EventArgs e)
+        {
+            OpenForm(new CadastroTurma());
+            pnlLogo.Hide();
         }
 
-        private void menuSair_Click(object sender, EventArgs e)
+        private void menuCadastroDisciplina_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void menuCadastroAluno_Click(object sender, EventArgs e)
-        {
-            OpenForm(new CadastroAluno());
+            OpenForm(new CadastroDisciplina());
             pnlLogo.Hide();
         }
 
@@ -40,31 +45,27 @@ namespace SistemaEscolar
             pnlLogo.Hide();
         }
 
-        private void cursoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuCadastroAluno_Click(object sender, EventArgs e)
         {
-            OpenForm(new CadastroCurso());
+            OpenForm(new CadastroAluno());
             pnlLogo.Hide();
         }
 
-        private void menuCadastroTurma_Click(object sender, EventArgs e)
+        private void menuCadastroAvaliacao_Click(object sender, EventArgs e)
         {
-            OpenForm(new CadastroTurma());
+            OpenForm(new CadastroAvalicacao());
             pnlLogo.Hide();
         }
 
-        private void menuBuscaAluno_Click(object sender, EventArgs e)
+        private void menuLancamentoDeNotas_Click(object sender, EventArgs e)
         {
-            OpenForm(new BuscaAluno());
+            OpenForm(new CadastroNotas());
             pnlLogo.Hide();
         }
 
-        private void menuBuscaProfessor_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaProfessor());
-            pnlLogo.Hide();
-        }
 
-        private void cursoToolStripMenuItem1_Click(object sender, EventArgs e)
+        // Busca
+        private void menuBuscaCurso_Click(object sender, EventArgs e)
         {
             OpenForm(new BuscaCurso());
             pnlLogo.Hide();
@@ -75,12 +76,37 @@ namespace SistemaEscolar
             OpenForm(new BuscaTurma());
             pnlLogo.Hide();
         }
+        private void menuBuscaDisciplina_Click(object sender, EventArgs e)
+        {
+            OpenForm(new BuscaDisciplina());
+            pnlLogo.Hide();
+        }
 
+        private void menuBuscaProfessor_Click(object sender, EventArgs e)
+        {
+            OpenForm(new BuscaProfessor());
+            pnlLogo.Hide();
+        }
+
+        private void menuBuscaAluno_Click(object sender, EventArgs e)
+        {
+            OpenForm(new BuscaAluno());
+            pnlLogo.Hide();
+        }
+
+        private void menuBuscaAvaliacao_Click(object sender, EventArgs e)
+        {
+            OpenForm(new BuscaAvaliacao());
+            pnlLogo.Hide();
+        }
+
+        // Sobre
         private void menuSobre_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this, "CRUD Sistema Escolar \n\nVersão 1.0 \n\n© 2020 Tym \n\nTodos os direitos reservados", "Sobre", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // Botões
         private void imgMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -128,7 +154,6 @@ namespace SistemaEscolar
             if (e.Button == MouseButtons.Left)
                 mover = false;
         }
-
 
         private void pmenuStrip1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
         {

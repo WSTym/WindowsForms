@@ -16,6 +16,8 @@ namespace SistemaEscolar.Models
         public int Id { get; set; }
         [StringLength(30)]
         public string Nome { get; set; }
+        public int CargaHoraria { get; set; }
+        public int AulasSemanais { get; set; }
         [ForeignKey("Turma")]
         public int TurmaId { get; set; }
         public virtual Turma Turma { get; set; }

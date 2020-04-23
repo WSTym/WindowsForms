@@ -48,6 +48,8 @@
             this.txtNomeProfessor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.errProfessor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCPFProfessor = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -67,7 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 165);
+            this.label4.Location = new System.Drawing.Point(50, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 0;
@@ -76,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 95);
+            this.label2.Location = new System.Drawing.Point(50, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 0;
@@ -85,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 130);
+            this.label3.Location = new System.Drawing.Point(50, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 0;
@@ -163,6 +165,8 @@
             // 
             // pnlCadProfessor
             // 
+            this.pnlCadProfessor.Controls.Add(this.label7);
+            this.pnlCadProfessor.Controls.Add(this.txtCPFProfessor);
             this.pnlCadProfessor.Controls.Add(this.txtTelefoneProfessor);
             this.pnlCadProfessor.Controls.Add(this.txtDataNascProfessor);
             this.pnlCadProfessor.Controls.Add(this.txtCapacitacao);
@@ -181,7 +185,7 @@
             // 
             // txtTelefoneProfessor
             // 
-            this.txtTelefoneProfessor.Location = new System.Drawing.Point(153, 162);
+            this.txtTelefoneProfessor.Location = new System.Drawing.Point(153, 193);
             this.txtTelefoneProfessor.Mask = "(99) 00000-0000";
             this.txtTelefoneProfessor.Name = "txtTelefoneProfessor";
             this.txtTelefoneProfessor.Size = new System.Drawing.Size(84, 20);
@@ -189,7 +193,7 @@
             // 
             // txtDataNascProfessor
             // 
-            this.txtDataNascProfessor.Location = new System.Drawing.Point(153, 92);
+            this.txtDataNascProfessor.Location = new System.Drawing.Point(153, 91);
             this.txtDataNascProfessor.Mask = "00/00/0000";
             this.txtDataNascProfessor.Name = "txtDataNascProfessor";
             this.txtDataNascProfessor.Size = new System.Drawing.Size(63, 20);
@@ -198,7 +202,7 @@
             // 
             // txtCapacitacao
             // 
-            this.txtCapacitacao.Location = new System.Drawing.Point(153, 197);
+            this.txtCapacitacao.Location = new System.Drawing.Point(153, 227);
             this.txtCapacitacao.MaxLength = 50;
             this.txtCapacitacao.Name = "txtCapacitacao";
             this.txtCapacitacao.Size = new System.Drawing.Size(200, 20);
@@ -206,7 +210,7 @@
             // 
             // txtEnderecoProfessor
             // 
-            this.txtEnderecoProfessor.Location = new System.Drawing.Point(153, 127);
+            this.txtEnderecoProfessor.Location = new System.Drawing.Point(153, 159);
             this.txtEnderecoProfessor.MaxLength = 50;
             this.txtEnderecoProfessor.Name = "txtEnderecoProfessor";
             this.txtEnderecoProfessor.Size = new System.Drawing.Size(200, 20);
@@ -223,7 +227,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 200);
+            this.label6.Location = new System.Drawing.Point(50, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 0;
@@ -232,6 +236,23 @@
             // errProfessor
             // 
             this.errProfessor.ContainerControl = this;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(50, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "CPF:";
+            // 
+            // txtCPFProfessor
+            // 
+            this.txtCPFProfessor.Location = new System.Drawing.Point(153, 125);
+            this.txtCPFProfessor.Mask = "000.000.000-00";
+            this.txtCPFProfessor.Name = "txtCPFProfessor";
+            this.txtCPFProfessor.Size = new System.Drawing.Size(84, 20);
+            this.txtCPFProfessor.TabIndex = 4;
             // 
             // CadastroProfessor
             // 
@@ -277,5 +298,7 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadProfessor;
         private System.Windows.Forms.ErrorProvider errProfessor;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox txtCPFProfessor;
     }
 }

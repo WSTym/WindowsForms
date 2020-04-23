@@ -2,7 +2,6 @@
 using SistemaEscolar.Models.Context;
 using SistemaEscolar.Views.Cadastro;
 using System;
-using System.Data.Entity;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
@@ -51,7 +50,7 @@ namespace SistemaEscolar.Views
                     Nome = txtNomeAluno.Text,
                     DataNascimento = txtDataNascAluno.Text,
                     Edereco = txtEnderecoAluno.Text,
-                    Telefone = long.Parse(txtTelefoneAluno.Text)
+                    Telefone = txtTelefoneAluno.Text
                 });
             }
         }

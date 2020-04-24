@@ -1,6 +1,6 @@
 ﻿namespace SistemaEscolar.Views
 {
-    partial class CadastroTurma
+    partial class Turma
     {
         /// <summary>
         /// Required designer variable.

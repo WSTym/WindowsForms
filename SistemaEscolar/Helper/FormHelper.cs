@@ -1,8 +1,8 @@
 ﻿using System.Media;
 using System.Windows.Forms;
 
-namespace SistemaEscolar.Views.Cadastro
-{
+namespace SistemaEscolar.Helper
+{ 
     public class FormHelper
     {
         public static void SetTextEmpty(Control control)

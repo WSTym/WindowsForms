@@ -1,22 +1,14 @@
-﻿using SistemaEscolar.Models;
+﻿using SistemaEscolar.Helper;
 using SistemaEscolar.Models.Context;
-using SistemaEscolar.Views.Cadastro;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class CadastroTurma : Form
+    public partial class Turma : Form
     {
-        public CadastroTurma()
+        public Turma()
         {
             InitializeComponent();
         }
@@ -53,7 +45,7 @@ namespace SistemaEscolar.Views
 
             using (Context context = new Context())
             {
-                context.Turmas.Add(new Turma()
+                context.Turmas.Add(new Models.Turma()
                 {
                     //Curso = cbCurso.Text,
                     Ano = int.Parse(txtAnoTurma.Text),

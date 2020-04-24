@@ -1,20 +1,13 @@
-﻿using SistemaEscolar.Models.Context;
-using SistemaEscolar.Views.Cadastro;
+﻿using SistemaEscolar.Helper;
+using SistemaEscolar.Models.Context;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class CadastroProfessor : Form
+    public partial class Professor : Form
     {
-        public CadastroProfessor()
+        public Professor()
         {
             InitializeComponent();
         }
@@ -53,7 +46,7 @@ namespace SistemaEscolar.Views
 
             using (Context context = new Context())
             {
-                context.Professores.Add(new Professor()
+                context.Professores.Add(new Models.Professor()
                 {
                     Nome = txtNomeProfessor.Text,
                     DataNascimento = txtDataNascProfessor.Text,

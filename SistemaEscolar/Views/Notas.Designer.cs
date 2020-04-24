@@ -1,4 +1,4 @@
-﻿namespace SistemaEscolar.Views.Cadastro
+﻿namespace SistemaEscolar.Views
 {
     partial class CadastroNotas
     {

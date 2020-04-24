@@ -1,15 +1,14 @@
 ﻿using SistemaEscolar.Views;
-using SistemaEscolar.Views.Busca;
 using SistemaEscolar.Views.Cadastro;
 using System;
 using System.Windows.Forms;
 
 namespace SistemaEscolar
 {
-    public partial class Main : Form
+    public partial class SistemaEscolar : Form
     {
         Form _form;
-        public Main()
+        public SistemaEscolar()
         {
             InitializeComponent();
         }
@@ -29,7 +28,7 @@ namespace SistemaEscolar
         }
         private void menuCadastroTurma_Click(object sender, EventArgs e)
         {
-            OpenForm(new CadastroTurma());
+            OpenForm(new Turma());
             pnlLogo.Hide();
         }
 
@@ -41,13 +40,13 @@ namespace SistemaEscolar
 
         private void menuCadastroProfessor_Click(object sender, EventArgs e)
         {
-            OpenForm(new CadastroProfessor());
+            OpenForm(new Views.Professor());
             pnlLogo.Hide();
         }
 
         private void menuCadastroAluno_Click(object sender, EventArgs e)
         {
-            OpenForm(new CadastroAluno());
+            OpenForm(new Aluno());
             pnlLogo.Hide();
         }
 
@@ -65,40 +64,6 @@ namespace SistemaEscolar
 
 
         // Busca
-        private void menuBuscaCurso_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaCurso());
-            pnlLogo.Hide();
-        }
-
-        private void menuBuscaTurma_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaTurma());
-            pnlLogo.Hide();
-        }
-        private void menuBuscaDisciplina_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaDisciplina());
-            pnlLogo.Hide();
-        }
-
-        private void menuBuscaProfessor_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaProfessor());
-            pnlLogo.Hide();
-        }
-
-        private void menuBuscaAluno_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaAluno());
-            pnlLogo.Hide();
-        }
-
-        private void menuBuscaAvaliacao_Click(object sender, EventArgs e)
-        {
-            OpenForm(new BuscaAvaliacao());
-            pnlLogo.Hide();
-        }
 
         // Sobre
         private void menuSobre_Click(object sender, EventArgs e)

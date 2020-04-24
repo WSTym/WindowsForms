@@ -1,4 +1,5 @@
-﻿using SistemaEscolar.Models;
+﻿using SistemaEscolar.Helper;
+using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using SistemaEscolar.Views.Cadastro;
 using System;
@@ -6,9 +7,9 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class CadastroAluno : Form
+    public partial class Aluno : Form
     {
-        public CadastroAluno()
+        public Aluno()
         {
             InitializeComponent();
         }
@@ -46,7 +47,7 @@ namespace SistemaEscolar.Views
 
             using (Context context = new Context())
             {
-                context.Alunos.Add(new Aluno() { 
+                context.Alunos.Add(new Models.Aluno() { 
                     Nome = txtNomeAluno.Text,
                     DataNascimento = txtDataNascAluno.Text,
                     Edereco = txtEnderecoAluno.Text,

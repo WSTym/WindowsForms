@@ -1,11 +1,12 @@
-﻿using SistemaEscolar.Models;
+﻿using SistemaEscolar.Helper;
+using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace SistemaEscolar.Views.Cadastro
-{
+namespace SistemaEscolar.Views
+{ 
     public partial class CadastroCurso : Form
     {
         public CadastroCurso()

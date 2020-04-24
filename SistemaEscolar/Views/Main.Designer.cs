@@ -1,6 +1,6 @@
 ﻿namespace SistemaEscolar
 {
-    partial class Main
+    partial class SistemaEscolar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SistemaEscolar));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuHome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastro = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,42 +174,35 @@
             this.menuBuscaCurso.Name = "menuBuscaCurso";
             this.menuBuscaCurso.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaCurso.Text = "Curso";
-            this.menuBuscaCurso.Click += new System.EventHandler(this.menuBuscaCurso_Click);
             // 
             // menuBuscaTurma
             // 
             this.menuBuscaTurma.Name = "menuBuscaTurma";
             this.menuBuscaTurma.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaTurma.Text = "Turma";
-            this.menuBuscaTurma.Click += new System.EventHandler(this.menuBuscaTurma_Click);
             // 
             // menuBuscaDisciplina
             // 
             this.menuBuscaDisciplina.Name = "menuBuscaDisciplina";
             this.menuBuscaDisciplina.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaDisciplina.Text = "Disciplina";
-            this.menuBuscaDisciplina.Click += new System.EventHandler(this.menuBuscaDisciplina_Click);
-            // 
             // menuBuscaAvaliacao
             // 
             this.menuBuscaAvaliacao.Name = "menuBuscaAvaliacao";
             this.menuBuscaAvaliacao.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaAvaliacao.Text = "Avaliação";
-            this.menuBuscaAvaliacao.Click += new System.EventHandler(this.menuBuscaAvaliacao_Click);
             // 
             // menuBuscaProfessor
             // 
             this.menuBuscaProfessor.Name = "menuBuscaProfessor";
             this.menuBuscaProfessor.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaProfessor.Text = "Professor";
-            this.menuBuscaProfessor.Click += new System.EventHandler(this.menuBuscaProfessor_Click);
             // 
             // menuBuscaAluno
             // 
             this.menuBuscaAluno.Name = "menuBuscaAluno";
             this.menuBuscaAluno.Size = new System.Drawing.Size(180, 26);
             this.menuBuscaAluno.Text = "Aluno";
-            this.menuBuscaAluno.Click += new System.EventHandler(this.menuBuscaAluno_Click);
             // 
             // ajudaToolStripMenuItem
             // 

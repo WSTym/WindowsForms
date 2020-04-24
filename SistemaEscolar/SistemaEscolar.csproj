@@ -66,6 +66,15 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data.EntityFramework, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.EntityFramework.8.0.19\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
@@ -100,84 +109,48 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Nota.cs" />
-    <Compile Include="Views\Busca\BuscaAluno.cs">
+    <Compile Include="Views\Aluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaAluno.Designer.cs">
-      <DependentUpon>BuscaAluno.cs</DependentUpon>
+    <Compile Include="Views\Aluno.Designer.cs">
+      <DependentUpon>Aluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Busca\BuscaAvaliacao.cs">
+    <Compile Include="Views\Avalicacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaAvaliacao.Designer.cs">
-      <DependentUpon>BuscaAvaliacao.cs</DependentUpon>
+    <Compile Include="Views\Avalicacao.Designer.cs">
+      <DependentUpon>Avalicacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Busca\BuscaCurso.cs">
+    <Compile Include="Views\Curso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaCurso.Designer.cs">
-      <DependentUpon>BuscaCurso.cs</DependentUpon>
+    <Compile Include="Views\Curso.Designer.cs">
+      <DependentUpon>Curso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Busca\BuscaDisciplina.cs">
+    <Compile Include="Views\Disciplina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaDisciplina.Designer.cs">
-      <DependentUpon>BuscaDisciplina.cs</DependentUpon>
+    <Compile Include="Views\Disciplina.Designer.cs">
+      <DependentUpon>Disciplina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Busca\BuscaProfessor.cs">
+    <Compile Include="Views\Professor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaProfessor.Designer.cs">
-      <DependentUpon>BuscaProfessor.cs</DependentUpon>
+    <Compile Include="Views\Professor.Designer.cs">
+      <DependentUpon>Professor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Busca\BuscaTurma.cs">
+    <Compile Include="Views\Turma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Busca\BuscaTurma.Designer.cs">
-      <DependentUpon>BuscaTurma.cs</DependentUpon>
+    <Compile Include="Views\Turma.Designer.cs">
+      <DependentUpon>Turma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cadastro\CadastroAluno.cs">
+    <Compile Include="Helper\FormHelper.cs" />
+    <Compile Include="Views\Notas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cadastro\CadastroAluno.Designer.cs">
-      <DependentUpon>CadastroAluno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroAvalicacao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroAvalicacao.Designer.cs">
-      <DependentUpon>CadastroAvalicacao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroCurso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroCurso.Designer.cs">
-      <DependentUpon>CadastroCurso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroDisciplina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroDisciplina.Designer.cs">
-      <DependentUpon>CadastroDisciplina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroProfessor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroProfessor.Designer.cs">
-      <DependentUpon>CadastroProfessor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroTurma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroTurma.Designer.cs">
-      <DependentUpon>CadastroTurma.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastro\FormHelper.cs" />
-    <Compile Include="Views\Cadastro\CadastroNotas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cadastro\CadastroNotas.Designer.cs">
-      <DependentUpon>CadastroNotas.cs</DependentUpon>
+    <Compile Include="Views\Notas.Designer.cs">
+      <DependentUpon>Notas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Main.cs">
       <SubType>Form</SubType>
@@ -194,44 +167,32 @@
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\Busca\BuscaAluno.resx">
-      <DependentUpon>BuscaAluno.cs</DependentUpon>
+    <Compile Include="Views\SistemaEscolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SistemaEscolar.Designer.cs">
+      <DependentUpon>SistemaEscolar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Aluno.resx">
+      <DependentUpon>Aluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Busca\BuscaAvaliacao.resx">
-      <DependentUpon>BuscaAvaliacao.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Avalicacao.resx">
+      <DependentUpon>Avalicacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Busca\BuscaCurso.resx">
-      <DependentUpon>BuscaCurso.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Curso.resx">
+      <DependentUpon>Curso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Busca\BuscaDisciplina.resx">
-      <DependentUpon>BuscaDisciplina.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Disciplina.resx">
+      <DependentUpon>Disciplina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Busca\BuscaProfessor.resx">
-      <DependentUpon>BuscaProfessor.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Professor.resx">
+      <DependentUpon>Professor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Busca\BuscaTurma.resx">
-      <DependentUpon>BuscaTurma.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Turma.resx">
+      <DependentUpon>Turma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroAluno.resx">
-      <DependentUpon>CadastroAluno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroAvalicacao.resx">
-      <DependentUpon>CadastroAvalicacao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroCurso.resx">
-      <DependentUpon>CadastroCurso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroDisciplina.resx">
-      <DependentUpon>CadastroDisciplina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroProfessor.resx">
-      <DependentUpon>CadastroProfessor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroTurma.resx">
-      <DependentUpon>CadastroTurma.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Cadastro\CadastroNotas.resx">
-      <DependentUpon>CadastroNotas.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Notas.resx">
+      <DependentUpon>Notas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -246,6 +207,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\SistemaEscolar.resx">
+      <DependentUpon>SistemaEscolar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

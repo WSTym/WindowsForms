@@ -1,9 +1,10 @@
-﻿using SistemaEscolar.Models;
+﻿using SistemaEscolar.Helper;
+using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
 using System.Windows.Forms;
 
-namespace SistemaEscolar.Views.Cadastro
+namespace SistemaEscolar.Views
 {
     public partial class CadastroDisciplina : Form
     {

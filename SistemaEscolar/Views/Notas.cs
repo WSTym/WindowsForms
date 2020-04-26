@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class CadastroNotas : Form
+    public partial class Notas : Form
     {
-        public CadastroNotas()
+        public Notas()
         {
             InitializeComponent();
         }

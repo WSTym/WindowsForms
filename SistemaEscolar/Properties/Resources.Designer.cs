@@ -63,9 +63,9 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close {
+        internal static System.Drawing.Bitmap a_24 {
             get {
-                object obj = ResourceManager.GetObject("close", resourceCulture);
+                object obj = ResourceManager.GetObject("a-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap find {
+        internal static System.Drawing.Bitmap capelo_24 {
             get {
-                object obj = ResourceManager.GetObject("find", resourceCulture);
+                object obj = ResourceManager.GetObject("capelo-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap help {
+        internal static System.Drawing.Bitmap group_24 {
             get {
-                object obj = ResourceManager.GetObject("help", resourceCulture);
+                object obj = ResourceManager.GetObject("group-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,29 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home {
+        internal static System.Drawing.Bitmap home_5_24 {
             get {
-                object obj = ResourceManager.GetObject("home", resourceCulture);
+                object obj = ResourceManager.GetObject("home-5-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lady_teacher_24 {
+            get {
+                object obj = ResourceManager.GetObject("lady_teacher-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap literature_24 {
+            get {
+                object obj = ResourceManager.GetObject("literature-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +133,9 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mnimize {
+        internal static System.Drawing.Bitmap minus_16 {
             get {
-                object obj = ResourceManager.GetObject("mnimize", resourceCulture);
+                object obj = ResourceManager.GetObject("minus-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +143,39 @@ namespace SistemaEscolar.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap plus {
+        internal static System.Drawing.Bitmap report_3_24 {
             get {
-                object obj = ResourceManager.GetObject("plus", resourceCulture);
+                object obj = ResourceManager.GetObject("report-3-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_2_16 {
+            get {
+                object obj = ResourceManager.GetObject("search-2-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap student_24 {
+            get {
+                object obj = ResourceManager.GetObject("student-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_mark_16 {
+            get {
+                object obj = ResourceManager.GetObject("x-mark-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

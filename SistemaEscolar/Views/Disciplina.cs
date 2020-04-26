@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class CadastroDisciplina : Form
+    public partial class Disciplina : Form
     {
-        public CadastroDisciplina()
+        public Disciplina()
         {
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace SistemaEscolar.Views
 
             using (Context context = new Context())
             {
-                context.Disciplinas.Add(new Disciplina()
+                context.Disciplinas.Add(new Models.Disciplina()
                 {
                     Nome = txtNomeDisciplina.Text,
                     CargaHoraria = int.Parse(txtCargaHoraria.Text),

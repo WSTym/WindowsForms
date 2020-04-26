@@ -1,6 +1,6 @@
 ﻿namespace SistemaEscolar.Views
 {
-    partial class CadastroDisciplina
+    partial class Disciplina
     {
         /// <summary>
         /// Required designer variable.

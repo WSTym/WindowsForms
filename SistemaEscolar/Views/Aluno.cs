@@ -1,7 +1,5 @@
 ﻿using SistemaEscolar.Helper;
-using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
-using SistemaEscolar.Views.Cadastro;
 using System;
 using System.Windows.Forms;
 
@@ -16,15 +14,17 @@ namespace SistemaEscolar.Views
 
         private void CadastroAluno_Load(object sender, EventArgs e)
         {
-            pnlCadAluno.Enabled = false;
+            pnlCadstro.Enabled = false;
             btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnDeletar.Enabled = false;
             btnCancelar.Enabled = false;
             btnCadastrar.Enabled = false;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadAluno.Enabled = true;
+            pnlCadstro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;
@@ -61,7 +61,22 @@ namespace SistemaEscolar.Views
         {
             FormHelper.SetTextEmpty(this);
         }
-        
+
         #endregion
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

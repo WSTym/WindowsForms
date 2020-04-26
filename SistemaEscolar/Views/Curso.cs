@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 { 
-    public partial class CadastroCurso : Form
+    public partial class Curso : Form
     {
-        public CadastroCurso()
+        public Curso()
         {
             InitializeComponent();
         }
@@ -43,7 +43,7 @@ namespace SistemaEscolar.Views
             if (FormHelper.CheckEmptyField(txtCargaHoraria, errCurso)) return;
             using (Context context = new Context())
             {
-                context.Cursos.Add(new Curso()
+                context.Cursos.Add(new Models.Curso()
                 {
                     Nome = txtNomeCurso.Text,
                     CargaHoaria = int.Parse(txtCargaHoraria.Text)

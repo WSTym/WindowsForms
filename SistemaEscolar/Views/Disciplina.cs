@@ -15,7 +15,7 @@ namespace SistemaEscolar.Views
 
         private void CadastroDisciplina_Load(object sender, EventArgs e)
         {
-            pnlCadDisciplina.Enabled = false;
+            pnlCadastro.Enabled = false;
             btnNovo.Enabled = true;
             btnCancelar.Enabled = false;
             btnCadastrar.Enabled = false;
@@ -23,7 +23,7 @@ namespace SistemaEscolar.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadDisciplina.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;

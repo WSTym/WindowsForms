@@ -1,12 +1,12 @@
 ﻿using SistemaEscolar.Helper;
-using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
-using System.Text.RegularExpressions;
+using System.Data.Entity;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
-{ 
+{
     public partial class Curso : Form
     {
         public Curso()
@@ -14,43 +14,109 @@ namespace SistemaEscolar.Views
             InitializeComponent();
         }
 
-        private void CadastroCurso_Load(object sender, EventArgs e)
+        private void Curso_Load(object sender, EventArgs e)
         {
-            pnlCadCurso.Enabled = false;
+            using (Context context = new Context())
+            {
+                cursoBindingSource.DataSource = context.Cursos.ToList();
+            }
+
+            Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+            if (curso != null)
+            {
+                btnEditar.Enabled = true;
+                btnDeletar.Enabled = true;
+            }
+            else
+            {
+                btnEditar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
             btnNovo.Enabled = true;
             btnCancelar.Enabled = false;
-            btnCadastrar.Enabled = false;
+            btnSalvar.Enabled = false;
+            pnlCadastro.Enabled = false;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadCurso.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
-            btnCadastrar.Enabled = true;
+            btnSalvar.Enabled = true;
+            cursoBindingSource.Add(new Models.Curso());
+            cursoBindingSource.MoveLast();
+            btnNovo.Enabled = true;
             txtNomeCurso.Focus();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            btnNovo.Enabled = false;
+            btnDeletar.Enabled = false;
+            btnCancelar.Enabled = true;
+            btnSalvar.Enabled = true;
+            pnlCadastro.Enabled = true;
+            txtNomeCurso.Focus();
+            btnEditar.Enabled = false;
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Tem certeza que deseja deletar este curso?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                using (Context context = new Context())
+                {
+                    Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                    if (curso != null)
+                    {
+                        if (context.Entry<Models.Curso>(curso).State == EntityState.Detached)
+                            context.Set<Models.Curso>().Attach(curso);
+                        context.Entry<Models.Curso>(curso).State = EntityState.Deleted;
+                        context.SaveChanges();
+                        MessageBox.Show(this, "Curso deletado com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cursoBindingSource.RemoveCurrent();
+                        dgvCurso.Refresh();
+                        Curso_Load(new object(), new EventArgs());
+                        pnlCadastro.Enabled = false;
+                    }
+                }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             CleanForm();
-            CadastroCurso_Load(new object(), new EventArgs());
+            errCurso.Clear();
+            cursoBindingSource.ResetBindings(false);
+            Curso_Load(new object(), new EventArgs());
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (FormHelper.CheckEmptyField(txtNomeCurso, errCurso)) return;
+            if (FormHelper.CheckEmptyField(txtDescricao, errCurso)) return;
             if (FormHelper.CheckEmptyField(txtCargaHoraria, errCurso)) return;
             using (Context context = new Context())
             {
-                context.Cursos.Add(new Models.Curso()
-                {
-                    Nome = txtNomeCurso.Text,
-                    CargaHoaria = int.Parse(txtCargaHoraria.Text)
-                });
+                Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                if (curso != null)
+                    if (context.Entry<Models.Curso>(curso).State == EntityState.Detached)
+                    {
+                        context.Set<Models.Curso>().Attach(curso);
+                        if (curso.Id == 0)
+                            context.Entry<Models.Curso>(curso).State = EntityState.Added;
+                        else
+                            context.Entry<Models.Curso>(curso).State = EntityState.Modified;
+                        context.SaveChanges();
+                        MessageBox.Show(this, "Curso adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvCurso.Refresh();
+                        Curso_Load(new object(), new EventArgs());
+                        pnlCadastro.Enabled = false;
+                    }
             }
         }
+
         #region Limpa os TextBoxes
+
         private void CleanForm()
         {
             FormHelper.SetTextEmpty(this);
@@ -58,9 +124,13 @@ namespace SistemaEscolar.Views
 
         #endregion
 
-        private void txtCargaHoraria_TextChanged(object sender, EventArgs e)
+        #region Restringe caracteres da textbox a somente números
+
+        private void txtCargaHoraria_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtCargaHoraria.Text = Regex.Replace(txtCargaHoraria.Text, "[^0-9]", "");
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
         }
+
+        #endregion
     }
 }

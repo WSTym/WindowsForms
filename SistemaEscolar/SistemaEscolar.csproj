@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -111,9 +111,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202004261929158_SistemaEscolar.cs" />
+    <Compile Include="Migrations\202004261929158_SistemaEscolar.designer.cs">
+      <DependentUpon>202004261929158_SistemaEscolar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004270033226_SistemaEscolar1.cs" />
+    <Compile Include="Migrations\202004270033226_SistemaEscolar1.designer.cs">
+      <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\Avaliacao.cs" />
     <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\Curso.cs" />
+    <Compile Include="Models\Disciplina.cs" />
     <Compile Include="Models\Nota.cs" />
+    <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\Turma.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,15 +183,14 @@
     <Compile Include="Views\SistemaEscolar.Designer.cs">
       <DependentUpon>SistemaEscolar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Aluno.cs" />
-    <Compile Include="Models\Avaliacao.cs" />
-    <Compile Include="Models\Curso.cs" />
-    <Compile Include="Models\Turma.cs" />
-    <Compile Include="Models\Disciplina.cs" />
-    <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Models\Professor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\202004261929158_SistemaEscolar.resx">
+      <DependentUpon>202004261929158_SistemaEscolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004270033226_SistemaEscolar1.resx">
+      <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +221,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Aluno.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Avaliacao.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Curso.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Disciplina.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Nota.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Professor.datasource" />
+    <None Include="Properties\DataSources\SistemaEscolar.Models.Turma.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

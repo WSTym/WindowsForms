@@ -12,9 +12,9 @@ namespace SistemaEscolar.Views
             InitializeComponent();
         }
 
-        private void CadastroAluno_Load(object sender, EventArgs e)
+        private void Aluno_Load(object sender, EventArgs e)
         {
-            pnlCadstro.Enabled = false;
+            pnlCadastro.Enabled = false;
             btnNovo.Enabled = true;
             btnEditar.Enabled = false;
             btnDeletar.Enabled = false;
@@ -24,7 +24,7 @@ namespace SistemaEscolar.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadstro.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;
@@ -35,7 +35,7 @@ namespace SistemaEscolar.Views
         {
             CleanForm();
             errAluno.Clear();
-            CadastroAluno_Load(new object(), new EventArgs());
+            Aluno_Load(new object(), new EventArgs());
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)

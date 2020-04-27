@@ -15,7 +15,7 @@ namespace SistemaEscolar.Views
 
         private void CadastroAvalicacao_Load(object sender, EventArgs e)
         {
-            pnlCadAvaliacao.Enabled = false;
+            pnlCadastro.Enabled = false;
             btnNovo.Enabled = true;
             btnCancelar.Enabled = false;
             btnCadastrar.Enabled = false;
@@ -23,7 +23,7 @@ namespace SistemaEscolar.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadAvaliacao.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;
@@ -40,7 +40,7 @@ namespace SistemaEscolar.Views
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (FormHelper.CheckEmptyField(cbDisciplina, errAvaliacao)) return;
-            if (FormHelper.CheckEmptyField(txtTemaAvalicao, errAvaliacao)) return;
+            if (FormHelper.CheckEmptyField(txtTemaAvaliacao, errAvaliacao)) return;
             if (FormHelper.CheckEmptyField(txtDataAvaliacao, errAvaliacao)) return;
             if (FormHelper.CheckEmptyField(txtValorAvaliacao, errAvaliacao)) return;
 
@@ -49,7 +49,7 @@ namespace SistemaEscolar.Views
                 context.Avaliacoes.Add(new Avaliacao()
                 {
                     //Disciplina = cbDisciplina.SelectedItem.ToString(),
-                    Tema = txtTemaAvalicao.Text,
+                    Tema = txtTemaAvaliacao.Text,
                     Data = txtDataAvaliacao.Text,
                     Valor = float.Parse(txtValorAvaliacao.Text)
                 });

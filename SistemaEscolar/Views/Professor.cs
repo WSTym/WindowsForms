@@ -14,7 +14,7 @@ namespace SistemaEscolar.Views
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
-            pnlCadProfessor.Enabled = false;
+            pnlCadastro.Enabled = false;
             btnNovo.Enabled = true;
             btnCancelar.Enabled = false;
             btnCadastrar.Enabled = false;
@@ -22,7 +22,7 @@ namespace SistemaEscolar.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadProfessor.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;

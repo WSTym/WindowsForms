@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SistemaEscolar));
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlSobre = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.lblSistemaEscolar = new System.Windows.Forms.Label();
             this.pnlTopBar = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.lblAutor = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.pnlIndicador = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pnlSobre = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.btnAluno = new System.Windows.Forms.Button();
             this.btnProfessor = new System.Windows.Forms.Button();
             this.btnNotas = new System.Windows.Forms.Button();
@@ -53,10 +53,10 @@
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pnlContent.SuspendLayout();
             this.pnlMain.SuspendLayout();
+            this.pnlSobre.SuspendLayout();
             this.pnlTitleBar.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
             this.pnlMenu.SuspendLayout();
-            this.pnlSobre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +82,38 @@
             this.pnlMain.Size = new System.Drawing.Size(1000, 550);
             this.pnlMain.TabIndex = 6;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // pnlSobre
+            // 
+            this.pnlSobre.Controls.Add(this.label1);
+            this.pnlSobre.Controls.Add(this.label2);
+            this.pnlSobre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSobre.Location = new System.Drawing.Point(0, 0);
+            this.pnlSobre.Name = "pnlSobre";
+            this.pnlSobre.Size = new System.Drawing.Size(1000, 550);
+            this.pnlSobre.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F);
+            this.label1.Location = new System.Drawing.Point(352, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(297, 49);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bem vindo(a)!";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 22F);
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(32, 193);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(422, 259);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "CRUD Sistema Escolar \r\n\r\nVersão 1.0 \r\n\r\n© 2020 Tym \r\n\r\nTodos os direitos reservad" +
+    "os";
             // 
             // pnlTitleBar
             // 
@@ -118,6 +150,36 @@
             this.pnlTopBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTopBar_MouseDown);
             this.pnlTopBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTopBar_MouseMove);
             this.pnlTopBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTopBar_MouseUp);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Image = global::SistemaEscolar.Properties.Resources.minus_16;
+            this.btnMinimizar.Location = new System.Drawing.Point(950, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(16, 16);
+            this.btnMinimizar.TabIndex = 1;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Image = global::SistemaEscolar.Properties.Resources.x_mark_16;
+            this.btnFechar.Location = new System.Drawing.Point(974, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(16, 16);
+            this.btnFechar.TabIndex = 0;
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // lblAutor
             // 
@@ -160,70 +222,9 @@
             this.pnlIndicador.Size = new System.Drawing.Size(10, 40);
             this.pnlIndicador.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F);
-            this.label1.Location = new System.Drawing.Point(352, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 49);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bem vindo(a)!";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 22F);
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(32, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(422, 259);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CRUD Sistema Escolar \r\n\r\nVersão 1.0 \r\n\r\n© 2020 Tym \r\n\r\nTodos os direitos reservad" +
-    "os";
-            // 
-            // pnlSobre
-            // 
-            this.pnlSobre.Controls.Add(this.label1);
-            this.pnlSobre.Controls.Add(this.label2);
-            this.pnlSobre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSobre.Location = new System.Drawing.Point(0, 0);
-            this.pnlSobre.Name = "pnlSobre";
-            this.pnlSobre.Size = new System.Drawing.Size(1000, 550);
-            this.pnlSobre.TabIndex = 2;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Image = global::SistemaEscolar.Properties.Resources.minus_16;
-            this.btnMinimizar.Location = new System.Drawing.Point(950, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(16, 16);
-            this.btnMinimizar.TabIndex = 1;
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechar.FlatAppearance.BorderSize = 0;
-            this.btnFechar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.btnFechar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechar.Image = global::SistemaEscolar.Properties.Resources.x_mark_16;
-            this.btnFechar.Location = new System.Drawing.Point(974, 0);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(16, 16);
-            this.btnFechar.TabIndex = 0;
-            this.btnFechar.UseVisualStyleBackColor = true;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
             // btnAluno
             // 
+            this.btnAluno.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAluno.FlatAppearance.BorderSize = 0;
             this.btnAluno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,7 +235,7 @@
             this.btnAluno.Location = new System.Drawing.Point(20, 512);
             this.btnAluno.Name = "btnAluno";
             this.btnAluno.Size = new System.Drawing.Size(175, 40);
-            this.btnAluno.TabIndex = 1;
+            this.btnAluno.TabIndex = 8;
             this.btnAluno.Text = "  Aluno";
             this.btnAluno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAluno.UseVisualStyleBackColor = true;
@@ -242,6 +243,7 @@
             // 
             // btnProfessor
             // 
+            this.btnProfessor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProfessor.FlatAppearance.BorderSize = 0;
             this.btnProfessor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -252,7 +254,7 @@
             this.btnProfessor.Location = new System.Drawing.Point(20, 463);
             this.btnProfessor.Name = "btnProfessor";
             this.btnProfessor.Size = new System.Drawing.Size(175, 40);
-            this.btnProfessor.TabIndex = 1;
+            this.btnProfessor.TabIndex = 7;
             this.btnProfessor.Text = "  Professor";
             this.btnProfessor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProfessor.UseVisualStyleBackColor = true;
@@ -260,6 +262,7 @@
             // 
             // btnNotas
             // 
+            this.btnNotas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNotas.FlatAppearance.BorderSize = 0;
             this.btnNotas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -270,7 +273,7 @@
             this.btnNotas.Location = new System.Drawing.Point(20, 414);
             this.btnNotas.Name = "btnNotas";
             this.btnNotas.Size = new System.Drawing.Size(175, 40);
-            this.btnNotas.TabIndex = 1;
+            this.btnNotas.TabIndex = 6;
             this.btnNotas.Text = "  Notas";
             this.btnNotas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotas.UseVisualStyleBackColor = true;
@@ -278,6 +281,7 @@
             // 
             // btnAvaliação
             // 
+            this.btnAvaliação.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAvaliação.FlatAppearance.BorderSize = 0;
             this.btnAvaliação.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAvaliação.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -288,7 +292,7 @@
             this.btnAvaliação.Location = new System.Drawing.Point(20, 365);
             this.btnAvaliação.Name = "btnAvaliação";
             this.btnAvaliação.Size = new System.Drawing.Size(175, 40);
-            this.btnAvaliação.TabIndex = 1;
+            this.btnAvaliação.TabIndex = 5;
             this.btnAvaliação.Text = "  Avaliação";
             this.btnAvaliação.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAvaliação.UseVisualStyleBackColor = true;
@@ -296,6 +300,7 @@
             // 
             // btnDisciplina
             // 
+            this.btnDisciplina.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisciplina.FlatAppearance.BorderSize = 0;
             this.btnDisciplina.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDisciplina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -306,7 +311,7 @@
             this.btnDisciplina.Location = new System.Drawing.Point(20, 316);
             this.btnDisciplina.Name = "btnDisciplina";
             this.btnDisciplina.Size = new System.Drawing.Size(175, 40);
-            this.btnDisciplina.TabIndex = 1;
+            this.btnDisciplina.TabIndex = 4;
             this.btnDisciplina.Text = "  Disciplina";
             this.btnDisciplina.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDisciplina.UseVisualStyleBackColor = true;
@@ -314,6 +319,7 @@
             // 
             // btnTurma
             // 
+            this.btnTurma.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTurma.FlatAppearance.BorderSize = 0;
             this.btnTurma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnTurma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -324,7 +330,7 @@
             this.btnTurma.Location = new System.Drawing.Point(20, 264);
             this.btnTurma.Name = "btnTurma";
             this.btnTurma.Size = new System.Drawing.Size(175, 40);
-            this.btnTurma.TabIndex = 1;
+            this.btnTurma.TabIndex = 3;
             this.btnTurma.Text = "  Turma";
             this.btnTurma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTurma.UseVisualStyleBackColor = true;
@@ -332,6 +338,7 @@
             // 
             // btnCurso
             // 
+            this.btnCurso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCurso.FlatAppearance.BorderSize = 0;
             this.btnCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -342,7 +349,7 @@
             this.btnCurso.Location = new System.Drawing.Point(20, 218);
             this.btnCurso.Name = "btnCurso";
             this.btnCurso.Size = new System.Drawing.Size(175, 40);
-            this.btnCurso.TabIndex = 1;
+            this.btnCurso.TabIndex = 2;
             this.btnCurso.Text = "  Curso";
             this.btnCurso.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCurso.UseVisualStyleBackColor = true;
@@ -350,6 +357,7 @@
             // 
             // btnInicio
             // 
+            this.btnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -394,12 +402,12 @@
             this.Text = "Sistema Escolar";
             this.pnlContent.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
+            this.pnlSobre.ResumeLayout(false);
+            this.pnlSobre.PerformLayout();
             this.pnlTitleBar.ResumeLayout(false);
             this.pnlTitleBar.PerformLayout();
             this.pnlTopBar.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlSobre.ResumeLayout(false);
-            this.pnlSobre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
 

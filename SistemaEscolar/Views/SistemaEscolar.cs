@@ -25,14 +25,18 @@ namespace SistemaEscolar.Views
         }
         private void btnCurso_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Curso());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnCurso.Height;
             pnlIndicador.Top = btnCurso.Top;
             pnlSobre.Hide();
         }
         private void btnTurma_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Turma());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnTurma.Height;
             pnlIndicador.Top = btnTurma.Top;
             pnlSobre.Hide();
@@ -40,7 +44,9 @@ namespace SistemaEscolar.Views
 
         private void btnDisciplina_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Disciplina());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnDisciplina.Height;
             pnlIndicador.Top = btnDisciplina.Top;
             pnlSobre.Hide();
@@ -48,7 +54,9 @@ namespace SistemaEscolar.Views
 
         private void btnAvaliacao_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Avalicacao());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnAvaliação.Height;
             pnlIndicador.Top = btnAvaliação.Top;
             pnlSobre.Hide();
@@ -56,7 +64,9 @@ namespace SistemaEscolar.Views
 
         private void btnNotas_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Notas());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnNotas.Height;
             pnlIndicador.Top = btnNotas.Top;
             pnlSobre.Hide();
@@ -64,7 +74,9 @@ namespace SistemaEscolar.Views
 
         private void btnProfessor_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Views.Professor());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnProfessor.Height;
             pnlIndicador.Top = btnProfessor.Top;
             pnlSobre.Hide();
@@ -72,7 +84,9 @@ namespace SistemaEscolar.Views
 
         private void btnAluno_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             OpenForm(new Aluno());
+            Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnAluno.Height;
             pnlIndicador.Top = btnAluno.Top;
             pnlSobre.Hide();

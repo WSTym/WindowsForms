@@ -15,7 +15,7 @@ namespace SistemaEscolar.Views
 
         private void CadastroTurma_Load(object sender, EventArgs e)
         {
-            pnlCadTurma.Enabled = false;
+            pnlCadastro.Enabled = false;
             btnNovo.Enabled = true;
             btnCancelar.Enabled = false;
             btnCadastrar.Enabled = false;
@@ -23,7 +23,7 @@ namespace SistemaEscolar.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            pnlCadTurma.Enabled = true;
+            pnlCadastro.Enabled = true;
             btnNovo.Enabled = false;
             btnCancelar.Enabled = true;
             btnCadastrar.Enabled = true;
@@ -39,7 +39,7 @@ namespace SistemaEscolar.Views
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             //if (FormHelper.CheckEmptyField(cbCurso, errTurma)) return;
-            if (FormHelper.CheckEmptyField(txtAnoTurma, errTurma)) return;
+            if (FormHelper.CheckEmptyField(txtAno, errTurma)) return;
             if (FormHelper.CheckEmptyField(rbSemestre1, errTurma)) return;
             if (FormHelper.CheckEmptyField(cbHorario, errTurma)) return;
 
@@ -48,8 +48,8 @@ namespace SistemaEscolar.Views
                 context.Turmas.Add(new Models.Turma()
                 {
                     //Curso = cbCurso.Text,
-                    Ano = int.Parse(txtAnoTurma.Text),
-                    Horario = cbHorario.Text
+                    Ano = int.Parse(txtAno.Text),
+                    Turno = cbHorario.Text
                 });
             }
         }
@@ -62,9 +62,9 @@ namespace SistemaEscolar.Views
 
         #endregion
 
-        private void txtAnoTurma_TextChanged(object sender, EventArgs e)
+        private void txtAno_TextChanged(object sender, EventArgs e)
         {
-            txtAnoTurma.Text = Regex.Replace(txtAnoTurma.Text, "[^0-9]", "");
+            txtAno.Text = Regex.Replace(txtAno.Text, "[^0-9]", "");
         }
     }
 }

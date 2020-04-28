@@ -119,6 +119,14 @@
     <Compile Include="Migrations\202004270033226_SistemaEscolar1.designer.cs">
       <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004272312181_SistemaEscolar2.cs" />
+    <Compile Include="Migrations\202004272312181_SistemaEscolar2.designer.cs">
+      <DependentUpon>202004272312181_SistemaEscolar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004272332533_SistemaEscolar3.cs" />
+    <Compile Include="Migrations\202004272332533_SistemaEscolar3.designer.cs">
+      <DependentUpon>202004272332533_SistemaEscolar3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Avaliacao.cs" />
@@ -190,6 +198,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004270033226_SistemaEscolar1.resx">
       <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004272312181_SistemaEscolar2.resx">
+      <DependentUpon>202004272312181_SistemaEscolar2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004272332533_SistemaEscolar3.resx">
+      <DependentUpon>202004272332533_SistemaEscolar3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>

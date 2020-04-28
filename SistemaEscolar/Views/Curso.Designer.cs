@@ -45,8 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeCurso = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.dgvCurso = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +77,7 @@
             // 
             this.txtPesquisa.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.txtPesquisa.Location = new System.Drawing.Point(744, 23);
+            this.txtPesquisa.MaxLength = 20;
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(200, 24);
             this.txtPesquisa.TabIndex = 9;
@@ -101,11 +100,12 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
-            this.btnPesquisar.Location = new System.Drawing.Point(950, 19);
+            this.btnPesquisar.Location = new System.Drawing.Point(950, 22);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(30, 30);
+            this.btnPesquisar.Size = new System.Drawing.Size(26, 26);
             this.btnPesquisar.TabIndex = 10;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // pnlBotoes
             // 
@@ -203,8 +203,6 @@
             this.pnlCadastro.Controls.Add(this.label1);
             this.pnlCadastro.Controls.Add(this.txtNomeCurso);
             this.pnlCadastro.Controls.Add(this.label2);
-            this.pnlCadastro.Controls.Add(this.label3);
-            this.pnlCadastro.Controls.Add(this.txtCargaHoraria);
             this.pnlCadastro.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlCadastro.Enabled = false;
             this.pnlCadastro.Font = new System.Drawing.Font("Century Gothic", 8.25F);
@@ -221,7 +219,7 @@
             this.txtDescricao.MaxLength = 200;
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(200, 67);
+            this.txtDescricao.Size = new System.Drawing.Size(200, 200);
             this.txtDescricao.TabIndex = 2;
             // 
             // cursoBindingSource
@@ -258,27 +256,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Descrição:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.label3.Location = new System.Drawing.Point(20, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Carga Horária:";
-            // 
-            // txtCargaHoraria
-            // 
-            this.txtCargaHoraria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cursoBindingSource, "CargaHoraria", true));
-            this.txtCargaHoraria.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.txtCargaHoraria.Location = new System.Drawing.Point(130, 138);
-            this.txtCargaHoraria.MaxLength = 4;
-            this.txtCargaHoraria.Name = "txtCargaHoraria";
-            this.txtCargaHoraria.Size = new System.Drawing.Size(40, 21);
-            this.txtCargaHoraria.TabIndex = 3;
-            this.txtCargaHoraria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargaHoraria_KeyPress);
-            // 
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.White;
@@ -306,6 +283,7 @@
             this.dgvCurso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCurso.Location = new System.Drawing.Point(20, 20);
             this.dgvCurso.Name = "dgvCurso";
+            this.dgvCurso.ReadOnly = true;
             this.dgvCurso.Size = new System.Drawing.Size(610, 350);
             this.dgvCurso.TabIndex = 11;
             // 
@@ -314,6 +292,7 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Width = 40;
             // 
             // nomeDataGridViewTextBoxColumn
@@ -321,6 +300,7 @@
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomeDataGridViewTextBoxColumn.Width = 200;
             // 
             // descricaoDataGridViewTextBoxColumn
@@ -328,13 +308,16 @@
             this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
             this.descricaoDataGridViewTextBoxColumn.Width = 250;
             // 
             // CargaHoraria
             // 
             this.CargaHoraria.DataPropertyName = "CargaHoraria";
             this.CargaHoraria.HeaderText = "Carga Horária";
+            this.CargaHoraria.MaxInputLength = 4;
             this.CargaHoraria.Name = "CargaHoraria";
+            this.CargaHoraria.ReadOnly = true;
             this.CargaHoraria.Width = 75;
             // 
             // errCurso
@@ -383,8 +366,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeCurso;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCargaHoraria;
         private System.Windows.Forms.Panel pnlPesquisa;
         private System.Windows.Forms.DataGridView dgvCurso;
         private System.Windows.Forms.TextBox txtDescricao;

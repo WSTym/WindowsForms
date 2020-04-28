@@ -40,6 +40,8 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.pnlCadastro = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.cbHorario = new System.Windows.Forms.ComboBox();
             this.rbSemestre1 = new System.Windows.Forms.RadioButton();
             this.rbSemestre2 = new System.Windows.Forms.RadioButton();
@@ -50,20 +52,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
-            this.errTurma = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvTurma = new System.Windows.Forms.DataGridView();
-            this.turmaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turmaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errTurma = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
             this.pnlPesquisa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -197,6 +198,8 @@
             // pnlCadastro
             // 
             this.pnlCadastro.BackColor = System.Drawing.Color.White;
+            this.pnlCadastro.Controls.Add(this.label4);
+            this.pnlCadastro.Controls.Add(this.txtCargaHoraria);
             this.pnlCadastro.Controls.Add(this.cbHorario);
             this.pnlCadastro.Controls.Add(this.rbSemestre1);
             this.pnlCadastro.Controls.Add(this.rbSemestre2);
@@ -213,6 +216,25 @@
             this.pnlCadastro.Name = "pnlCadastro";
             this.pnlCadastro.Size = new System.Drawing.Size(350, 390);
             this.pnlCadastro.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.label4.Location = new System.Drawing.Point(20, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Carga Horária:";
+            // 
+            // txtCargaHoraria
+            // 
+            this.txtCargaHoraria.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.txtCargaHoraria.Location = new System.Drawing.Point(130, 156);
+            this.txtCargaHoraria.MaxLength = 6;
+            this.txtCargaHoraria.Name = "txtCargaHoraria";
+            this.txtCargaHoraria.Size = new System.Drawing.Size(40, 21);
+            this.txtCargaHoraria.TabIndex = 7;
             // 
             // cbHorario
             // 
@@ -321,10 +343,6 @@
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 390);
             this.pnlPesquisa.TabIndex = 9;
             // 
-            // errTurma
-            // 
-            this.errTurma.ContainerControl = this;
-            // 
             // dgvTurma
             // 
             this.dgvTurma.AllowUserToAddRows = false;
@@ -334,18 +352,13 @@
             this.dgvTurma.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn2});
             this.dgvTurma.DataSource = this.turmaBindingSource;
             this.dgvTurma.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTurma.Location = new System.Drawing.Point(20, 20);
             this.dgvTurma.Name = "dgvTurma";
             this.dgvTurma.Size = new System.Drawing.Size(610, 350);
             this.dgvTurma.TabIndex = 14;
-            // 
-            // turmaBindingSource
-            // 
-            this.turmaBindingSource.DataSource = typeof(Models.Turma);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -366,11 +379,13 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Ano";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn3
+            // turmaBindingSource
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Horario";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Horário";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.turmaBindingSource.DataSource = typeof(Models.Turma);
+            // 
+            // errTurma
+            // 
+            this.errTurma.ContainerControl = this;
             // 
             // Turma
             // 
@@ -392,9 +407,9 @@
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
             this.pnlPesquisa.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTurma)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,7 +442,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.BindingSource turmaBindingSource;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCargaHoraria;
     }
 }

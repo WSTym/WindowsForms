@@ -33,6 +33,8 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
@@ -46,6 +48,7 @@
             this.txtNomeCurso = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvCurso = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +70,8 @@
             this.panel1.Controls.Add(this.txtPesquisa);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnPesquisar);
+            this.panel1.Controls.Add(this.btnLimpar);
+            this.panel1.Controls.Add(this.btnListar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -76,7 +81,7 @@
             // txtPesquisa
             // 
             this.txtPesquisa.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtPesquisa.Location = new System.Drawing.Point(744, 23);
+            this.txtPesquisa.Location = new System.Drawing.Point(539, 36);
             this.txtPesquisa.MaxLength = 20;
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(200, 24);
@@ -100,12 +105,42 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
-            this.btnPesquisar.Location = new System.Drawing.Point(950, 22);
+            this.btnPesquisar.Location = new System.Drawing.Point(736, 34);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(26, 26);
+            this.btnPesquisar.Size = new System.Drawing.Size(28, 28);
             this.btnPesquisar.TabIndex = 10;
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpar.Location = new System.Drawing.Point(880, 34);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(100, 28);
+            this.btnLimpar.TabIndex = 12;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnListar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListar.Location = new System.Drawing.Point(772, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(100, 28);
+            this.btnListar.TabIndex = 11;
+            this.btnListar.Text = "Listar Cursos";
+            this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // pnlBotoes
             // 
@@ -259,6 +294,7 @@
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.White;
+            this.pnlPesquisa.Controls.Add(this.pnlCover);
             this.pnlPesquisa.Controls.Add(this.dgvCurso);
             this.pnlPesquisa.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPesquisa.Font = new System.Drawing.Font("Century Gothic", 8.25F);
@@ -267,6 +303,14 @@
             this.pnlPesquisa.Padding = new System.Windows.Forms.Padding(20);
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 390);
             this.pnlPesquisa.TabIndex = 9;
+            // 
+            // pnlCover
+            // 
+            this.pnlCover.BackColor = System.Drawing.Color.Silver;
+            this.pnlCover.Location = new System.Drawing.Point(21, 21);
+            this.pnlCover.Name = "pnlCover";
+            this.pnlCover.Size = new System.Drawing.Size(608, 348);
+            this.pnlCover.TabIndex = 12;
             // 
             // dgvCurso
             // 
@@ -375,5 +419,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CargaHoraria;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Panel pnlCover;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

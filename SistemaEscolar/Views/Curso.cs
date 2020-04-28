@@ -18,30 +18,33 @@ namespace SistemaEscolar.Views
         // Controles do CRUD
 
         #region Load
+        bool _pnlCoverEnable = true;
         private void Curso_Load(object sender, EventArgs e)
         {
             using (Context context = new Context())
             {
                 cursoBindingSource.DataSource = context.Cursos.ToList();
-            }
+                btnNovo.Enabled = true;
 
-            Models.Curso curso = cursoBindingSource.Current as Models.Curso;
-            if (curso != null)
-            {
-                btnEditar.Enabled = true;
-                btnDeletar.Enabled = true;
-            }
-            else
-            {
-                btnEditar.Enabled = false;
-                btnDeletar.Enabled = false;
-            }
-            btnNovo.Enabled = true;
-            btnCancelar.Enabled = false;
-            btnSalvar.Enabled = false;
-            pnlCadastro.Enabled = false;
-            cursoBindingSource.Add(new Models.Curso());
-            cursoBindingSource.MoveLast();
+                if (_pnlCoverEnable)
+                {
+                    btnEditar.Enabled = false;
+                    btnDeletar.Enabled = false;
+                    pnlCover.Show();
+                }
+                else
+                {
+                    btnEditar.Enabled = true;
+                    btnDeletar.Enabled = true;
+                    pnlCover.Hide();
+                }
+                 
+                btnCancelar.Enabled = false;
+                btnSalvar.Enabled = false;
+                pnlCadastro.Enabled = false;
+                cursoBindingSource.Add(new Models.Curso());
+                cursoBindingSource.MoveLast();
+            }            
         }
         #endregion
 
@@ -54,7 +57,7 @@ namespace SistemaEscolar.Views
             btnDeletar.Enabled = false;
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
-            btnNovo.Enabled = true;
+            btnNovo.Enabled = true;            
             txtNomeCurso.Focus();
         }
         #endregion
@@ -108,7 +111,7 @@ namespace SistemaEscolar.Views
             CleanForm();
             errCurso.Clear();
             cursoBindingSource.ResetBindings(false);
-            Curso_Load(new object(), new EventArgs());
+            Curso_Load(sender, e);
         }
         #endregion
 
@@ -151,6 +154,7 @@ namespace SistemaEscolar.Views
                     cursoBindingSource.DataSource = pesquisa;
                     btnNovo.Enabled = false;
                     btnCancelar.Enabled = true;
+                    pnlCover.Hide();
                 }
                 else 
                 {
@@ -158,6 +162,37 @@ namespace SistemaEscolar.Views
                     btnCancelar_Click(sender, e);
                 }
             }
+        }
+        #endregion
+
+        #region Listar
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            pnlCover.Hide();
+            Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+
+            if (curso != null)
+            {
+                btnEditar.Enabled = true;
+                btnDeletar.Enabled = true;
+            }
+            else
+            {
+                btnEditar.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
+
+            _pnlCoverEnable = false;
+        } 
+        #endregion
+
+        #region Limpar
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            pnlCover.Show();
+            btnEditar.Enabled = false;
+            btnDeletar.Enabled = false;
+            _pnlCoverEnable = true;
         } 
         #endregion
 

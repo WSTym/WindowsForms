@@ -31,18 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.pnlCadastro = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCargaHoraria = new System.Windows.Forms.TextBox();
-            this.cbHorario = new System.Windows.Forms.ComboBox();
+            this.cbTurno = new System.Windows.Forms.ComboBox();
             this.rbSemestre1 = new System.Windows.Forms.RadioButton();
             this.rbSemestre2 = new System.Windows.Forms.RadioButton();
             this.cbCurso = new System.Windows.Forms.ComboBox();
@@ -52,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvTurma = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,8 +74,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.txtPesquisa);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnPesquisar);
+            this.panel1.Controls.Add(this.btnLimpar);
+            this.panel1.Controls.Add(this.btnListar);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -82,10 +87,55 @@
             // txtPesquisa
             // 
             this.txtPesquisa.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtPesquisa.Location = new System.Drawing.Point(744, 23);
+            this.txtPesquisa.Location = new System.Drawing.Point(539, 36);
+            this.txtPesquisa.MaxLength = 20;
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(200, 24);
-            this.txtPesquisa.TabIndex = 12;
+            this.txtPesquisa.TabIndex = 13;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
+            this.btnPesquisar.Location = new System.Drawing.Point(736, 34);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(28, 28);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpar.Location = new System.Drawing.Point(880, 34);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(100, 28);
+            this.btnLimpar.TabIndex = 16;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnListar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListar.Location = new System.Drawing.Point(772, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(100, 28);
+            this.btnListar.TabIndex = 15;
+            this.btnListar.Text = "Listar Turmas";
+            this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // label5
             // 
@@ -97,27 +147,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cadastro de Turma";
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
-            this.btnPesquisar.Location = new System.Drawing.Point(950, 19);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(30, 30);
-            this.btnPesquisar.TabIndex = 13;
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
             // pnlBotoes
             // 
             this.pnlBotoes.BackColor = System.Drawing.Color.White;
             this.pnlBotoes.Controls.Add(this.btnEditar);
             this.pnlBotoes.Controls.Add(this.btnDeletar);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnSalvar);
             this.pnlBotoes.Controls.Add(this.btnNovo);
             this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotoes.Location = new System.Drawing.Point(0, 450);
@@ -138,6 +174,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnDeletar
             // 
@@ -152,6 +189,7 @@
             this.btnDeletar.TabIndex = 9;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnCancelar
             // 
@@ -166,20 +204,22 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnCadastrar
+            // btnSalvar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(682, 33);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 11;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalvar.Location = new System.Drawing.Point(682, 33);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(100, 33);
+            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnNovo
             // 
@@ -194,13 +234,14 @@
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // pnlCadastro
             // 
             this.pnlCadastro.BackColor = System.Drawing.Color.White;
             this.pnlCadastro.Controls.Add(this.label4);
             this.pnlCadastro.Controls.Add(this.txtCargaHoraria);
-            this.pnlCadastro.Controls.Add(this.cbHorario);
+            this.pnlCadastro.Controls.Add(this.cbTurno);
             this.pnlCadastro.Controls.Add(this.rbSemestre1);
             this.pnlCadastro.Controls.Add(this.rbSemestre2);
             this.pnlCadastro.Controls.Add(this.cbCurso);
@@ -235,19 +276,20 @@
             this.txtCargaHoraria.Name = "txtCargaHoraria";
             this.txtCargaHoraria.Size = new System.Drawing.Size(40, 21);
             this.txtCargaHoraria.TabIndex = 7;
+            this.txtCargaHoraria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargaHoraria_KeyPress);
             // 
-            // cbHorario
+            // cbTurno
             // 
-            this.cbHorario.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.cbHorario.FormattingEnabled = true;
-            this.cbHorario.Items.AddRange(new object[] {
+            this.cbTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.Items.AddRange(new object[] {
             "Matutino",
             "Vespertino",
             "Noturno"});
-            this.cbHorario.Location = new System.Drawing.Point(130, 123);
-            this.cbHorario.Name = "cbHorario";
-            this.cbHorario.Size = new System.Drawing.Size(100, 24);
-            this.cbHorario.TabIndex = 5;
+            this.cbTurno.Location = new System.Drawing.Point(130, 123);
+            this.cbTurno.Name = "cbTurno";
+            this.cbTurno.Size = new System.Drawing.Size(100, 24);
+            this.cbTurno.TabIndex = 5;
             // 
             // rbSemestre1
             // 
@@ -300,6 +342,7 @@
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(40, 21);
             this.txtAno.TabIndex = 2;
+            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress);
             // 
             // label7
             // 
@@ -334,6 +377,7 @@
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.White;
+            this.pnlPesquisa.Controls.Add(this.pnlCover);
             this.pnlPesquisa.Controls.Add(this.dgvTurma);
             this.pnlPesquisa.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPesquisa.Font = new System.Drawing.Font("Century Gothic", 8.25F);
@@ -343,11 +387,20 @@
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 390);
             this.pnlPesquisa.TabIndex = 9;
             // 
+            // pnlCover
+            // 
+            this.pnlCover.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCover.Location = new System.Drawing.Point(21, 21);
+            this.pnlCover.Name = "pnlCover";
+            this.pnlCover.Size = new System.Drawing.Size(608, 348);
+            this.pnlCover.TabIndex = 15;
+            // 
             // dgvTurma
             // 
             this.dgvTurma.AllowUserToAddRows = false;
             this.dgvTurma.AllowUserToDeleteRows = false;
             this.dgvTurma.AutoGenerateColumns = false;
+            this.dgvTurma.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTurma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTurma.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -355,6 +408,7 @@
             this.dataGridViewTextBoxColumn2});
             this.dgvTurma.DataSource = this.turmaBindingSource;
             this.dgvTurma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTurma.GridColor = System.Drawing.SystemColors.Control;
             this.dgvTurma.Location = new System.Drawing.Point(20, 20);
             this.dgvTurma.Name = "dgvTurma";
             this.dgvTurma.Size = new System.Drawing.Size(610, 350);
@@ -400,7 +454,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Turma";
             this.Text = "CadastroTurma";
-            this.Load += new System.EventHandler(this.CadastroTurma_Load);
+            this.Load += new System.EventHandler(this.Turma_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
@@ -417,14 +471,12 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadastro;
         private System.Windows.Forms.ComboBox cbCurso;
@@ -437,7 +489,7 @@
         private System.Windows.Forms.ErrorProvider errTurma;
         private System.Windows.Forms.RadioButton rbSemestre1;
         private System.Windows.Forms.RadioButton rbSemestre2;
-        private System.Windows.Forms.ComboBox cbHorario;
+        private System.Windows.Forms.ComboBox cbTurno;
         private System.Windows.Forms.DataGridView dgvTurma;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
@@ -445,5 +497,10 @@
         private System.Windows.Forms.BindingSource turmaBindingSource;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCargaHoraria;
+        private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Panel pnlCover;
     }
 }

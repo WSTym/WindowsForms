@@ -263,12 +263,5 @@ namespace SistemaEscolar.Views
             FormHelper.SetTextEmpty(this);
         }
         #endregion
-
-        #region Restringe caracteres da textbox a somente números
-        private void txtCargaHoraria_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
-        }
-        #endregion
     }
 }

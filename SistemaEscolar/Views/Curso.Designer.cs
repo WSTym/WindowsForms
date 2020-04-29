@@ -50,10 +50,10 @@
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvCurso = new System.Windows.Forms.DataGridView();
-            this.errCurso = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errCurso = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
@@ -305,7 +305,7 @@
             // 
             // pnlCover
             // 
-            this.pnlCover.BackColor = System.Drawing.Color.Silver;
+            this.pnlCover.BackColor = System.Drawing.SystemColors.Control;
             this.pnlCover.Location = new System.Drawing.Point(21, 21);
             this.pnlCover.Name = "pnlCover";
             this.pnlCover.Size = new System.Drawing.Size(608, 348);
@@ -316,6 +316,7 @@
             this.dgvCurso.AllowUserToAddRows = false;
             this.dgvCurso.AllowUserToDeleteRows = false;
             this.dgvCurso.AutoGenerateColumns = false;
+            this.dgvCurso.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -323,15 +324,12 @@
             this.descricaoDataGridViewTextBoxColumn});
             this.dgvCurso.DataSource = this.cursoBindingSource;
             this.dgvCurso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCurso.GridColor = System.Drawing.SystemColors.Control;
             this.dgvCurso.Location = new System.Drawing.Point(20, 20);
             this.dgvCurso.Name = "dgvCurso";
             this.dgvCurso.ReadOnly = true;
             this.dgvCurso.Size = new System.Drawing.Size(610, 350);
             this.dgvCurso.TabIndex = 11;
-            // 
-            // errCurso
-            // 
-            this.errCurso.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -356,6 +354,10 @@
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
             this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
             this.descricaoDataGridViewTextBoxColumn.Width = 327;
+            // 
+            // errCurso
+            // 
+            this.errCurso.ContainerControl = this;
             // 
             // Curso
             // 

@@ -10,6 +10,7 @@ namespace SistemaEscolar.Views
 {
     public partial class Curso : Form
     {
+        bool _pnlCoverEnable = true;
         public Curso()
         {
             InitializeComponent();
@@ -18,7 +19,6 @@ namespace SistemaEscolar.Views
         // Controles do CRUD
 
         #region Load
-        bool _pnlCoverEnable = true;
         private void Curso_Load(object sender, EventArgs e)
         {
             using (Context context = new Context())
@@ -41,7 +41,11 @@ namespace SistemaEscolar.Views
                  
                 btnCancelar.Enabled = false;
                 btnSalvar.Enabled = false;
+                btnLimpar.Enabled = false;
                 pnlCadastro.Enabled = false;
+                btnPesquisar.Enabled = true;
+                btnListar.Enabled = true;
+                txtPesquisa.Enabled = true;
                 cursoBindingSource.Add(new Models.Curso());
                 cursoBindingSource.MoveLast();
             }            
@@ -57,7 +61,10 @@ namespace SistemaEscolar.Views
             btnDeletar.Enabled = false;
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
-            btnNovo.Enabled = true;            
+            btnPesquisar.Enabled = false;
+            btnListar.Enabled = false;
+            txtPesquisa.Enabled = false;
+            txtPesquisa.Text = string.Empty;
             txtNomeCurso.Focus();
         }
         #endregion
@@ -81,26 +88,41 @@ namespace SistemaEscolar.Views
             try
             {
                 if (MessageBox.Show(this, "Tem certeza que deseja deletar este curso?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
                     using (Context context = new Context())
                     {
                         Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+
                         if (curso != null)
                         {
                             if (context.Entry<Models.Curso>(curso).State == EntityState.Detached)
                                 context.Set<Models.Curso>().Attach(curso);
+
                             context.Entry<Models.Curso>(curso).State = EntityState.Deleted;
                             context.SaveChanges();
                             //MessageBox.Show(this, "Curso deletado com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             cursoBindingSource.RemoveCurrent();
                             dgvCurso.Refresh();
-                            Curso_Load(new object(), new EventArgs());
+                            Curso_Load(sender, e);
                             pnlCadastro.Enabled = false;
+                            btnNovo.Enabled = false;
+                            cursoBindingSource.MoveLast();
+                            cursoBindingSource.RemoveCurrent();
                         }
                     }
+                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Não é possível deletar uma linha vazia", "Falha ao deletar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Models.Curso cursoAux = cursoBindingSource.Current as Models.Curso;
+
+            if (cursoAux == null)
+            {
+                btnEditar.Enabled = false;
+                btnDeletar.Enabled = false;
             }
         }
         #endregion
@@ -153,7 +175,7 @@ namespace SistemaEscolar.Views
                 {
                     cursoBindingSource.DataSource = pesquisa;
                     btnNovo.Enabled = false;
-                    btnCancelar.Enabled = true;
+                    btnLimpar.Enabled = true;
                     pnlCover.Hide();
                 }
                 else 
@@ -162,27 +184,61 @@ namespace SistemaEscolar.Views
                     btnCancelar_Click(sender, e);
                 }
             }
+
+            Models.Curso cursoAux = cursoBindingSource.Current as Models.Curso;
+
+            if (!_pnlCoverEnable)
+            {
+                btnLimpar.Enabled = true;
+                cursoBindingSource.MoveLast();
+
+                if (cursoAux.Id == 0)
+                {
+                    cursoBindingSource.RemoveCurrent();
+                    btnNovo.Enabled = false;
+                    btnEditar.Enabled = false;
+                    btnDeletar.Enabled = false;
+                }
+            }
+            else
+            {
+                cursoBindingSource.MoveLast();
+            }
         }
         #endregion
 
         #region Listar
         private void btnListar_Click(object sender, EventArgs e)
         {
-            pnlCover.Hide();
-            Models.Curso curso = cursoBindingSource.Current as Models.Curso;
-
-            if (curso != null)
+            using (Context context = new Context())
             {
-                btnEditar.Enabled = true;
-                btnDeletar.Enabled = true;
-            }
-            else
-            {
-                btnEditar.Enabled = false;
-                btnDeletar.Enabled = false;
-            }
+                cursoBindingSource.DataSource = context.Cursos.ToList();
+                pnlCover.Hide();
+                btnNovo.Enabled = false;
+                btnListar.Enabled = false;
+                btnLimpar.Enabled = true;
+                Models.Curso curso = cursoBindingSource.Current as Models.Curso;
 
-            _pnlCoverEnable = false;
+                if (curso != null)
+                {
+                    if (curso.Descricao != null && curso.Id != 0)
+                    {
+                        btnEditar.Enabled = true;
+                        btnDeletar.Enabled = true;
+                        cursoBindingSource.MoveFirst();
+                        //cursoBindingSource.RemoveCurrent();
+                    }
+                    else
+                    {
+                        btnEditar.Enabled = false;
+                        btnDeletar.Enabled = false;
+                        MessageBox.Show("Não há cursos cadastrados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnLimpar_Click(sender, e);
+                    }
+                }                
+
+                _pnlCoverEnable = false;
+            }
         } 
         #endregion
 
@@ -190,9 +246,12 @@ namespace SistemaEscolar.Views
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             pnlCover.Show();
+            btnNovo.Enabled = true;
             btnEditar.Enabled = false;
             btnDeletar.Enabled = false;
+            btnListar.Enabled = true;
             _pnlCoverEnable = true;
+            Curso_Load(sender, e);
         } 
         #endregion
 

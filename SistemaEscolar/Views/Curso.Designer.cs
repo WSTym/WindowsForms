@@ -50,11 +50,10 @@
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvCurso = new System.Windows.Forms.DataGridView();
+            this.errCurso = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CargaHoraria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errCurso = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
@@ -321,8 +320,7 @@
             this.dgvCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn,
-            this.CargaHoraria});
+            this.descricaoDataGridViewTextBoxColumn});
             this.dgvCurso.DataSource = this.cursoBindingSource;
             this.dgvCurso.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCurso.Location = new System.Drawing.Point(20, 20);
@@ -330,6 +328,10 @@
             this.dgvCurso.ReadOnly = true;
             this.dgvCurso.Size = new System.Drawing.Size(610, 350);
             this.dgvCurso.TabIndex = 11;
+            // 
+            // errCurso
+            // 
+            this.errCurso.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -353,20 +355,7 @@
             this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
             this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // CargaHoraria
-            // 
-            this.CargaHoraria.DataPropertyName = "CargaHoraria";
-            this.CargaHoraria.HeaderText = "Carga Horária";
-            this.CargaHoraria.MaxInputLength = 4;
-            this.CargaHoraria.Name = "CargaHoraria";
-            this.CargaHoraria.ReadOnly = true;
-            this.CargaHoraria.Width = 75;
-            // 
-            // errCurso
-            // 
-            this.errCurso.ContainerControl = this;
+            this.descricaoDataGridViewTextBoxColumn.Width = 327;
             // 
             // Curso
             // 
@@ -415,12 +404,11 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.ErrorProvider errCurso;
         private System.Windows.Forms.BindingSource cursoBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CargaHoraria;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Panel pnlCover;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
     }
 }

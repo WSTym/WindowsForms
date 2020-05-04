@@ -111,9 +111,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202005030327450_SistemaEscolar.cs" />
-    <Compile Include="Migrations\202005030327450_SistemaEscolar.designer.cs">
-      <DependentUpon>202005030327450_SistemaEscolar.cs</DependentUpon>
+    <Compile Include="Migrations\202005041350245_SisEscolar.cs" />
+    <Compile Include="Migrations\202005041350245_SisEscolar.designer.cs">
+      <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -182,8 +182,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202005030327450_SistemaEscolar.resx">
-      <DependentUpon>202005030327450_SistemaEscolar.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005041350245_SisEscolar.resx">
+      <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>

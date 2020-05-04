@@ -153,23 +153,29 @@ namespace SistemaEscolar.Views
         {
             if (FormHelper.CheckEmptyField(txtNomeCurso, errCurso)) return;
             if (FormHelper.CheckEmptyField(txtDescricao, errCurso)) return;
+
             using (Context context = new Context())
             {
                 Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+
                 if (curso != null)
-                    if (context.Entry<Models.Curso>(curso).State == EntityState.Detached)
+                { 
+                    if (context.Entry(curso).State == EntityState.Detached)
                     {
                         context.Set<Models.Curso>().Attach(curso);
+
                         if (curso.Id == 0)
-                            context.Entry<Models.Curso>(curso).State = EntityState.Added;
+                            context.Entry(curso).State = EntityState.Added;
                         else
-                            context.Entry<Models.Curso>(curso).State = EntityState.Modified;
+                            context.Entry(curso).State = EntityState.Modified;
+
                         context.SaveChanges();
                         MessageBox.Show(this, "Curso adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dgvCurso.Refresh();
                         Curso_Load(new object(), new EventArgs());
                         pnlCadastro.Enabled = false;
                     }
+                }
             }
         }
         #endregion

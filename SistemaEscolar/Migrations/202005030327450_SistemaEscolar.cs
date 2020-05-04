@@ -60,8 +60,10 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Ano = c.Int(nullable: false),
-                        Horario = c.String(unicode: false),
+                        Ano = c.String(maxLength: 4, storeType: "nvarchar"),
+                        Turno = c.String(unicode: false),
+                        CargaHoraria = c.String(maxLength: 4, storeType: "nvarchar"),
+                        Semestre = c.String(maxLength: 2, storeType: "nvarchar"),
                         CursoId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -75,7 +77,6 @@
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(maxLength: 30, storeType: "nvarchar"),
                         Descricao = c.String(maxLength: 200, storeType: "nvarchar"),
-                        CargaHoaria = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

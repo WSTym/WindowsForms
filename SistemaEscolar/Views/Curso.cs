@@ -130,10 +130,21 @@ namespace SistemaEscolar.Views
         #region Cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            CleanForm();
-            errCurso.Clear();
-            cursoBindingSource.ResetBindings(false);
-            Curso_Load(sender, e);
+            if (_pnlCoverEnable == false)
+            {
+                pnlCadastro.Enabled = false;
+                btnEditar.Enabled = true;
+                btnDeletar.Enabled = true;
+                btnCancelar.Enabled = false;
+                btnSalvar.Enabled = false;
+            }
+            else
+            {
+                CleanForm();
+                errCurso.Clear();
+                cursoBindingSource.ResetBindings(false);
+                Curso_Load(sender, e);
+            }
         }
         #endregion
 

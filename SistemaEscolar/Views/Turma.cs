@@ -24,7 +24,8 @@ namespace SistemaEscolar.Views
         {
             using (Context context = new Context())
             {
-                turmaBindingSource.DataSource = context.Turmas.ToList();
+                context.Turmas.Load();
+                cursoBindingSource.DataSource = context.Cursos.Local.ToBindingList();
                 btnNovo.Enabled = true;
 
                 if (_pnlCoverEnable)
@@ -66,7 +67,12 @@ namespace SistemaEscolar.Views
             btnListar.Enabled = false;
             txtPesquisa.Enabled = false;
             txtPesquisa.Text = string.Empty;
-            cbCurso.Focus();
+            cboCurso.Focus();
+            using (Context context = new Context())
+            {
+                context.Turmas.Load();
+                cursoBindingSource.DataSource = context.Cursos.ToList();
+            }
         }
         #endregion
 
@@ -78,7 +84,7 @@ namespace SistemaEscolar.Views
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
             pnlCadastro.Enabled = true;
-            cbCurso.Focus();
+            cboCurso.Focus();
             btnEditar.Enabled = false;
         }
         #endregion
@@ -131,39 +137,56 @@ namespace SistemaEscolar.Views
         #region Cancelar
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            CleanForm();
-            errTurma.Clear();
-            turmaBindingSource.ResetBindings(false);
-            Turma_Load(sender, e);
+            if (_pnlCoverEnable == false)
+            {
+                pnlCadastro.Enabled = false;
+                btnEditar.Enabled = true;
+                btnDeletar.Enabled = true;
+                btnCancelar.Enabled = false;
+                btnSalvar.Enabled = false;
+            }
+            else
+            {
+                CleanForm();
+                errTurma.Clear();
+                turmaBindingSource.ResetBindings(false);
+                Turma_Load(sender, e);
+            }
         }
         #endregion
-
+        
         #region Salvar
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (FormHelper.CheckEmptyField(cbCurso, errTurma)) return;
-            if (FormHelper.CheckEmptyField(cbTurno, errTurma)) return;
-            if (FormHelper.CheckEmptyField(rbSemestre1, errTurma) || FormHelper.CheckEmptyField(rbSemestre2, errTurma)) return;
-            if (FormHelper.CheckEmptyField(cbTurno, errTurma)) return;
+            if (FormHelper.CheckEmptyField(cboCurso, errTurma)) return;
+            if (FormHelper.CheckEmptyField(txtAno, errTurma)) return;
+            if (FormHelper.CheckEmptyField(cboSemestre , errTurma)) return;
+            if (FormHelper.CheckEmptyField(cboTurno, errTurma)) return;
             if (FormHelper.CheckEmptyField(txtCargaHoraria, errTurma)) return;
+
             using (Context context = new Context())
             {
-                Models.Turma Turma = turmaBindingSource.Current as Models.Turma;
-                if (Turma != null)
-                    if (context.Entry<Models.Turma>(Turma).State == EntityState.Detached)
+                Models.Turma turma = turmaBindingSource.Current as Models.Turma;
+                turma.CursoId = ((Models.Curso)cboCurso.SelectedItem).Id;
+
+                if (turma != null)
+                    if (context.Entry(turma).State == EntityState.Detached)
                     {
-                        context.Set<Models.Turma>().Attach(Turma);
-                        if (Turma.Id == 0)
-                            context.Entry<Models.Turma>(Turma).State = EntityState.Added;
+                        context.Set<Models.Turma>().Attach(turma);
+
+                        if (turma.Id == 0)
+                            context.Entry(turma).State = EntityState.Added;
                         else
-                            context.Entry<Models.Turma>(Turma).State = EntityState.Modified;
+                            context.Entry(turma).State = EntityState.Modified;
+
                         context.SaveChanges();
                         MessageBox.Show(this, "Turma adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvTurma.Refresh();
-                        Turma_Load(new object(), new EventArgs());
-                        pnlCadastro.Enabled = false;
                     }
             }
+
+            dgvTurma.Refresh();
+            Turma_Load(sender, e);
+            pnlCadastro.Enabled = false;
         }
         #endregion
 
@@ -216,16 +239,16 @@ namespace SistemaEscolar.Views
         {
             using (Context context = new Context())
             {
-                turmaBindingSource.DataSource = context.Cursos.ToList();
+                turmaBindingSource.DataSource = context.Turmas.ToList();
                 pnlCover.Hide();
                 btnNovo.Enabled = false;
                 btnListar.Enabled = false;
                 btnLimpar.Enabled = true;
-                Models.Curso curso = turmaBindingSource.Current as Models.Curso;
+                Models.Turma turma = turmaBindingSource.Current as Models.Turma;
 
-                if (curso != null)
+                if (turma != null)
                 {
-                    if (curso.Descricao != null && curso.Id != 0)
+                    if (turma.Turno  != null && turma.Id != 0)
                     {
                         btnEditar.Enabled = true;
                         btnDeletar.Enabled = true;
@@ -236,7 +259,7 @@ namespace SistemaEscolar.Views
                     {
                         btnEditar.Enabled = false;
                         btnDeletar.Enabled = false;
-                        MessageBox.Show("Não há cursos cadastrados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Não há turmas cadastradas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         btnLimpar_Click(sender, e);
                     }
                 }

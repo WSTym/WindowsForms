@@ -7,10 +7,7 @@ namespace SistemaEscolar.Models
     [Table("Cursos")]
     public class Curso
     {
-        public Curso()
-        {
-            this.Turmas = new List<Turma>(); 
-        }
+        private readonly ObservableListSource<Turma> _turmas = new ObservableListSource<Turma>();
 
         [Key]
         public int Id { get; set; }
@@ -19,6 +16,7 @@ namespace SistemaEscolar.Models
         [StringLength(200)]
         public string Descricao { get; set; }
 
-        public virtual ICollection<Turma> Turmas { get; set; }
+        public virtual ObservableListSource<Turma> Turmas { get { return _turmas; } }
+
     }
 }

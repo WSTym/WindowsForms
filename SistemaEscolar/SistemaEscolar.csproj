@@ -111,21 +111,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202004261929158_SistemaEscolar.cs" />
-    <Compile Include="Migrations\202004261929158_SistemaEscolar.designer.cs">
-      <DependentUpon>202004261929158_SistemaEscolar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004270033226_SistemaEscolar1.cs" />
-    <Compile Include="Migrations\202004270033226_SistemaEscolar1.designer.cs">
-      <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004272312181_SistemaEscolar2.cs" />
-    <Compile Include="Migrations\202004272312181_SistemaEscolar2.designer.cs">
-      <DependentUpon>202004272312181_SistemaEscolar2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004272332533_SistemaEscolar3.cs" />
-    <Compile Include="Migrations\202004272332533_SistemaEscolar3.designer.cs">
-      <DependentUpon>202004272332533_SistemaEscolar3.cs</DependentUpon>
+    <Compile Include="Migrations\202005030327450_SistemaEscolar.cs" />
+    <Compile Include="Migrations\202005030327450_SistemaEscolar.designer.cs">
+      <DependentUpon>202005030327450_SistemaEscolar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -134,6 +122,7 @@
     <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\Disciplina.cs" />
     <Compile Include="Models\Nota.cs" />
+    <Compile Include="Models\ObservableListSource.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Turma.cs" />
@@ -193,17 +182,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202004261929158_SistemaEscolar.resx">
-      <DependentUpon>202004261929158_SistemaEscolar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004270033226_SistemaEscolar1.resx">
-      <DependentUpon>202004270033226_SistemaEscolar1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004272312181_SistemaEscolar2.resx">
-      <DependentUpon>202004272312181_SistemaEscolar2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004272332533_SistemaEscolar3.resx">
-      <DependentUpon>202004272332533_SistemaEscolar3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005030327450_SistemaEscolar.resx">
+      <DependentUpon>202005030327450_SistemaEscolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>

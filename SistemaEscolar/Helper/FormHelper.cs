@@ -37,6 +37,7 @@ namespace SistemaEscolar.Helper
                 return true;
             }
 
+            //if (control.Checked == false)
             return false;
         }
     }

@@ -7,7 +7,7 @@ namespace SistemaEscolar.Models
     [Table("Cursos")]
     public class Curso
     {
-        private readonly ObservableListSource<Turma> _turmas = new ObservableListSource<Turma>();
+        private readonly ObservableListSource<Avaliacao> _turmas = new ObservableListSource<Avaliacao>();
 
         [Key]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace SistemaEscolar.Models
         [StringLength(200)]
         public string Descricao { get; set; }
 
-        public virtual ObservableListSource<Turma> Turmas { get { return _turmas; } }
+        public virtual ObservableListSource<Avaliacao> Turmas { get { return _turmas; } }
 
     }
 }

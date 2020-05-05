@@ -7,13 +7,13 @@ namespace SistemaEscolar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class SisEscolar_Disc : IMigrationMetadata
+    public sealed partial class SisEscolar : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SisEscolar_Disc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SisEscolar));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005042331396_SisEscolar_Disc"; }
+            get { return "202005051551094_SisEscolar"; }
         }
         
         string IMigrationMetadata.Source

@@ -55,7 +55,7 @@ namespace SistemaEscolar.Views
         private void btnAvaliacao_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Avalicacao());
+            OpenForm(new Avaliacao());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnAvaliação.Height;
             pnlIndicador.Top = btnAvaliação.Top;
@@ -75,7 +75,7 @@ namespace SistemaEscolar.Views
         private void btnProfessor_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Views.Professor());
+            OpenForm(new Professor());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnProfessor.Height;
             pnlIndicador.Top = btnProfessor.Top;

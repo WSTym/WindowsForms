@@ -111,13 +111,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202005041350245_SisEscolar.cs" />
-    <Compile Include="Migrations\202005041350245_SisEscolar.designer.cs">
-      <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005042331396_SisEscolar_Disc.cs" />
-    <Compile Include="Migrations\202005042331396_SisEscolar_Disc.designer.cs">
-      <DependentUpon>202005042331396_SisEscolar_Disc.cs</DependentUpon>
+    <Compile Include="Migrations\202005051551094_SisEscolar.cs" />
+    <Compile Include="Migrations\202005051551094_SisEscolar.designer.cs">
+      <DependentUpon>202005051551094_SisEscolar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -141,11 +137,11 @@
     <Compile Include="Views\Aluno.Designer.cs">
       <DependentUpon>Aluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Avalicacao.cs">
+    <Compile Include="Views\Avaliacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Avalicacao.Designer.cs">
-      <DependentUpon>Avalicacao.cs</DependentUpon>
+    <Compile Include="Views\Avaliacao.Designer.cs">
+      <DependentUpon>Avaliacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Curso.cs">
       <SubType>Form</SubType>
@@ -186,17 +182,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202005041350245_SisEscolar.resx">
-      <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005042331396_SisEscolar_Disc.resx">
-      <DependentUpon>202005042331396_SisEscolar_Disc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005051551094_SisEscolar.resx">
+      <DependentUpon>202005051551094_SisEscolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Avalicacao.resx">
-      <DependentUpon>Avalicacao.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Avaliacao.resx">
+      <DependentUpon>Avaliacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Curso.resx">
       <DependentUpon>Curso.cs</DependentUpon>

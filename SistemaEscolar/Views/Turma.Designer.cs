@@ -44,7 +44,6 @@
             this.pnlCadastro = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCargaHoraria = new System.Windows.Forms.TextBox();
-            this.turmaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cboTurno = new System.Windows.Forms.ComboBox();
             this.cboSemestre = new System.Windows.Forms.ComboBox();
             this.cboCurso = new System.Windows.Forms.ComboBox();
@@ -55,24 +54,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
-            this.dgvTurma = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semestreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargaHorariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cursoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCover = new System.Windows.Forms.Panel();
+            this.dgvTurma = new System.Windows.Forms.DataGridView();
+            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errTurma = new System.Windows.Forms.ErrorProvider(this.components);
+            this.turmaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cursoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource)).BeginInit();
             this.pnlPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errTurma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -281,15 +282,10 @@
             this.txtCargaHoraria.Name = "txtCargaHoraria";
             this.txtCargaHoraria.Size = new System.Drawing.Size(40, 21);
             this.txtCargaHoraria.TabIndex = 6;
-            this.txtCargaHoraria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargaHoraria_KeyPress);
-            // 
-            // turmaBindingSource
-            // 
-            this.turmaBindingSource.DataSource = typeof(Models.Turma);
+            this.txtCargaHoraria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // cboTurno
             // 
-            this.cboTurno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.turmaBindingSource, "Turno", true));
             this.cboTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.cboTurno.FormattingEnabled = true;
             this.cboTurno.Items.AddRange(new object[] {
@@ -303,7 +299,6 @@
             // 
             // cboSemestre
             // 
-            this.cboSemestre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.turmaBindingSource, "Semestre", true));
             this.cboSemestre.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.cboSemestre.FormattingEnabled = true;
             this.cboSemestre.Items.AddRange(new object[] {
@@ -351,7 +346,7 @@
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(40, 21);
             this.txtAno.TabIndex = 2;
-            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAno_KeyPress);
+            this.txtAno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // label7
             // 
@@ -396,6 +391,14 @@
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 390);
             this.pnlPesquisa.TabIndex = 9;
             // 
+            // pnlCover
+            // 
+            this.pnlCover.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCover.Location = new System.Drawing.Point(21, 21);
+            this.pnlCover.Name = "pnlCover";
+            this.pnlCover.Size = new System.Drawing.Size(608, 348);
+            this.pnlCover.TabIndex = 15;
+            // 
             // dgvTurma
             // 
             this.dgvTurma.AllowUserToAddRows = false;
@@ -405,13 +408,14 @@
             this.dgvTurma.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTurma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTurma.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.Curso,
-            this.anoDataGridViewTextBoxColumn,
-            this.semestreDataGridViewTextBoxColumn,
-            this.turnoDataGridViewTextBoxColumn,
-            this.cargaHorariaDataGridViewTextBoxColumn,
-            this.cursoIdDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.cursoDataGridViewTextBoxColumn});
             this.dgvTurma.DataSource = this.turmaBindingSource;
             this.dgvTurma.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTurma.GridColor = System.Drawing.SystemColors.Control;
@@ -421,14 +425,6 @@
             this.dgvTurma.Size = new System.Drawing.Size(610, 350);
             this.dgvTurma.TabIndex = 14;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
-            // 
             // Curso
             // 
             this.Curso.HeaderText = "Curso";
@@ -436,54 +432,62 @@
             this.Curso.ReadOnly = true;
             this.Curso.Width = 150;
             // 
-            // anoDataGridViewTextBoxColumn
-            // 
-            this.anoDataGridViewTextBoxColumn.DataPropertyName = "Ano";
-            this.anoDataGridViewTextBoxColumn.HeaderText = "Ano";
-            this.anoDataGridViewTextBoxColumn.Name = "anoDataGridViewTextBoxColumn";
-            this.anoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // semestreDataGridViewTextBoxColumn
-            // 
-            this.semestreDataGridViewTextBoxColumn.DataPropertyName = "Semestre";
-            this.semestreDataGridViewTextBoxColumn.HeaderText = "Semestre";
-            this.semestreDataGridViewTextBoxColumn.Name = "semestreDataGridViewTextBoxColumn";
-            this.semestreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // turnoDataGridViewTextBoxColumn
-            // 
-            this.turnoDataGridViewTextBoxColumn.DataPropertyName = "Turno";
-            this.turnoDataGridViewTextBoxColumn.HeaderText = "Turno";
-            this.turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
-            this.turnoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cargaHorariaDataGridViewTextBoxColumn
-            // 
-            this.cargaHorariaDataGridViewTextBoxColumn.DataPropertyName = "CargaHoraria";
-            this.cargaHorariaDataGridViewTextBoxColumn.HeaderText = "Carga Horaria";
-            this.cargaHorariaDataGridViewTextBoxColumn.Name = "cargaHorariaDataGridViewTextBoxColumn";
-            this.cargaHorariaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cargaHorariaDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // cursoIdDataGridViewTextBoxColumn
-            // 
-            this.cursoIdDataGridViewTextBoxColumn.DataPropertyName = "CursoId";
-            this.cursoIdDataGridViewTextBoxColumn.HeaderText = "CursoId";
-            this.cursoIdDataGridViewTextBoxColumn.Name = "cursoIdDataGridViewTextBoxColumn";
-            this.cursoIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cursoIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pnlCover
-            // 
-            this.pnlCover.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlCover.Location = new System.Drawing.Point(21, 21);
-            this.pnlCover.Name = "pnlCover";
-            this.pnlCover.Size = new System.Drawing.Size(608, 348);
-            this.pnlCover.TabIndex = 15;
-            // 
             // errTurma
             // 
             this.errTurma.ContainerControl = this;
+            // 
+            // turmaBindingSource
+            // 
+            this.turmaBindingSource.DataSource = typeof(Models.Turma);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Ano";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Ano";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Turno";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Turno";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CargaHoraria";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CargaHoraria";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Semestre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Semestre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CursoId";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CursoId";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // cursoDataGridViewTextBoxColumn
+            // 
+            this.cursoDataGridViewTextBoxColumn.DataPropertyName = "Curso";
+            this.cursoDataGridViewTextBoxColumn.HeaderText = "Curso";
+            this.cursoDataGridViewTextBoxColumn.Name = "cursoDataGridViewTextBoxColumn";
+            this.cursoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Turma
             // 
@@ -504,11 +508,11 @@
             this.pnlBotoes.ResumeLayout(false);
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursoBindingSource)).EndInit();
             this.pnlPesquisa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errTurma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -541,9 +545,7 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Panel pnlCover;
         private System.Windows.Forms.DataGridView dgvTurma;
-        private System.Windows.Forms.BindingSource turmaBindingSource;
         private System.Windows.Forms.BindingSource cursoBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn anoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn semestreDataGridViewTextBoxColumn;
@@ -551,5 +553,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cargaHorariaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cursoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cboSemestre;
+        private System.Windows.Forms.BindingSource turmaBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cursoDataGridViewTextBoxColumn;
     }
 }

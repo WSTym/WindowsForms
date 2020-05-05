@@ -22,7 +22,7 @@ namespace SistemaEscolar.Models
         public string AulasSemanais { get; set; }
         [ForeignKey("Turma")]
         public int TurmaId { get; set; }
-        public virtual Turma Turma { get; set; }
+        public virtual Avaliacao Turma { get; set; }
         public virtual ICollection<Avaliacao> Avaliacoes { get; set; }
     }
 }

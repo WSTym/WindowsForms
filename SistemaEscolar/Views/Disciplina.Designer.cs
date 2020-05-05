@@ -55,11 +55,11 @@
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvDisciplina = new System.Windows.Forms.DataGridView();
-            this.errDisciplina = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargaHorariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aulasSemanaisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errDisciplina = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
@@ -268,7 +268,7 @@
             // 
             // turmaBindingSource
             // 
-            this.turmaBindingSource.DataSource = typeof(Models.Turma);
+            this.turmaBindingSource.DataSource = typeof(Models.Avaliacao);
             // 
             // label1
             // 
@@ -319,6 +319,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(40, 21);
             this.textBox1.TabIndex = 3;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // disciplinaBindingSource
             // 
@@ -333,6 +334,7 @@
             this.txtCargaHoraria.Name = "txtCargaHoraria";
             this.txtCargaHoraria.Size = new System.Drawing.Size(40, 21);
             this.txtCargaHoraria.TabIndex = 3;
+            this.txtCargaHoraria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // txtNomeDisciplina
             // 
@@ -385,10 +387,6 @@
             this.dgvDisciplina.Size = new System.Drawing.Size(610, 350);
             this.dgvDisciplina.TabIndex = 14;
             // 
-            // errDisciplina
-            // 
-            this.errDisciplina.ContainerControl = this;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -416,6 +414,10 @@
             this.aulasSemanaisDataGridViewTextBoxColumn.HeaderText = "Aulas Semanais";
             this.aulasSemanaisDataGridViewTextBoxColumn.Name = "aulasSemanaisDataGridViewTextBoxColumn";
             this.aulasSemanaisDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // errDisciplina
+            // 
+            this.errDisciplina.ContainerControl = this;
             // 
             // Disciplina
             // 

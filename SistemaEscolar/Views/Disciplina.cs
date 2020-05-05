@@ -164,7 +164,7 @@ namespace SistemaEscolar.Views
             using (Context context = new Context())
             {
                 Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
-                disciplina.TurmaId = ((Models.Turma)cboTurma.SelectedItem).Id;
+                disciplina.TurmaId = ((Models.Avaliacao)cboTurma.SelectedItem).Id;
 
                 if (disciplina != null)
                 {
@@ -288,6 +288,13 @@ namespace SistemaEscolar.Views
             FormHelper.SetTextEmpty(this);
         }
 
+        #endregion
+
+        #region Restringe caracteres da textbox a somente números
+        private void textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
+        }
         #endregion
     }
 }

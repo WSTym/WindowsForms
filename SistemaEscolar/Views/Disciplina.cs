@@ -67,6 +67,11 @@ namespace SistemaEscolar.Views
             txtPesquisa.Enabled = false;
             txtPesquisa.Text = string.Empty;
             txtNomeDisciplina.Focus();
+            using (Context context = new Context())
+            {
+                context.Turmas.Load();
+                turmaBindingSource.DataSource = context.Turmas.ToList();
+            }
         }
         #endregion
 
@@ -159,6 +164,7 @@ namespace SistemaEscolar.Views
             using (Context context = new Context())
             {
                 Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
+                disciplina.TurmaId = ((Models.Turma)cboTurma.SelectedItem).Id;
 
                 if (disciplina != null)
                 {

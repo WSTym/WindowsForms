@@ -115,6 +115,10 @@
     <Compile Include="Migrations\202005041350245_SisEscolar.designer.cs">
       <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005042331396_SisEscolar_Disc.cs" />
+    <Compile Include="Migrations\202005042331396_SisEscolar_Disc.designer.cs">
+      <DependentUpon>202005042331396_SisEscolar_Disc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Avaliacao.cs" />
@@ -184,6 +188,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\202005041350245_SisEscolar.resx">
       <DependentUpon>202005041350245_SisEscolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005042331396_SisEscolar_Disc.resx">
+      <DependentUpon>202005042331396_SisEscolar_Disc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Aluno.resx">
       <DependentUpon>Aluno.cs</DependentUpon>

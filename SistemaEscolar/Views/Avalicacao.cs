@@ -51,7 +51,7 @@ namespace SistemaEscolar.Views
                     //Disciplina = cbDisciplina.SelectedItem.ToString(),
                     Tema = txtTemaAvaliacao.Text,
                     Data = txtDataAvaliacao.Text,
-                    Valor = float.Parse(txtValorAvaliacao.Text)
+                    Valor = txtValorAvaliacao.Text
                 });
             }
         }

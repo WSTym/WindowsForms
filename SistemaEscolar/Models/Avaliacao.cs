@@ -11,7 +11,8 @@ namespace SistemaEscolar.Models
         public int Id { get; set; }
         [StringLength(50)]
         public string Tema { get; set; }
-        public float Valor { get; set; }
+        [StringLength(5)]
+        public string Valor { get; set; }
         public string Data { get; set; }
         [ForeignKey("Disciplina")]
         public int DisciplinaId { get; set; }

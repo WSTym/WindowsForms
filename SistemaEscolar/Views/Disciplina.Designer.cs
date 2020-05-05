@@ -42,30 +42,31 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.pnlCadastro = new System.Windows.Forms.Panel();
+            this.cboTurma = new System.Windows.Forms.ComboBox();
+            this.turmaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.disciplinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.txtNomeDisciplina = new System.Windows.Forms.TextBox();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvDisciplina = new System.Windows.Forms.DataGridView();
+            this.errDisciplina = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargaHorariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aulasSemanaisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disciplinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errDisciplina = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboTurma = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplinaBindingSource)).BeginInit();
             this.pnlPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisciplina)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDisciplina)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,6 +255,21 @@
             this.pnlCadastro.Size = new System.Drawing.Size(350, 390);
             this.pnlCadastro.TabIndex = 8;
             // 
+            // cboTurma
+            // 
+            this.cboTurma.DataSource = this.turmaBindingSource;
+            this.cboTurma.DisplayMember = "Ano";
+            this.cboTurma.FormattingEnabled = true;
+            this.cboTurma.Location = new System.Drawing.Point(130, 20);
+            this.cboTurma.Name = "cboTurma";
+            this.cboTurma.Size = new System.Drawing.Size(200, 24);
+            this.cboTurma.TabIndex = 4;
+            this.cboTurma.ValueMember = "Id";
+            // 
+            // turmaBindingSource
+            // 
+            this.turmaBindingSource.DataSource = typeof(Models.Turma);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -263,6 +279,16 @@
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Turma:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.label3.Location = new System.Drawing.Point(20, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Aulas Semanais:";
             // 
             // label7
             // 
@@ -284,8 +310,23 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome:";
             // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplinaBindingSource, "AulasSemanais", true));
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.textBox1.Location = new System.Drawing.Point(130, 122);
+            this.textBox1.MaxLength = 4;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(40, 21);
+            this.textBox1.TabIndex = 3;
+            // 
+            // disciplinaBindingSource
+            // 
+            this.disciplinaBindingSource.DataSource = typeof(Models.Disciplina);
+            // 
             // txtCargaHoraria
             // 
+            this.txtCargaHoraria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplinaBindingSource, "CargaHoraria", true));
             this.txtCargaHoraria.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.txtCargaHoraria.Location = new System.Drawing.Point(130, 88);
             this.txtCargaHoraria.MaxLength = 4;
@@ -295,9 +336,10 @@
             // 
             // txtNomeDisciplina
             // 
+            this.txtNomeDisciplina.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplinaBindingSource, "Nome", true));
             this.txtNomeDisciplina.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.txtNomeDisciplina.Location = new System.Drawing.Point(130, 54);
-            this.txtNomeDisciplina.MaxLength = 4;
+            this.txtNomeDisciplina.MaxLength = 50;
             this.txtNomeDisciplina.Name = "txtNomeDisciplina";
             this.txtNomeDisciplina.Size = new System.Drawing.Size(200, 21);
             this.txtNomeDisciplina.TabIndex = 2;
@@ -328,19 +370,24 @@
             this.dgvDisciplina.AllowUserToAddRows = false;
             this.dgvDisciplina.AllowUserToDeleteRows = false;
             this.dgvDisciplina.AutoGenerateColumns = false;
+            this.dgvDisciplina.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDisciplina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDisciplina.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
             this.cargaHorariaDataGridViewTextBoxColumn,
-            this.aulasSemanaisDataGridViewTextBoxColumn,
-            this.turmaDataGridViewTextBoxColumn});
+            this.aulasSemanaisDataGridViewTextBoxColumn});
             this.dgvDisciplina.DataSource = this.disciplinaBindingSource;
             this.dgvDisciplina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDisciplina.GridColor = System.Drawing.SystemColors.Control;
             this.dgvDisciplina.Location = new System.Drawing.Point(20, 20);
             this.dgvDisciplina.Name = "dgvDisciplina";
             this.dgvDisciplina.Size = new System.Drawing.Size(610, 350);
             this.dgvDisciplina.TabIndex = 14;
+            // 
+            // errDisciplina
+            // 
+            this.errDisciplina.ContainerControl = this;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -370,48 +417,6 @@
             this.aulasSemanaisDataGridViewTextBoxColumn.Name = "aulasSemanaisDataGridViewTextBoxColumn";
             this.aulasSemanaisDataGridViewTextBoxColumn.Width = 75;
             // 
-            // turmaDataGridViewTextBoxColumn
-            // 
-            this.turmaDataGridViewTextBoxColumn.DataPropertyName = "Turma";
-            this.turmaDataGridViewTextBoxColumn.HeaderText = "Turma";
-            this.turmaDataGridViewTextBoxColumn.Name = "turmaDataGridViewTextBoxColumn";
-            this.turmaDataGridViewTextBoxColumn.Width = 175;
-            // 
-            // disciplinaBindingSource
-            // 
-            this.disciplinaBindingSource.DataSource = typeof(Models.Disciplina);
-            // 
-            // errDisciplina
-            // 
-            this.errDisciplina.ContainerControl = this;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.textBox1.Location = new System.Drawing.Point(130, 122);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(40, 21);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.label3.Location = new System.Drawing.Point(20, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Aulas Semanais:";
-            // 
-            // cboTurma
-            // 
-            this.cboTurma.FormattingEnabled = true;
-            this.cboTurma.Location = new System.Drawing.Point(130, 20);
-            this.cboTurma.Name = "cboTurma";
-            this.cboTurma.Size = new System.Drawing.Size(200, 24);
-            this.cboTurma.TabIndex = 4;
-            // 
             // Disciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,9 +435,10 @@
             this.pnlBotoes.ResumeLayout(false);
             this.pnlCadastro.ResumeLayout(false);
             this.pnlCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.turmaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplinaBindingSource)).EndInit();
             this.pnlPesquisa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisciplina)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errDisciplina)).EndInit();
             this.ResumeLayout(false);
 
@@ -457,11 +463,6 @@
         private System.Windows.Forms.DataGridView dgvDisciplina;
         private System.Windows.Forms.ErrorProvider errDisciplina;
         private System.Windows.Forms.TextBox txtCargaHoraria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cargaHorariaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aulasSemanaisDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn turmaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource disciplinaBindingSource;
         private System.Windows.Forms.Panel pnlCover;
         private System.Windows.Forms.TextBox txtPesquisa;
@@ -471,5 +472,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboTurma;
+        private System.Windows.Forms.BindingSource turmaBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cargaHorariaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aulasSemanaisDataGridViewTextBoxColumn;
     }
 }

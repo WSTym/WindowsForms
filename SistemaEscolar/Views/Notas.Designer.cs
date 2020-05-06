@@ -32,21 +32,23 @@
             this.errNotas = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.pnlCadastro = new System.Windows.Forms.Panel();
             this.txtNotaAluno = new System.Windows.Forms.TextBox();
             this.chkFalta = new System.Windows.Forms.CheckBox();
-            this.cbAluno = new System.Windows.Forms.ComboBox();
-            this.cbAvaliacao = new System.Windows.Forms.ComboBox();
-            this.cbDisciplina = new System.Windows.Forms.ComboBox();
-            this.cbTurma = new System.Windows.Forms.ComboBox();
+            this.cboAluno = new System.Windows.Forms.ComboBox();
+            this.cboAvaliacao = new System.Windows.Forms.ComboBox();
+            this.cboDisciplina = new System.Windows.Forms.ComboBox();
+            this.cboTurma = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,13 +56,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.pnlCover = new System.Windows.Forms.Panel();
             this.dgvNotas = new System.Windows.Forms.DataGridView();
-            this.notaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avaliacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alunoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faltaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.notaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errNotas)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -78,8 +81,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.txtPesquisa);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnPesquisar);
+            this.panel1.Controls.Add(this.btnLimpar);
+            this.panel1.Controls.Add(this.btnListar);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -89,10 +94,56 @@
             // txtPesquisa
             // 
             this.txtPesquisa.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtPesquisa.Location = new System.Drawing.Point(744, 23);
+            this.txtPesquisa.Location = new System.Drawing.Point(539, 36);
+            this.txtPesquisa.MaxLength = 20;
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(200, 24);
-            this.txtPesquisa.TabIndex = 12;
+            this.txtPesquisa.TabIndex = 17;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
+            this.btnPesquisar.Location = new System.Drawing.Point(736, 34);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(28, 28);
+            this.btnPesquisar.TabIndex = 18;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnLimpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLimpar.Location = new System.Drawing.Point(880, 34);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(100, 28);
+            this.btnLimpar.TabIndex = 20;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListar.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.btnListar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnListar.Location = new System.Drawing.Point(772, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(100, 28);
+            this.btnListar.TabIndex = 19;
+            this.btnListar.Text = "Listar Notas";
+            this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // label5
             // 
@@ -104,27 +155,13 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cadastro de Notas";
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPesquisar.Image = global::SistemaEscolar.Properties.Resources.search_2_16;
-            this.btnPesquisar.Location = new System.Drawing.Point(950, 19);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(30, 30);
-            this.btnPesquisar.TabIndex = 13;
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
             // pnlBotoes
             // 
             this.pnlBotoes.BackColor = System.Drawing.Color.White;
             this.pnlBotoes.Controls.Add(this.btnEditar);
             this.pnlBotoes.Controls.Add(this.btnDeletar);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnSalvar);
             this.pnlBotoes.Controls.Add(this.btnNovo);
             this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotoes.Location = new System.Drawing.Point(0, 450);
@@ -145,6 +182,7 @@
             this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnDeletar
             // 
@@ -159,6 +197,7 @@
             this.btnDeletar.TabIndex = 9;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnCancelar
             // 
@@ -173,20 +212,22 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnCadastrar
+            // btnSalvar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(682, 33);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(100, 33);
-            this.btnCadastrar.TabIndex = 11;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalvar.Location = new System.Drawing.Point(682, 33);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(100, 33);
+            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnNovo
             // 
@@ -201,16 +242,17 @@
             this.btnNovo.TabIndex = 7;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // pnlCadastro
             // 
             this.pnlCadastro.BackColor = System.Drawing.Color.White;
             this.pnlCadastro.Controls.Add(this.txtNotaAluno);
             this.pnlCadastro.Controls.Add(this.chkFalta);
-            this.pnlCadastro.Controls.Add(this.cbAluno);
-            this.pnlCadastro.Controls.Add(this.cbAvaliacao);
-            this.pnlCadastro.Controls.Add(this.cbDisciplina);
-            this.pnlCadastro.Controls.Add(this.cbTurma);
+            this.pnlCadastro.Controls.Add(this.cboAluno);
+            this.pnlCadastro.Controls.Add(this.cboAvaliacao);
+            this.pnlCadastro.Controls.Add(this.cboDisciplina);
+            this.pnlCadastro.Controls.Add(this.cboTurma);
             this.pnlCadastro.Controls.Add(this.label1);
             this.pnlCadastro.Controls.Add(this.label6);
             this.pnlCadastro.Controls.Add(this.label7);
@@ -232,6 +274,7 @@
             this.txtNotaAluno.Name = "txtNotaAluno";
             this.txtNotaAluno.Size = new System.Drawing.Size(40, 21);
             this.txtNotaAluno.TabIndex = 4;
+            this.txtNotaAluno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // chkFalta
             // 
@@ -242,37 +285,37 @@
             this.chkFalta.TabIndex = 10;
             this.chkFalta.UseVisualStyleBackColor = true;
             // 
-            // cbAluno
+            // cboAluno
             // 
-            this.cbAluno.FormattingEnabled = true;
-            this.cbAluno.Location = new System.Drawing.Point(130, 122);
-            this.cbAluno.Name = "cbAluno";
-            this.cbAluno.Size = new System.Drawing.Size(200, 24);
-            this.cbAluno.TabIndex = 4;
+            this.cboAluno.FormattingEnabled = true;
+            this.cboAluno.Location = new System.Drawing.Point(130, 122);
+            this.cboAluno.Name = "cboAluno";
+            this.cboAluno.Size = new System.Drawing.Size(200, 24);
+            this.cboAluno.TabIndex = 4;
             // 
-            // cbAvaliacao
+            // cboAvaliacao
             // 
-            this.cbAvaliacao.FormattingEnabled = true;
-            this.cbAvaliacao.Location = new System.Drawing.Point(130, 88);
-            this.cbAvaliacao.Name = "cbAvaliacao";
-            this.cbAvaliacao.Size = new System.Drawing.Size(200, 24);
-            this.cbAvaliacao.TabIndex = 3;
+            this.cboAvaliacao.FormattingEnabled = true;
+            this.cboAvaliacao.Location = new System.Drawing.Point(130, 88);
+            this.cboAvaliacao.Name = "cboAvaliacao";
+            this.cboAvaliacao.Size = new System.Drawing.Size(200, 24);
+            this.cboAvaliacao.TabIndex = 3;
             // 
-            // cbDisciplina
+            // cboDisciplina
             // 
-            this.cbDisciplina.FormattingEnabled = true;
-            this.cbDisciplina.Location = new System.Drawing.Point(130, 54);
-            this.cbDisciplina.Name = "cbDisciplina";
-            this.cbDisciplina.Size = new System.Drawing.Size(200, 24);
-            this.cbDisciplina.TabIndex = 2;
+            this.cboDisciplina.FormattingEnabled = true;
+            this.cboDisciplina.Location = new System.Drawing.Point(130, 54);
+            this.cboDisciplina.Name = "cboDisciplina";
+            this.cboDisciplina.Size = new System.Drawing.Size(200, 24);
+            this.cboDisciplina.TabIndex = 2;
             // 
-            // cbTurma
+            // cboTurma
             // 
-            this.cbTurma.FormattingEnabled = true;
-            this.cbTurma.Location = new System.Drawing.Point(130, 20);
-            this.cbTurma.Name = "cbTurma";
-            this.cbTurma.Size = new System.Drawing.Size(200, 24);
-            this.cbTurma.TabIndex = 1;
+            this.cboTurma.FormattingEnabled = true;
+            this.cboTurma.Location = new System.Drawing.Point(130, 20);
+            this.cboTurma.Name = "cboTurma";
+            this.cboTurma.Size = new System.Drawing.Size(200, 24);
+            this.cboTurma.TabIndex = 1;
             // 
             // label1
             // 
@@ -337,6 +380,7 @@
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.White;
+            this.pnlPesquisa.Controls.Add(this.pnlCover);
             this.pnlPesquisa.Controls.Add(this.dgvNotas);
             this.pnlPesquisa.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlPesquisa.Font = new System.Drawing.Font("Century Gothic", 8.25F);
@@ -346,11 +390,20 @@
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 390);
             this.pnlPesquisa.TabIndex = 9;
             // 
+            // pnlCover
+            // 
+            this.pnlCover.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCover.Location = new System.Drawing.Point(21, 21);
+            this.pnlCover.Name = "pnlCover";
+            this.pnlCover.Size = new System.Drawing.Size(608, 348);
+            this.pnlCover.TabIndex = 16;
+            // 
             // dgvNotas
             // 
             this.dgvNotas.AllowUserToAddRows = false;
             this.dgvNotas.AllowUserToDeleteRows = false;
             this.dgvNotas.AutoGenerateColumns = false;
+            this.dgvNotas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvNotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -360,14 +413,11 @@
             this.faltaDataGridViewCheckBoxColumn});
             this.dgvNotas.DataSource = this.notaBindingSource;
             this.dgvNotas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvNotas.GridColor = System.Drawing.SystemColors.Control;
             this.dgvNotas.Location = new System.Drawing.Point(20, 20);
             this.dgvNotas.Name = "dgvNotas";
             this.dgvNotas.Size = new System.Drawing.Size(610, 350);
             this.dgvNotas.TabIndex = 14;
-            // 
-            // notaBindingSource
-            // 
-            this.notaBindingSource.DataSource = typeof(Models.Nota);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -400,6 +450,10 @@
             this.faltaDataGridViewCheckBoxColumn.HeaderText = "Falta";
             this.faltaDataGridViewCheckBoxColumn.Name = "faltaDataGridViewCheckBoxColumn";
             // 
+            // notaBindingSource
+            // 
+            this.notaBindingSource.DataSource = typeof(Models.Nota);
+            // 
             // Notas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,7 +466,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Notas";
             this.Text = "Notas";
-            this.Load += new System.EventHandler(this.CadastroNotas_Load);
+            this.Load += new System.EventHandler(this.Notas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errNotas)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -430,17 +484,15 @@
 
         private System.Windows.Forms.ErrorProvider errNotas;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel pnlCadastro;
-        private System.Windows.Forms.ComboBox cbTurma;
+        private System.Windows.Forms.ComboBox cboTurma;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -449,9 +501,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnlPesquisa;
         private System.Windows.Forms.DataGridView dgvNotas;
-        private System.Windows.Forms.ComboBox cbAluno;
-        private System.Windows.Forms.ComboBox cbAvaliacao;
-        private System.Windows.Forms.ComboBox cbDisciplina;
+        private System.Windows.Forms.ComboBox cboAluno;
+        private System.Windows.Forms.ComboBox cboAvaliacao;
+        private System.Windows.Forms.ComboBox cboDisciplina;
         private System.Windows.Forms.TextBox txtNotaAluno;
         private System.Windows.Forms.CheckBox chkFalta;
         private System.Windows.Forms.BindingSource notaBindingSource;
@@ -460,5 +512,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn alunoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn faltaDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Panel pnlCover;
     }
 }

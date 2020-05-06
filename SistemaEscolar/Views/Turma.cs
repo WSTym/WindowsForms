@@ -94,16 +94,16 @@ namespace SistemaEscolar.Views
         {
             try
             {
-                if (MessageBox.Show(this, "Tem certeza que deseja deletar este Turma?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Tem certeza que deseja deletar esta turma?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     using (Context context = new Context())
                     {
-                        Models.Avaliacao turma = turmaBindingSource.Current as Models.Avaliacao;
+                        Models.Turma turma = turmaBindingSource.Current as Models.Turma;
 
                         if (turma != null)
                         {
                             if (context.Entry(turma).State == EntityState.Detached)
-                                context.Set<Models.Avaliacao>().Attach(turma);
+                                context.Set<Models.Turma>().Attach(turma);
 
                             context.Entry(turma).State = EntityState.Deleted;
                             context.SaveChanges();
@@ -124,7 +124,7 @@ namespace SistemaEscolar.Views
                 MessageBox.Show("Não é possível deletar uma linha vazia", "Falha ao deletar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            Models.Avaliacao turmaAux = turmaBindingSource.Current as Models.Avaliacao;
+            Models.Turma turmaAux = turmaBindingSource.Current as Models.Turma;
 
             if (turmaAux == null)
             {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SistemaEscolar.Views;
+using System;
 using System.Windows.Forms;
-using SistemaEscolar.Views;
 
 namespace SistemaEscolar
 {
@@ -17,7 +14,7 @@ namespace SistemaEscolar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.SistemaEscolar());
+            Application.Run(new FormSistemaEscolar());
         }
     }
 }

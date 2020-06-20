@@ -1,13 +1,13 @@
-﻿using SistemaEscolar.Helper;
+﻿using SistemaEscolar.Services;
 using SistemaEscolar.Models.Context;
 using System;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class Aluno : Form
+    public partial class FormAluno : Form
     {
-        public Aluno()
+        public FormAluno()
         {
             InitializeComponent();
         }
@@ -40,10 +40,10 @@ namespace SistemaEscolar.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (FormHelper.CheckEmptyField(txtNomeAluno, errAluno)) return;
-            if (FormHelper.CheckEmptyField(txtDataNascAluno, errAluno)) return;
-            if (FormHelper.CheckEmptyField(txtEnderecoAluno, errAluno)) return;
-            if (FormHelper.CheckEmptyField(txtTelefoneAluno, errAluno)) return;
+            if (Services.Services.CheckEmptyField(txtNomeAluno, errAluno)) return;
+            if (Services.Services.CheckEmptyField(txtDataNascAluno, errAluno)) return;
+            if (Services.Services.CheckEmptyField(txtEnderecoAluno, errAluno)) return;
+            if (Services.Services.CheckEmptyField(txtTelefoneAluno, errAluno)) return;
 
             using (Context context = new Context())
             {
@@ -59,7 +59,7 @@ namespace SistemaEscolar.Views
         #region Limpa os TextBoxes
         private void CleanForm()
         {
-            FormHelper.SetTextEmpty(this);
+            Services.Services.SetTextEmpty(this);
         }
 
         #endregion

@@ -1,4 +1,4 @@
-﻿using SistemaEscolar.Helper;
+﻿using SistemaEscolar.Services;
 using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class Notas : Form
+    public partial class FormNotas : Form
     {
         bool _pnlCoverEnable = true;
-        public Notas()
+        public FormNotas()
         {
             InitializeComponent();
         }
@@ -237,7 +237,7 @@ namespace SistemaEscolar.Views
         #region Limpa os TextBoxes
         private void CleanForm()
         {
-            FormHelper.SetTextEmpty(this);
+            Services.Services.SetTextEmpty(this);
         }
 
         #endregion

@@ -1,6 +1,6 @@
 ﻿namespace SistemaEscolar.Views
 {
-    partial class Professor
+    partial class FormProfessor
     {
         /// <summary>
         /// Required designer variable.

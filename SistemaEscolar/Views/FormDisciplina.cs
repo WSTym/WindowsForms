@@ -1,4 +1,5 @@
-﻿using SistemaEscolar.Helper;
+﻿using SistemaEscolar.Services;
+using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,10 @@ using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class Curso : Form
+    public partial class FormDisciplina : Form
     {
         bool _pnlCoverEnable = true;
-        public Curso()
+        public FormDisciplina()
         {
             InitializeComponent();
         }
@@ -19,11 +20,11 @@ namespace SistemaEscolar.Views
         // Controles do CRUD
 
         #region Load
-        private void Curso_Load(object sender, EventArgs e)
+        private void Disciplina_Load(object sender, EventArgs e)
         {
             using (Context context = new Context())
             {
-                cursoBindingSource.DataSource = context.Cursos.ToList();
+                disciplinaBindingSource.DataSource = context.Disciplinas.ToList();
                 btnNovo.Enabled = true;
 
                 if (_pnlCoverEnable)
@@ -38,7 +39,7 @@ namespace SistemaEscolar.Views
                     btnDeletar.Enabled = true;
                     pnlCover.Hide();
                 }
-                 
+
                 btnCancelar.Enabled = false;
                 btnSalvar.Enabled = false;
                 btnLimpar.Enabled = false;
@@ -46,9 +47,9 @@ namespace SistemaEscolar.Views
                 btnPesquisar.Enabled = true;
                 btnListar.Enabled = true;
                 txtPesquisa.Enabled = true;
-                cursoBindingSource.Add(new Models.Curso());
-                cursoBindingSource.MoveLast();
-            }            
+                disciplinaBindingSource.Add(new Models.Disciplina());
+                disciplinaBindingSource.MoveLast();
+            }
         }
         #endregion
 
@@ -65,7 +66,12 @@ namespace SistemaEscolar.Views
             btnListar.Enabled = false;
             txtPesquisa.Enabled = false;
             txtPesquisa.Text = string.Empty;
-            txtNomeCurso.Focus();
+            txtNomeDisciplina.Focus();
+            using (Context context = new Context())
+            {
+                context.Turmas.Load();
+                turmaBindingSource.DataSource = context.Turmas.ToList();
+            }
         }
         #endregion
 
@@ -77,9 +83,9 @@ namespace SistemaEscolar.Views
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
             pnlCadastro.Enabled = true;
-            txtNomeCurso.Focus();
+            txtNomeDisciplina.Focus();
             btnEditar.Enabled = false;
-        } 
+        }
         #endregion
 
         #region Deletar
@@ -87,27 +93,27 @@ namespace SistemaEscolar.Views
         {
             try
             {
-                if (MessageBox.Show(this, "Tem certeza que deseja deletar este curso?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Tem certeza que deseja deletar este disciplina?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     using (Context context = new Context())
                     {
-                        Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                        Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
 
-                        if (curso != null)
+                        if (disciplina != null)
                         {
-                            if (context.Entry<Models.Curso>(curso).State == EntityState.Detached)
-                                context.Set<Models.Curso>().Attach(curso);
+                            if (context.Entry(disciplina).State == EntityState.Detached)
+                                context.Set<Models.Disciplina>().Attach(disciplina);
 
-                            context.Entry<Models.Curso>(curso).State = EntityState.Deleted;
+                            context.Entry(disciplina).State = EntityState.Deleted;
                             context.SaveChanges();
-                            //MessageBox.Show(this, "Curso deletado com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            cursoBindingSource.RemoveCurrent();
-                            dgvCurso.Refresh();
-                            Curso_Load(sender, e);
+                            //MessageBox.Show(this, "Disciplina deletado com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            disciplinaBindingSource.RemoveCurrent();
+                            dgvDisciplina.Refresh();
+                            Disciplina_Load(sender, e);
                             pnlCadastro.Enabled = false;
                             btnNovo.Enabled = false;
-                            cursoBindingSource.MoveLast();
-                            cursoBindingSource.RemoveCurrent();
+                            disciplinaBindingSource.MoveLast();
+                            disciplinaBindingSource.RemoveCurrent();
                         }
                     }
                 }
@@ -117,9 +123,9 @@ namespace SistemaEscolar.Views
                 MessageBox.Show("Não é possível deletar uma linha vazia", "Falha ao deletar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            Models.Curso cursoAux = cursoBindingSource.Current as Models.Curso;
+            Models.Disciplina disciplinaAux = disciplinaBindingSource.Current as Models.Disciplina;
 
-            if (cursoAux == null)
+            if (disciplinaAux == null)
             {
                 btnEditar.Enabled = false;
                 btnDeletar.Enabled = false;
@@ -141,9 +147,9 @@ namespace SistemaEscolar.Views
             else
             {
                 CleanForm();
-                errCurso.Clear();
-                cursoBindingSource.ResetBindings(false);
-                Curso_Load(sender, e);
+                errDisciplina.Clear();
+                disciplinaBindingSource.ResetBindings(false);
+                Disciplina_Load(sender, e);
             }
         }
         #endregion
@@ -151,28 +157,30 @@ namespace SistemaEscolar.Views
         #region Salvar
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (FormHelper.CheckEmptyField(txtNomeCurso, errCurso)) return;
-            if (FormHelper.CheckEmptyField(txtDescricao, errCurso)) return;
+            if (Services.Services.CheckEmptyField(txtNomeDisciplina, errDisciplina)) return;
+            if (Services.Services.CheckEmptyField(txtNomeDisciplina, errDisciplina)) return;
+            if (Services.Services.CheckEmptyField(txtCargaHoraria, errDisciplina)) return;
 
             using (Context context = new Context())
             {
-                Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
+                disciplina.TurmaId = ((Models.Avaliacao)cboTurma.SelectedItem).Id;
 
-                if (curso != null)
-                { 
-                    if (context.Entry(curso).State == EntityState.Detached)
+                if (disciplina != null)
+                {
+                    if (context.Entry(disciplina).State == EntityState.Detached)
                     {
-                        context.Set<Models.Curso>().Attach(curso);
+                        context.Set<Models.Disciplina>().Attach(disciplina);
 
-                        if (curso.Id == 0)
-                            context.Entry(curso).State = EntityState.Added;
+                        if (disciplina.Id == 0)
+                            context.Entry(disciplina).State = EntityState.Added;
                         else
-                            context.Entry(curso).State = EntityState.Modified;
+                            context.Entry(disciplina).State = EntityState.Modified;
 
                         context.SaveChanges();
-                        MessageBox.Show(this, "Curso adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvCurso.Refresh();
-                        Curso_Load(new object(), new EventArgs());
+                        MessageBox.Show(this, "Disciplina adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvDisciplina.Refresh();
+                        Disciplina_Load(new object(), new EventArgs());
                         pnlCadastro.Enabled = false;
                     }
                 }
@@ -185,33 +193,33 @@ namespace SistemaEscolar.Views
         {
             using (Context context = new Context())
             {
-                List<Models.Curso> pesquisa = context.Cursos.Where(x => x.Nome.Contains(txtPesquisa.Text) || x.Descricao.Contains(txtPesquisa.Text)).ToList();
-                Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                List<Models.Disciplina> pesquisa = context.Disciplinas.Where(x => x.Nome.Contains(txtPesquisa.Text) || x.Nome.Contains(txtPesquisa.Text)).ToList();
+                Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
 
-                if (curso != null && !string.IsNullOrEmpty(txtPesquisa.Text) && pesquisa.Count() != 0)
+                if (disciplina != null && !string.IsNullOrEmpty(txtPesquisa.Text) && pesquisa.Count() != 0)
                 {
-                    cursoBindingSource.DataSource = pesquisa;
+                    disciplinaBindingSource.DataSource = pesquisa;
                     btnNovo.Enabled = false;
                     btnLimpar.Enabled = true;
                     pnlCover.Hide();
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Termo não encontrado ou campo vazio", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     btnCancelar_Click(sender, e);
                 }
             }
 
-            Models.Curso cursoAux = cursoBindingSource.Current as Models.Curso;
+            Models.Disciplina disciplinaAux = disciplinaBindingSource.Current as Models.Disciplina;
 
             if (!_pnlCoverEnable)
             {
                 btnLimpar.Enabled = true;
-                cursoBindingSource.MoveLast();
+                disciplinaBindingSource.MoveLast();
 
-                if (cursoAux.Id == 0)
+                if (disciplinaAux.Id == 0)
                 {
-                    cursoBindingSource.RemoveCurrent();
+                    disciplinaBindingSource.RemoveCurrent();
                     btnNovo.Enabled = false;
                     btnEditar.Enabled = false;
                     btnDeletar.Enabled = false;
@@ -219,7 +227,7 @@ namespace SistemaEscolar.Views
             }
             else
             {
-                cursoBindingSource.MoveLast();
+                disciplinaBindingSource.MoveLast();
             }
         }
         #endregion
@@ -229,34 +237,34 @@ namespace SistemaEscolar.Views
         {
             using (Context context = new Context())
             {
-                cursoBindingSource.DataSource = context.Cursos.ToList();
+                disciplinaBindingSource.DataSource = context.Disciplinas.ToList();
                 pnlCover.Hide();
                 btnNovo.Enabled = false;
                 btnListar.Enabled = false;
                 btnLimpar.Enabled = true;
-                Models.Curso curso = cursoBindingSource.Current as Models.Curso;
+                Models.Disciplina disciplina = disciplinaBindingSource.Current as Models.Disciplina;
 
-                if (curso != null)
+                if (disciplina != null)
                 {
-                    if (curso.Descricao != null && curso.Id != 0)
+                    if (disciplina.Nome != null && disciplina.Id != 0)
                     {
                         btnEditar.Enabled = true;
                         btnDeletar.Enabled = true;
-                        cursoBindingSource.MoveFirst();
-                        //cursoBindingSource.RemoveCurrent();
+                        disciplinaBindingSource.MoveFirst();
+                        //disciplinaBindingSource.RemoveCurrent();
                     }
                     else
                     {
                         btnEditar.Enabled = false;
                         btnDeletar.Enabled = false;
-                        MessageBox.Show("Não há cursos cadastrados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Não há disciplinas cadastrados", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         btnLimpar_Click(sender, e);
                     }
-                }                
+                }
 
                 _pnlCoverEnable = false;
             }
-        } 
+        }
         #endregion
 
         #region Limpar
@@ -268,8 +276,8 @@ namespace SistemaEscolar.Views
             btnDeletar.Enabled = false;
             btnListar.Enabled = true;
             _pnlCoverEnable = true;
-            Curso_Load(sender, e);
-        } 
+            Disciplina_Load(sender, e);
+        }
         #endregion
 
         // 
@@ -277,7 +285,15 @@ namespace SistemaEscolar.Views
         #region Limpa os TextBoxes
         private void CleanForm()
         {
-            FormHelper.SetTextEmpty(this);
+            Services.Services.SetTextEmpty(this);
+        }
+
+        #endregion
+
+        #region Restringe caracteres da textbox a somente números
+        private void textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
         }
         #endregion
     }

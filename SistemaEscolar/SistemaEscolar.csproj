@@ -131,83 +131,83 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Aluno.cs">
+    <Compile Include="Views\FormAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Aluno.Designer.cs">
-      <DependentUpon>Aluno.cs</DependentUpon>
+    <Compile Include="Views\FormAluno.Designer.cs">
+      <DependentUpon>FormAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Avaliacao.cs">
+    <Compile Include="Views\FormAvaliacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Avaliacao.Designer.cs">
-      <DependentUpon>Avaliacao.cs</DependentUpon>
+    <Compile Include="Views\FormAvaliacao.Designer.cs">
+      <DependentUpon>FormAvaliacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Curso.cs">
+    <Compile Include="Views\FormCurso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Curso.Designer.cs">
-      <DependentUpon>Curso.cs</DependentUpon>
+    <Compile Include="Views\FormCurso.Designer.cs">
+      <DependentUpon>FormCurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Disciplina.cs">
+    <Compile Include="Views\FormDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Disciplina.Designer.cs">
-      <DependentUpon>Disciplina.cs</DependentUpon>
+    <Compile Include="Views\FormDisciplina.Designer.cs">
+      <DependentUpon>FormDisciplina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Professor.cs">
+    <Compile Include="Views\FormProfessor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Professor.Designer.cs">
-      <DependentUpon>Professor.cs</DependentUpon>
+    <Compile Include="Views\FormProfessor.Designer.cs">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Turma.cs">
+    <Compile Include="Views\FormTurma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Turma.Designer.cs">
-      <DependentUpon>Turma.cs</DependentUpon>
+    <Compile Include="Views\FormTurma.Designer.cs">
+      <DependentUpon>FormTurma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\FormHelper.cs" />
-    <Compile Include="Views\Notas.cs">
+    <Compile Include="Services\Services.cs" />
+    <Compile Include="Views\FormNotas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Notas.Designer.cs">
-      <DependentUpon>Notas.cs</DependentUpon>
+    <Compile Include="Views\FormNotas.Designer.cs">
+      <DependentUpon>FormNotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SistemaEscolar.cs">
+    <Compile Include="Views\FormSistemaEscolar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SistemaEscolar.Designer.cs">
-      <DependentUpon>SistemaEscolar.cs</DependentUpon>
+    <Compile Include="Views\FormSistemaEscolar.Designer.cs">
+      <DependentUpon>FormSistemaEscolar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Migrations\202005051551094_SisEscolar.resx">
       <DependentUpon>202005051551094_SisEscolar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Aluno.resx">
-      <DependentUpon>Aluno.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormAluno.resx">
+      <DependentUpon>FormAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Avaliacao.resx">
-      <DependentUpon>Avaliacao.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormAvaliacao.resx">
+      <DependentUpon>FormAvaliacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Curso.resx">
-      <DependentUpon>Curso.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormCurso.resx">
+      <DependentUpon>FormCurso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Disciplina.resx">
-      <DependentUpon>Disciplina.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormDisciplina.resx">
+      <DependentUpon>FormDisciplina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Professor.resx">
-      <DependentUpon>Professor.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormProfessor.resx">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Turma.resx">
-      <DependentUpon>Turma.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormTurma.resx">
+      <DependentUpon>FormTurma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Notas.resx">
-      <DependentUpon>Notas.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormNotas.resx">
+      <DependentUpon>FormNotas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SistemaEscolar.resx">
-      <DependentUpon>SistemaEscolar.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FormSistemaEscolar.resx">
+      <DependentUpon>FormSistemaEscolar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -267,9 +267,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

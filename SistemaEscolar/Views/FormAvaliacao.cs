@@ -1,18 +1,18 @@
-﻿using SistemaEscolar.Helper;
+﻿using SistemaEscolar.Services;
+using SistemaEscolar.Models;
 using SistemaEscolar.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class Turma : Form
+    public partial class FormAvaliacao : Form
     {
         bool _pnlCoverEnable = true;
-        public Turma()
+        public FormAvaliacao()
         {
             InitializeComponent();
         }
@@ -20,12 +20,10 @@ namespace SistemaEscolar.Views
         // Controles do CRUD
 
         #region Load
-        private void Turma_Load(object sender, EventArgs e)
+        private void Avaliacao_Load(object sender, EventArgs e)
         {
             using (Context context = new Context())
             {
-                context.Turmas.Load();
-                cursoBindingSource.DataSource = context.Cursos.Local.ToBindingList();
                 btnNovo.Enabled = true;
 
                 if (_pnlCoverEnable)
@@ -48,8 +46,8 @@ namespace SistemaEscolar.Views
                 btnPesquisar.Enabled = true;
                 btnListar.Enabled = true;
                 txtPesquisa.Enabled = true;
-                turmaBindingSource.Add(new Models.Turma());
-                turmaBindingSource.MoveLast();
+                avaliacaoBindingSource.Add(new Models.Avaliacao());
+                avaliacaoBindingSource.MoveLast();
             }
         }
         #endregion
@@ -67,12 +65,7 @@ namespace SistemaEscolar.Views
             btnListar.Enabled = false;
             txtPesquisa.Enabled = false;
             txtPesquisa.Text = string.Empty;
-            cboCurso.Focus();
-            using (Context context = new Context())
-            {
-                context.Turmas.Load();
-                cursoBindingSource.DataSource = context.Cursos.ToList();
-            }
+            cboDisciplina.Focus();
         }
         #endregion
 
@@ -84,7 +77,7 @@ namespace SistemaEscolar.Views
             btnCancelar.Enabled = true;
             btnSalvar.Enabled = true;
             pnlCadastro.Enabled = true;
-            cboCurso.Focus();
+            cboDisciplina.Focus();
             btnEditar.Enabled = false;
         }
         #endregion
@@ -94,27 +87,26 @@ namespace SistemaEscolar.Views
         {
             try
             {
-                if (MessageBox.Show(this, "Tem certeza que deseja deletar esta turma?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Tem certeza que deseja deletar esta avaliação?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     using (Context context = new Context())
                     {
-                        Models.Turma turma = turmaBindingSource.Current as Models.Turma;
+                        Models.Avaliacao avaliacao = avaliacaoBindingSource.Current as Models.Avaliacao;
 
-                        if (turma != null)
+                        if (avaliacao != null)
                         {
-                            if (context.Entry(turma).State == EntityState.Detached)
-                                context.Set<Models.Turma>().Attach(turma);
+                            if (context.Entry(avaliacao).State == EntityState.Detached)
+                                context.Set<Models.Avaliacao>().Attach(avaliacao);
 
-                            context.Entry(turma).State = EntityState.Deleted;
+                            context.Entry(avaliacao).State = EntityState.Deleted;
                             context.SaveChanges();
-                            //MessageBox.Show(this, "Turma deletado com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            turmaBindingSource.RemoveCurrent();
-                            dgvTurma.Refresh();
-                            Turma_Load(sender, e);
+                            avaliacaoBindingSource.RemoveCurrent();
+                            dgvAvaliacao.Refresh();
+                            Avaliacao_Load(sender, e);
                             pnlCadastro.Enabled = false;
                             btnNovo.Enabled = false;
-                            turmaBindingSource.MoveLast();
-                            turmaBindingSource.RemoveCurrent();
+                            avaliacaoBindingSource.MoveLast();
+                            avaliacaoBindingSource.RemoveCurrent();
                         }
                     }
                 }
@@ -124,9 +116,9 @@ namespace SistemaEscolar.Views
                 MessageBox.Show("Não é possível deletar uma linha vazia", "Falha ao deletar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            Models.Turma turmaAux = turmaBindingSource.Current as Models.Turma;
+            Models.Avaliacao avaliacaoAux = avaliacaoBindingSource.Current as Models.Avaliacao;
 
-            if (turmaAux == null)
+            if (avaliacaoAux == null)
             {
                 btnEditar.Enabled = false;
                 btnDeletar.Enabled = false;
@@ -148,61 +140,60 @@ namespace SistemaEscolar.Views
             else
             {
                 CleanForm();
-                errTurma.Clear();
-                turmaBindingSource.ResetBindings(false);
-                Turma_Load(sender, e);
+                errAvaliacao.Clear();
+                avaliacaoBindingSource.ResetBindings(false);
+                Avaliacao_Load(sender, e);
             }
         }
         #endregion
-        
+
         #region Salvar
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (FormHelper.CheckEmptyField(cboCurso, errTurma)) return;
-            if (FormHelper.CheckEmptyField(txtAno, errTurma)) return;
-            if (FormHelper.CheckEmptyField(cboSemestre , errTurma)) return;
-            if (FormHelper.CheckEmptyField(cboTurno, errTurma)) return;
-            if (FormHelper.CheckEmptyField(txtCargaHoraria, errTurma)) return;
+            if (Services.Services.CheckEmptyField(cboDisciplina, errAvaliacao)) return;
+            if (Services.Services.CheckEmptyField(txtTemaAvaliacao, errAvaliacao)) return;
+            if (Services.Services.CheckEmptyField(txtDataAvaliacao, errAvaliacao)) return;
+            if (Services.Services.CheckEmptyField(txtValorAvaliacao, errAvaliacao)) return;
 
             using (Context context = new Context())
             {
-                Models.Turma turma = turmaBindingSource.Current as Models.Turma;
-                turma.CursoId = ((Models.Curso)cboCurso.SelectedItem).Id;
+                Models.Avaliacao avaliacao = avaliacaoBindingSource.Current as Models.Avaliacao;
+                avaliacao.DisciplinaId = ((Models.Curso)cboDisciplina.SelectedItem).Id;
 
-                if (turma != null)
+                if (avaliacao != null)
                 {
-                    if (context.Entry(turma).State == EntityState.Detached)
+                    if (context.Entry(avaliacao).State == EntityState.Detached)
                     {
-                        context.Set<Models.Turma>().Attach(turma);
+                        context.Set<Models.Avaliacao>().Attach(avaliacao);
 
-                        if (turma.Id == 0)
-                            context.Entry(turma).State = EntityState.Added;
+                        if (avaliacao.Id == 0)
+                            context.Entry(avaliacao).State = EntityState.Added;
                         else
-                            context.Entry(turma).State = EntityState.Modified;
+                            context.Entry(avaliacao).State = EntityState.Modified;
 
                         context.SaveChanges();
-                        MessageBox.Show(this, "Turma adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(this, "Avaliação adicionada com sucesso!", ";)", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
 
-            dgvTurma.Refresh();
-            Turma_Load(sender, e);
+            dgvAvaliacao.Refresh();
+            Avaliacao_Load(sender, e);
             pnlCadastro.Enabled = false;
         }
         #endregion
 
         #region Pesquisa
-        /*private void btnPesquisar_Click(object sender, EventArgs e)
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
             using (Context context = new Context())
             {
-                List<Models.Turma> pesquisa = context.Turmas.Where(x => x.Ano.Contains(txtPesquisa.Text) || x.Alunos.Contains(txtPesquisa.Text)).ToList();
-                Models.Turma curso = turmaBindingSource.Current as Models.Turma;
+                List<Models.Avaliacao> pesquisa = context.Avaliacoes.Where(x => x.Tema.Contains(txtPesquisa.Text) || x.Valor.Contains(txtPesquisa.Text)).ToList();
+                Models.Avaliacao avaliacao= avaliacaoBindingSource.Current as Models.Avaliacao;
 
-                if (curso != null && !string.IsNullOrEmpty(txtPesquisa.Text) && pesquisa.Count() != 0)
+                if (avaliacao != null && !string.IsNullOrEmpty(txtPesquisa.Text) && pesquisa.Count() != 0)
                 {
-                    turmaBindingSource.DataSource = pesquisa;
+                    avaliacaoBindingSource.DataSource = pesquisa;
                     btnNovo.Enabled = false;
                     btnLimpar.Enabled = true;
                     pnlCover.Hide();
@@ -214,16 +205,16 @@ namespace SistemaEscolar.Views
                 }
             }
 
-            Models.Curso cursoAux = turmaBindingSource.Current as Models.Curso;
+            Models.Avaliacao avaliacaoAux = avaliacaoBindingSource.Current as Models.Avaliacao;
 
             if (!_pnlCoverEnable)
             {
                 btnLimpar.Enabled = true;
-                turmaBindingSource.MoveLast();
+                avaliacaoBindingSource.MoveLast();
 
-                if (cursoAux.Id == 0)
+                if (avaliacaoAux.Id == 0)
                 {
-                    turmaBindingSource.RemoveCurrent();
+                    avaliacaoBindingSource.RemoveCurrent();
                     btnNovo.Enabled = false;
                     btnEditar.Enabled = false;
                     btnDeletar.Enabled = false;
@@ -231,9 +222,9 @@ namespace SistemaEscolar.Views
             }
             else
             {
-                turmaBindingSource.MoveLast();
+                avaliacaoBindingSource.MoveLast();
             }
-        }*/
+        }
         #endregion
 
         #region Listar
@@ -241,27 +232,27 @@ namespace SistemaEscolar.Views
         {
             using (Context context = new Context())
             {
-                turmaBindingSource.DataSource = context.Turmas.ToList();
+                avaliacaoBindingSource.DataSource = context.Turmas.ToList();
                 pnlCover.Hide();
                 btnNovo.Enabled = false;
                 btnListar.Enabled = false;
                 btnLimpar.Enabled = true;
-                Models.Turma turma = turmaBindingSource.Current as Models.Turma;
+                Models.Avaliacao avaliacao = avaliacaoBindingSource.Current as Models.Avaliacao;
 
-                if (turma != null)
+                if (avaliacao != null)
                 {
-                    if (turma.Turno  != null && turma.Id != 0)
+                    if (avaliacao.Tema  != null && avaliacao.Id != 0)
                     {
                         btnEditar.Enabled = true;
                         btnDeletar.Enabled = true;
-                        turmaBindingSource.MoveFirst();
-                        //turmaBindingSource.RemoveCurrent();
+                        avaliacaoBindingSource.MoveFirst();
+                        //avaliacaoBindingSource.RemoveCurrent();
                     }
                     else
                     {
                         btnEditar.Enabled = false;
                         btnDeletar.Enabled = false;
-                        MessageBox.Show("Não há turmas cadastradas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Não há avaliações cadastradas", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         btnLimpar_Click(sender, e);
                     }
                 }
@@ -280,7 +271,7 @@ namespace SistemaEscolar.Views
             btnDeletar.Enabled = false;
             btnListar.Enabled = true;
             _pnlCoverEnable = true;
-            Turma_Load(sender, e);
+            Avaliacao_Load(sender, e);
         }
         #endregion
 
@@ -289,7 +280,7 @@ namespace SistemaEscolar.Views
         #region Limpa os TextBoxes
         private void CleanForm()
         {
-            FormHelper.SetTextEmpty(this);
+            Services.Services.SetTextEmpty(this);
         }
 
         #endregion

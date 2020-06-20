@@ -1,6 +1,6 @@
 ﻿namespace SistemaEscolar.Views
 {
-    partial class Avaliacao
+    partial class FormAvaliacao
     {
         /// <summary>
         /// Required designer variable.

@@ -1,9 +1,9 @@
 ﻿using System.Media;
 using System.Windows.Forms;
 
-namespace SistemaEscolar.Helper
+namespace SistemaEscolar.Services
 { 
-    public class FormHelper
+    public class Services
     {
         public static void SetTextEmpty(Control control)
         {

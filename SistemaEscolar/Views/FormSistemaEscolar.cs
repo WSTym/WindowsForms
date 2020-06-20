@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SistemaEscolar.Models.Context;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaEscolar.Views
 {
-    public partial class SistemaEscolar : Form
+    public partial class FormSistemaEscolar : Form
     {
         Form _form;
-        public SistemaEscolar()
+        public FormSistemaEscolar()
         {
             InitializeComponent();
             pnlIndicador.Height = btnInicio.Height;
@@ -26,7 +27,7 @@ namespace SistemaEscolar.Views
         private void btnCurso_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Curso());
+            OpenForm(new FormCurso());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnCurso.Height;
             pnlIndicador.Top = btnCurso.Top;
@@ -35,7 +36,7 @@ namespace SistemaEscolar.Views
         private void btnTurma_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Turma());
+            OpenForm(new FormTurma());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnTurma.Height;
             pnlIndicador.Top = btnTurma.Top;
@@ -45,7 +46,7 @@ namespace SistemaEscolar.Views
         private void btnDisciplina_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Disciplina());
+            OpenForm(new FormDisciplina());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnDisciplina.Height;
             pnlIndicador.Top = btnDisciplina.Top;
@@ -55,7 +56,7 @@ namespace SistemaEscolar.Views
         private void btnAvaliacao_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Avaliacao());
+            OpenForm(new FormAvaliacao());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnAvaliação.Height;
             pnlIndicador.Top = btnAvaliação.Top;
@@ -65,7 +66,7 @@ namespace SistemaEscolar.Views
         private void btnNotas_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Notas());
+            OpenForm(new FormNotas());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnNotas.Height;
             pnlIndicador.Top = btnNotas.Top;
@@ -75,7 +76,7 @@ namespace SistemaEscolar.Views
         private void btnProfessor_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Professor());
+            OpenForm(new FormProfessor());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnProfessor.Height;
             pnlIndicador.Top = btnProfessor.Top;
@@ -85,7 +86,7 @@ namespace SistemaEscolar.Views
         private void btnAluno_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            OpenForm(new Aluno());
+            OpenForm(new FormAluno());
             Cursor = Cursors.Arrow;
             pnlIndicador.Height = btnAluno.Height;
             pnlIndicador.Top = btnAluno.Top;
@@ -139,11 +140,6 @@ namespace SistemaEscolar.Views
         {
             if (e.Button == MouseButtons.Left)
                 mover = false;
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void pnlTopBar_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
